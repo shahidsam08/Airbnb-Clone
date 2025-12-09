@@ -9,3 +9,6 @@ function ListingDetails() {
 }
 
 export default ListingDetails
+
+
+// ListingDetails show single listing + map

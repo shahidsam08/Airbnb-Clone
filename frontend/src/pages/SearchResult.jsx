@@ -9,3 +9,6 @@ function SearchResult() {
 }
 
 export default SearchResult
+
+
+// show filtered listing

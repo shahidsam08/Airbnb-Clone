@@ -9,3 +9,6 @@ function CreateListing() {
 }
 
 export default CreateListing
+
+
+// This page is for upload property with images.
