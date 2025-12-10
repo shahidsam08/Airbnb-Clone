@@ -3,12 +3,14 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import ListingDetails from './ListingDetails'
 import FooterBottom from '../components/FooterBottom'
+import ListingCard from '../components/ListingCard'
 
 function Home() {
   return (
     <div>
       <Navbar />
       <ListingDetails />
+      <ListingCard />
       <Footer />
       <FooterBottom />
     </div>

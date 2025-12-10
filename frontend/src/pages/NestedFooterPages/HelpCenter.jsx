@@ -1,12 +1,32 @@
-import React from 'react'
-import { Link } from "react-router"
+import React from "react";
+import { Link } from "react-router";
+import Footer from "../../components/Footer";
+import { FaAirbnb } from "react-icons/fa6";
+import { MdSearch } from "react-icons/md";
 
 function HelpCenter() {
   return (
     <div>
-      
+      <div className="px-4 py-4 flex flex-col gap-4">
+        <div className="flex flex-row align-center items-center gap-2">
+          <FaAirbnb size={35} />
+          <p className="text-[1.2rem] font-medium">Help Center</p>
+        </div>
+        <div>
+          <p className="text-center text-[1.8rem] font-semibold font-serif">Hi, how can we help?</p>
+        </div>
+
+        {/* searching tab in the help center */}
+        <div className=" border-[1.2px] p-4 border-gray-300 shadow-md shadow-gray-500/20 div-4 rounded-4xl text-center text-black flex flex-row justify-center align-middle items-center gap-2 mx-4 mt-3">
+          {" "}
+          <MdSearch size={18} className="font-bold" />{" "}
+          <p className="text-1xl font-medium">Start your search</p>{" "}
+        </div>
+      </div>
+      {/* Footer part */}
+      <Footer />
     </div>
-  )
+  );
 }
 
-export default HelpCenter
+export default HelpCenter;

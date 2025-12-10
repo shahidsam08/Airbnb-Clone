@@ -6,17 +6,15 @@ import { BsTwitterX } from "react-icons/bs";
 import { FaInstagram } from "react-icons/fa";
 import { MdCopyright } from "react-icons/md";
 import { LuDot } from "react-icons/lu";
-import ListingCard from "./ListingCard";
+import { Link } from "react-router";
 
 function Footer() {
   return (
     <div className="bg-gray-100 px-5 pt-12">
-      {/* scrolling on footer */}
-      <ListingCard />
-      {/* support */}
       <div className="border-b-[0.6px] border-gray-400 flex flex-col gap-3 mt-3 pb-5">
         <p className="font-bold font-stretch-70%">Support</p>
-        <p className="text-gray-700 font-stretch-104%">Help Center</p>
+        <Link to="/helpcenter"><p className="text-gray-700 font-stretch-104%">Help Center</p></Link>
+        
         <p className="text-gray-400">Get help with a safety issue</p>
         <p className="text-gray-700 font-stretch-104%">AirCover</p>
         <p className="text-gray-700 font-stretch-104%">Anti-discrimination</p>
@@ -88,12 +86,12 @@ function Footer() {
             <MdCopyright />{" "}
             <span className="font-light">2025 Airbnb, Inc.</span>
           </p>
-          <div className="flex flex-row align-middle items-center gap-3 font-light">
+          <div className="flex flex-row align-middle items-center gap-1 font-light">
             <div>Privacy</div>
             <LuDot />
             <div>Terms</div>
             <LuDot />
-            <div>Details</div>
+            <div>Company details</div>
           </div>
         </div>
       </div>
