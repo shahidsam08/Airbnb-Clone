@@ -71,13 +71,15 @@ function Footer() {
         {/* airbnb social media account */}
         <div className="flex flex-row gap-7">
           <div>
-            <FaFacebook size={20} />
+            <a href="https://www.facebook.com/AirbnbIndia" target="blank"><FaFacebook size={20} /></a>
           </div>
           <div>
-            <BsTwitterX size={20} />
+            <a href="https://x.com/airbnb_in" target="blank"><BsTwitterX size={20} /></a>
+            
           </div>
           <div>
-            <FaInstagram size={20} />
+            <a href="https://www.instagram.com/airbnb" target="blank"><FaInstagram size={20} /></a>
+            
           </div>
         </div>
         {/* copyright, terms and condition */}
@@ -86,7 +88,7 @@ function Footer() {
             <MdCopyright />{" "}
             <span className="font-light">2025 Airbnb, Inc.</span>
           </p>
-          <div className="flex flex-row align-middle items-center gap-3">
+          <div className="flex flex-row align-middle items-center gap-3 font-light">
             <div>Privacy</div>
             <LuDot />
             <div>Terms</div>
