@@ -13,7 +13,9 @@ function HelpCenter() {
           <p className="text-[1.2rem] font-medium">Help Center</p>
         </div>
         <div>
-          <p className="text-center text-[1.8rem] font-semibold font-serif">Hi, how can we help?</p>
+          <p className="text-center text-[1.8rem] font-medium font-serif">
+            Hi, how can we help?
+          </p>
         </div>
 
         {/* searching tab in the help center */}
@@ -21,6 +23,21 @@ function HelpCenter() {
           {" "}
           <MdSearch size={18} className="font-bold" />{" "}
           <p className="text-1xl font-medium">Start your search</p>{" "}
+        </div>
+        {/* Explore more */}
+
+        <div>
+          <p className="text-2xl font-medium">Explore more</p>
+          <div className="flex flex-row align-items border-2 border-black rounded-2xl">
+            <div>
+              <img className="rounded-l-2xl" src="https://images.contentstack.io/v3/assets/bltec2ed8e3c4b1e16d/blt6a2935c750dda8a0/6179c6499778eb18575b3c0b/Airbnb-Policy-Web.png" alt="foundation_trust" width={140} />
+            </div>
+            <div className="text-white bg-gray-900 flex flex-col align-center justify-center items-start width-full">
+              <p>Our community policies</p>
+              <p>How we build a foundation of trust.</p>
+            </div>
+          </div>
+          
         </div>
       </div>
       {/* Footer part */}
