@@ -55,7 +55,7 @@ function HelpCenter() {
             </div>
             <div className="text-white bg-[#222222] flex flex-col align-center justify-center items-start width-full rounded-r-2xl w-full">
               <div className="pl-4 pr-3 py-1">
-                <p className="text-[1.2rem]">Safety tips and guidlines</p>
+                <p className="text-[1.2rem] ">Safety tips and guidlines</p>
                 <p className="text-[0.9rem]">
                   Resources to help travel to stay safe.
                 </p>
@@ -63,7 +63,30 @@ function HelpCenter() {
             </div>
           </div>
         </div>
+        {/* Need to get in touch part  */}
+        <div className="flex flex-col gap-2">
+          <div>
+            <p className="text-2xl font-medium">Need to get in touch?</p>
+          </div>
+          <div>
+            <p className="text-[1.1rem] font-light">
+              We'll start with some questions and get you to the right place.
+            </p>
+          </div>
+          <div>
+            <Link>
+              <div className="border-[1px]  rounded-2xl text-center p-3 hover:bg-gray-300">
+                <p className="text-[1.3rem] font-semibold">Contact us</p>
+              </div>
+            </Link>
+          </div>
+          {/* take the feedback from the user. */}
+          <div>
+            <p>You can also <span className="underline font-bold cursor-pointer">give us feedback.</span></p>
+          </div>
+        </div>
       </div>
+
       {/* Footer part */}
       <Footer />
     </div>
