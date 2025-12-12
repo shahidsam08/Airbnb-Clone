@@ -57,8 +57,8 @@ function HelpCenter() {
             </div>
             <div className="text-white bg-[#222222] flex flex-col align-center justify-center items-start width-full rounded-r-2xl w-full">
               <div className="pl-4 pr-3 py-1">
-                <p className="text-[1.2rem] ">Safety tips and guidlines</p>
-                <p className="text-[0.9rem]">
+                <p className="text-[1.2rem] whitespace-nowrap ">Safety tips and guidlines</p>
+                <p className="text-[0.9rem] whitespace-nowrap">
                   Resources to help travel to stay safe.
                 </p>
               </div>
