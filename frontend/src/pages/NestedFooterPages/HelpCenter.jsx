@@ -7,7 +7,7 @@ import { MdSearch } from "react-icons/md";
 function HelpCenter() {
   return (
     <div>
-      <div className="px-4 py-4 flex flex-col gap-8">
+      <div className="px-4 py-4 flex flex-col gap-8 pb-20">
         <div className="flex flex-row align-center items-center gap-2">
           <FaAirbnb size={35} />
           <p className="text-[1.2rem] font-medium">Help Center</p>
@@ -77,7 +77,7 @@ function HelpCenter() {
           </div>
           <div>
             <Link>
-              <div className="border-[1px]  rounded-2xl text-center p-3 hover:bg-gray-200">
+              <div className="border-2  rounded-2xl text-center p-3 hover:bg-gray-200">
                 <p className="text-[1.3rem] font-semibold">Contact us</p>
               </div>
             </Link>

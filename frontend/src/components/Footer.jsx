@@ -13,13 +13,34 @@ function Footer() {
     <div className="bg-gray-100 px-5 pt-12">
       <div className="border-b-[0.6px] border-gray-400 flex flex-col gap-3 mt-3 pb-5">
         <p className="font-bold font-stretch-70%">Support</p>
-        <Link to="/helpcenter"><p className="text-gray-700 font-stretch-104% hover:underline">Help Center</p></Link>
-        
-        <p className="text-gray-400">Get help with a safety issue</p>
-        <p className="text-gray-700 font-stretch-104%">AirCover</p>
+        {/* help center  */}
+        <Link
+          to="/helpcenter"
+          className="text-black hover:underline font-stretch-104% visited:text-gray-500"
+        >
+          Help Center
+        </Link>
+        {/* get help with a safety issue */}
+        <Link
+          to="/safetyissue"
+          className="text-black hover:underline font-stretch-104% visited:text-gray-500"
+        >
+          Get help with a safety issue
+        </Link>
+        {/* Air cover  */}
+        <Link
+          to="/aircover"
+          className="text-black hover:underline font-stretch-104% visited:text-gray-500"
+        >
+          Air Cover
+        </Link>
+        {/* Anti dicrimination  */}
         <p className="text-gray-700 font-stretch-104%">Anti-discrimination</p>
+        {/* Disability support */}
         <p className="text-gray-700 font-stretch-104%">Disability support</p>
+        {/* Cancel support  */}
         <p className="text-gray-700 font-stretch-104%">Cancel support</p>
+        {/* Report neighbourhood concern */}
         <p className="text-gray-700 font-stretch-104%">
           Report neighbourhood concern
         </p>
@@ -69,15 +90,19 @@ function Footer() {
         {/* airbnb social media account */}
         <div className="flex flex-row gap-7">
           <div>
-            <a href="https://www.facebook.com/AirbnbIndia" target="blank"><FaFacebook size={20} /></a>
+            <a href="https://www.facebook.com/AirbnbIndia" target="blank">
+              <FaFacebook size={20} />
+            </a>
           </div>
           <div>
-            <a href="https://x.com/airbnb_in" target="blank"><BsTwitterX size={20} /></a>
-            
+            <a href="https://x.com/airbnb_in" target="blank">
+              <BsTwitterX size={20} />
+            </a>
           </div>
           <div>
-            <a href="https://www.instagram.com/airbnb" target="blank"><FaInstagram size={20} /></a>
-            
+            <a href="https://www.instagram.com/airbnb" target="blank">
+              <FaInstagram size={20} />
+            </a>
           </div>
         </div>
         {/* copyright, terms and condition */}

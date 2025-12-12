@@ -2,6 +2,7 @@ import React from "react";
 import { IoSearchSharp } from "react-icons/io5";
 import { FaRegHeart } from "react-icons/fa";
 import { FaRegUserCircle } from "react-icons/fa";
+import { Link } from "react-router";
 
 function FooterBottom() {
   return (
@@ -15,10 +16,11 @@ function FooterBottom() {
           <FaRegHeart size={25}/>
           <p className="text-[0.8rem]">Wishlist</p>
         </div>
+        <Link to="/login">
         <div className="flex flex-col align-middle justify-center items-center">
           <FaRegUserCircle size={25}/>
           <p className="text-[0.8rem]">Login</p>
-        </div>
+        </div></Link>
       </div>
     </div>
   );
