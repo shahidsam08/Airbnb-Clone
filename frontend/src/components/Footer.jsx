@@ -13,7 +13,7 @@ function Footer() {
     <div className="bg-gray-100 px-5 pt-12">
       <div className="border-b-[0.6px] border-gray-400 flex flex-col gap-3 mt-3 pb-5">
         <p className="font-bold font-stretch-70%">Support</p>
-        <Link to="/helpcenter"><p className="text-gray-700 font-stretch-104%">Help Center</p></Link>
+        <Link to="/helpcenter"><p className="text-gray-700 font-stretch-104% hover:underline">Help Center</p></Link>
         
         <p className="text-gray-400">Get help with a safety issue</p>
         <p className="text-gray-700 font-stretch-104%">AirCover</p>

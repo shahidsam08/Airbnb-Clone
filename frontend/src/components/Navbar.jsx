@@ -7,7 +7,7 @@ function Navbar() {
       <div className=" border-[1.2px] p-4 border-gray-300 shadow-md shadow-gray-500/20 div-4 rounded-4xl text-center text-black flex flex-row justify-center align-middle items-center gap-2 mx-4 mt-3">
         {" "}
         <MdSearch size={18} className="font-bold" />{" "}
-        <p className="text-1xl font-medium">Start your search</p>{" "}
+        <p className="text-1xl font-medium">Search for homes</p>{" "}
       </div>
       {/* homes experiece and services. */}
       <div className="flex flex-row items-center justify-around mx-8">
