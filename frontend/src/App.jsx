@@ -4,10 +4,12 @@ import HelpCenter from "./pages/NestedFooterPages/HelpCenter";
 import Aircover from "./pages/NestedFooterPages/Aircover";
 import GethelpwithSafetyIssue from "./pages/NestedFooterPages/GethelpwithSafetyIssue";
 import Login from "./pages/Login";
+import ScrolltoTop from "./Scrolltotop";
 
 function App() {
   return (
     <BrowserRouter>
+    <ScrolltoTop />
       <div className="scrollbar-hide">
         <Routes>
           <Route path="/" element={<Home />} />
