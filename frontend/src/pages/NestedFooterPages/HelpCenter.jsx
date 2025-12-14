@@ -9,7 +9,7 @@ function HelpCenter() {
     <div>
       <div className="px-4 py-4 flex flex-col gap-8 pb-20">
         <div className="flex flex-row align-center items-center gap-2">
-          <FaAirbnb size={35} />
+          <Link to="/"><FaAirbnb size={35} /></Link>
           <p className="text-[1.2rem] font-medium">Help Center</p>
         </div>
         <div>

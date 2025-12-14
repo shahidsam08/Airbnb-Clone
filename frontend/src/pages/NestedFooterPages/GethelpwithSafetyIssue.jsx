@@ -2,6 +2,7 @@ import React from 'react'
 import { FaAirbnb } from "react-icons/fa6";
 import { MdSearch } from "react-icons/md";
 import Footer from '../../components/Footer';
+import { Link } from "react-router-dom"
 
 function GethelpwithSafetyIssue() {
   return (
@@ -9,8 +10,8 @@ function GethelpwithSafetyIssue() {
       {/* navbar of this page */}
       <div className='flex flex-row items-center align-middle justify-between px-2 py-4 border-b-[0.3px]'>
           <div className='flex flex-row align-middle  items-center gap-1'>
-            <FaAirbnb size={45}/>
-            <p className='text-[1.3rem] font-medium'>Help Centre</p>
+            <Link to="/"><FaAirbnb size={45}/></Link>
+            <Link to="/helpcenter" className='text-[1.3rem] font-medium'>Help Centre</Link>
           </div>
           <div>
             <MdSearch size={25} />

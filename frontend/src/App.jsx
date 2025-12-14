@@ -13,6 +13,7 @@ function App() {
       <div className="scrollbar-hide">
         <Routes>
           <Route path="/" element={<Home />} />
+          {/* Footer link setup */}
           <Route path="/helpcenter" element={<HelpCenter />} />
           <Route path="/safetyissue" element={<GethelpwithSafetyIssue />} />
           <Route path="/aircover" element={<Aircover />} />
