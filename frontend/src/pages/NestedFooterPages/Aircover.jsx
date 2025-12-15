@@ -5,6 +5,7 @@ import { FaAirbnb } from "react-icons/fa6";
 import { MdSearch } from "react-icons/md";
 import { LuDot } from "react-icons/lu";
 import { FaAngleLeft } from "react-icons/fa6";
+import { FaFile } from "react-icons/fa6";
 
 function Aircover() {
   return (
@@ -82,6 +83,22 @@ function Aircover() {
             <li><span className="font-bold">Contact us:</span> If your host is unresponsive or unable to resolve the issue,<span className="font-semibold underline">contact us</span>  immediately.</li>
             <li><span className="font-bold">AirCover for guests support:</span> If the issue is covered by AirCover for guests and you wish to leave, we’ll help you find comparable accommodation based on availability and pricing. If a similar place is unavailable or you prefer not to rebook, you’ll receive a full or partial refund.</li>
           </ol>
+        </div>
+        {/* 24 hours safety line */}
+        <div className="flex flex-col gap-5">
+          <p className="text-[1.6rem] leading-[1.6rem] font-medium text-gray-900">24-hour safety line</p>
+          <p className="text-[1.1rem] text-gray-800 font-light">Need to reach us? <span className="font-medium underline">Contact us</span> by phone, email, or chat.</p>
+          <p className="text-[1.1rem] text-gray-900 font-light">If you ever feel unsafe, we're here to help you get priority access to specially trained safety agents who will assist you with your safety issues or directly connect you to local emergency authorities, day or night.</p>
+        </div>
+        {/* Text box which show some notice. */}
+        <div className="border-[0.2px] border-gray-400  rounded-[0.9rem] flex flex-row gap-2 p-3">
+          <FaFile size={120} color="#ff7033"/>
+          <p className="text-gray-700 text-[0.9rem] px-2 py-5">AirCover for guests is not an insurance policy. It doesn’t cover travel related issues (example: Your trip is delayed due to a storm, or your luggage is damaged by your carrier). Learn more about <span className="font-semibold underline">AirCover for guests and travel, reservation, or stay protection insurance.</span> </p>
+        </div>
+        <div className="flex flex-col gap-6">
+          <p className="text-[1.1rem] text-gray-900">If you're a host, learn more about <span className="font-medium underline">AirCover for Hosts</span>  and <span className="font-medium underline">improvements we've made.</span></p>
+          <p className="text-gray-900 text-[1.3rem] font-medium flex flex-row gap-4
+          ">Did this article help?   <span className="font-semibold underline text-gray-600 text-[1.1rem]">Yes</span> <span className="font-semibold underline text-gray-600 text-[1.1rem]">No</span></p>
         </div>
       </div>
       <Footer />
