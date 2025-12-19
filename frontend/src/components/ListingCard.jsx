@@ -4,7 +4,7 @@ import { FaAngleRight } from "react-icons/fa6";
 
 function ListingCard() {
   return (
-    <div className='bg-gray-100 px-4'>
+    <div className='bg-gray-100 px-4 pt-8'>
       <p className="text-[1.3rem] font-stretch-expanded">
         Inspiration for future getaways
       </p>
