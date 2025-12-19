@@ -35,7 +35,13 @@ function Footer() {
           Air Cover
         </Link>
         {/* Anti dicrimination  */}
-        <p className="text-gray-700 font-stretch-104%">Anti-discrimination</p>
+        <Link
+          to="/anti_discrimination"
+          className="text-black hover:underline font-stretch-104% visited:text-gray-500"
+        >
+          Anti-discrimination
+        </Link>
+        
         {/* Disability support */}
         <p className="text-gray-700 font-stretch-104%">Disability support</p>
         {/* Cancel support  */}

@@ -5,6 +5,7 @@ import Aircover from "./pages/NestedFooterPages/Aircover";
 import GethelpwithSafetyIssue from "./pages/NestedFooterPages/GethelpwithSafetyIssue";
 import Login from "./pages/Login";
 import ScrolltoTop from "./Scrolltotop";
+import AntiDiscrimination from "./pages/NestedFooterPages/AntiDiscrimination";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/safetyissue" element={<GethelpwithSafetyIssue />} />
           <Route path="/aircover" element={<Aircover />} />
           <Route path="/login" element={<Login />}/>
+          <Route path="/anti_discrimination" element={<AntiDiscrimination />} />
         </Routes>
       </div>
     </BrowserRouter>
