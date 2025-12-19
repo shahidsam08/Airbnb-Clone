@@ -7,9 +7,11 @@ import { IoPeopleOutline } from "react-icons/io5";
 import { GrShieldSecurity } from "react-icons/gr";
 import { PiMoneyWavy } from "react-icons/pi";
 import { PiWheelchairDuotone } from "react-icons/pi";
+import Footer from "../../components/Footer";
 
 function AntiDiscrimination() {
   return (
+    <div>
     <div className="px-5 flex flex-col gap-6">
       {/* Airbnb logo */}
       <div className="py-5">
@@ -180,6 +182,9 @@ function AntiDiscrimination() {
         </div>
         <div className="border-[0.02px] text-gray-300"></div>
       </div>
+      </div>
+      {/* Footer part  */}
+      <Footer />
     </div>
   );
 }
