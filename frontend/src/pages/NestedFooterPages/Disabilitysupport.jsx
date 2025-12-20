@@ -203,14 +203,92 @@ function Disabilitysupport() {
                 onClick={toggleshow}
                 className="flex flex-row justify-between items-center text-white pb-6 hover:cursor-pointer"
               >
-                <p className="w-[80%] text-[1.17rem]">
+                <p className="w-[80%] text-[1.17rem] text-[#dbd7d7]">
                   Usability for browsers, assistive technology and devices
                 </p>
                 {show ? <FaAngleUp size={25} /> : <FaAngleDown size={25} />}
               </div>
               {show ? (
-                <div className="text-white pb-6">
+                <div className="text-[#a19d9d] pb-6">
+                  <p className="text-[#a19d9d]">
+                    Airbnb regularly tests and optimises for the following
+                    accessible experiences:
+                  </p>
                   
+                  <div className="flex flex-col gap-5">
+                    {/* screen readers */}
+                    <div className="flex flex-col gap-5 pt-9">
+                      <p className="text-[1.2rem] font-medium text-[#c8c7c7]">
+                        Screen readers
+                      </p>
+                      <ul className="list-disc pl-10 flex flex-col gap-2">
+                        <li className="text-[1.1rem] pb-1">
+                          VoiceOver
+                          <ul className="list-disc pl-8">
+                            <li>
+                              Desktop VoiceOver for macOS: Web testing with
+                              Safari browser
+                            </li>
+                            <li>
+                              Mobile VoiceOver for iOS: moWeb testing with
+                              Safari browser
+                            </li>
+                            <li>
+                              Mobile VoiceOver for iOS: native application
+                              testing
+                            </li>
+                          </ul>
+                        </li>
+                        <li className="text-[1.1rem]">
+                          TalkBack
+                          <ul className="list-disc pl-8">
+                            <li>
+                              Mobile TalkBack for Android: moWeb testing with
+                              Chrome browser
+                            </li>
+                            <li>
+                              Mobile TalkBack for Android: native application
+                              testing
+                            </li>
+                          </ul>
+                        </li>
+                        <li className="text-[1.1rem]">
+                          JAWS with Microsoft Edge
+                        </li>
+                        <li className="text-[1.1rem]">
+                          NVDA with Mozilla Firefox
+                        </li>
+                      </ul>
+                    </div>
+                    {/* user control */}
+                    <div>
+                      <p className="text-[1.2rem] font-medium text-[#c8c7c7] pb-4">User controls</p>
+                      <ul className="list-disc pl-10 flex flex-col">
+                        <li>Keyboard-only commands</li>
+                        <li>Desktop Web with Windows</li>
+                        <li>Desktop Web with macOS</li>
+                      </ul>
+                    </div>
+                    {/* blind and low vision user */}
+                    <div>
+                      <p className="text-[1.2rem] font-medium text-[#c8c7c7] pb-4">Blind and low-vision users</p>
+                      <ul className="list-disc pl-10 flex flex-col">
+                        <li>Font magnification: Android mobile OS</li>
+                        <li>Dynamic type: iOS mobile OS</li>
+                        <li>Adjustable font sizes: Web-customisable font sizes are tested with Chrome for Desktop and mobile on Safari for iOS</li>
+                      </ul>
+                    </div>
+                    {/* Mobile phones are tested for the smaller and large screens */}
+                    <div>
+                      <p className="text-[1.2rem] font-medium text-[#c8c7c7] pb-4">Mobile phones are tested for smaller and larger screens</p>
+                      <ul className="list-disc pl-10 flex flex-col">
+                        <li>The oldest iOS phone tested is iPhone 7.</li>
+                        <li>Android testing devices include Google and Samsung. The Pixel 3 and Galaxy S8 phones are the oldest models used for testing.</li>
+                        <li>If there’s a bug in an older device or OS version, we verify the issue exists in the current version of the app, then prioritise and resolve it.</li>
+                        <li>If the issue doesn’t exist in the current version, depending on the severity of impact, it’s prioritised against the more recent issues.</li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
               ) : (
                 " "

@@ -11,7 +11,7 @@ function ListingCard() {
       {/* scrolling items of the footer side. */}
       <div className="flex flex-row gap-2 justify-center items-center">
         <FaAngleLeft />
-        <div className="flex gap-4 overflow-x-auto whitespace-nowrap p-4">
+        <div className="flex flex-row gap-4 overflow-x-auto whitespace-nowrap p-4">
           <div>Popular</div>
           <div>Arts & Culture</div>
           <div>Beach</div>
