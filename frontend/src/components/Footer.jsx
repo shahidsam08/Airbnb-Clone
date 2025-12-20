@@ -43,7 +43,12 @@ function Footer() {
         </Link>
         
         {/* Disability support */}
-        <p className="text-gray-700 font-stretch-104%">Disability support</p>
+        <Link
+          to="/disablity_supports"
+          className="text-black hover:underline font-stretch-104% visited:text-gray-500"
+        >
+          Disability support
+        </Link>
         {/* Cancel support  */}
         <p className="text-gray-700 font-stretch-104%">Cancel support</p>
         {/* Report neighbourhood concern */}

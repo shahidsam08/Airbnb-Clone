@@ -188,9 +188,17 @@ function AntiDiscrimination() {
           </div>
           <div className="border-[0.02px] text-gray-300"></div>
         </div>
+        {/* our commitment of fighting discrimination */}
+        <div className="flex flex-col gap-7 items-center text-center pb-8">
+          <p className="text-[1.5rem] font-semibold">Our commitment to fighting discrimination</p>
+          <p className="text-[1rem] text-gray-800">This work follows a history of working to fight discrimination including one of the first Civil Rights Audits in 2016, an additional update in 2019, the announcement of Project Lighthouse in 2020 and our 2022 initial release of Project Lighthouse data. These updates covered a range of evolving initiatives and efforts to support everyone being successful on Airbnb.</p>
+          <img src="https://a0.muscache.com/im/pictures/airbnb-platform-assets/AirbnbPlatformAssets-ad-landing-2024/original/2a8bf1bc-7fe0-4c55-b79a-68cef6d7018f.png" alt="discrimination" className="rounded-2xl"/>
+        </div>
+        {/* border line bottom side */}
+        <div className="border-[0.02px] text-gray-300"></div>
 
         {/* The Airbnb community commitment. */}
-        <div className="text-center flex flex-col gap-4 pb-10">
+        <div className="text-center flex flex-col gap-4 pb-10 pt-8">
           <div>
             <p className="text-[1.6rem] font-medium">
               The Airbnb Community Commitment
