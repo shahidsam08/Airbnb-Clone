@@ -7,6 +7,9 @@ import Login from "./pages/Login";
 import ScrolltoTop from "./Scrolltotop";
 import AntiDiscrimination from "./pages/NestedFooterPages/AntiDiscrimination";
 import Disabilitysupport from "./pages/NestedFooterPages/Disabilitysupport";
+import CancelSupport from "./pages/NestedFooterPages/CancelSupport";
+import CancelOption from "./pages/NestedFooterPages/CancelSupport";
+import ReportNeighbourhoodConcern from "./pages/NestedFooterPages/ReportNeighbourhoodConcern";
 
 function App() {
   return (
@@ -22,6 +25,8 @@ function App() {
           <Route path="/login" element={<Login />}/>
           <Route path="/anti_discrimination" element={<AntiDiscrimination />} />
           <Route path="/disablity_supports" element={<Disabilitysupport />} />
+          <Route path="/cancel_option" element={<CancelOption />} />
+          <Route path="/report_concern" element={<ReportNeighbourhoodConcern />} />
         </Routes>
       </div>
     </BrowserRouter>

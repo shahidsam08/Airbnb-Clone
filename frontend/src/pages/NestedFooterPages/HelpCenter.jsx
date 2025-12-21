@@ -20,10 +20,10 @@ function HelpCenter() {
 
         {/* searching tab in the help center */}
 
-        <div className=" border-[1.2px] p-4 border-gray-300 shadow-md shadow-gray-500/20 rounded-4xl text-center text-black flex flex-row justify-center align-middle items-center gap-2 mt-3">
+        <div className=" border-[1.2px] p-4 border-gray-300 shadow-md shadow-gray-500/20 rounded-4xl text-center text-black flex flex-row justify-center align-middle items-center gap-2 mt-3 bg-gray-100">
           {" "}
-          <MdSearch size={18} className="font-bold" />{" "}
-          <p className="text-1xl font-medium">Start your search</p>{" "}
+          <MdSearch size={24} className="font-bold" color="red"/>{" "}
+          <p className="text-1xl font-medium">Search help</p>{" "}
         </div>
 
         {/* Explore more */}
