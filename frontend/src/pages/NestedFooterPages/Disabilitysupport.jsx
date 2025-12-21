@@ -550,7 +550,7 @@ function Disabilitysupport() {
           <div>
             <p className="text-[2.7rem]">We’re here to help</p>
             <p className="text-[#727171] text-[1.6rem] font-light leading-8 w-[90%]">
-              Visit our <span className="underline font-medium w-[70%]">Help Center</span>{" "}
+              Visit our <Link to="/helpcenter" className="underline font-medium w-[70%]">Help Center</Link>{" "}
               for more information.
             </p>
           </div>
