@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Footer from "../../components/Footer";
 import { Link } from "react-router-dom";
 import { FaAirbnb } from "react-icons/fa6";
@@ -8,6 +8,7 @@ import { FaAngleLeft } from "react-icons/fa6";
 import { FaFile } from "react-icons/fa6";
 
 function Aircover() {
+  const [isHelpful, isSethelpful] = useState("value");
   return (
     <div>
       <div className="flex flex-row items-center align-middle justify-between px-2 py-4 border-b-[0.3px]">
@@ -41,65 +42,268 @@ function Aircover() {
           <p className="flex flex-row align-middle items-center font-medium text-gray-500">
             Guide <LuDot /> Guest{" "}
           </p>
-          <p className="text-[2.1rem] font-medium text-gray-800">AirCover for guests</p>
-          <img src="https://images.contentstack.io/v3/assets/bltec2ed8e3c4b1e16d/blt5912675266dfa56f/62619649b9aa584a4e327561/AC_Guests_HG_EN_S@3x.png" alt="aircover_image" className="mb-6" />
-          <p className="text-[1.12rem] font-light">Every home booking comes with AirCover for guests. If there’s a serious issue with your Airbnb home that your host can't resolve, we’re here to help.</p>
+          <p className="text-[2.1rem] font-medium text-gray-800">
+            AirCover for guests
+          </p>
+          <img
+            src="https://images.contentstack.io/v3/assets/bltec2ed8e3c4b1e16d/blt5912675266dfa56f/62619649b9aa584a4e327561/AC_Guests_HG_EN_S@3x.png"
+            alt="aircover_image"
+            className="mb-6"
+          />
+          <p className="text-[1.12rem] font-light">
+            Every home booking comes with AirCover for guests. If there’s a
+            serious issue with your Airbnb home that your host can't resolve,
+            we’re here to help.
+          </p>
         </div>
         {/* We’ll help you get rebooked or give you a full or partial refund
- */}
+         */}
         <div className="flex flex-col gap-5">
-          <p className="text-[1.6rem] leading-[1.6rem] font-medium text-gray-800">We’ll help you get rebooked or give you a full or partial refund</p>
-          <p className="text-[1.2rem] text-gray-800 font-light">Here’s where we can help:</p>
+          <p className="text-[1.6rem] leading-[1.6rem] font-medium text-gray-800">
+            We’ll help you get rebooked or give you a full or partial refund
+          </p>
+          <p className="text-[1.2rem] text-gray-800 font-light">
+            Here’s where we can help:
+          </p>
           <ul className="list-disc pl-12 text-[1.1rem] marker:text-[1.2rem] text-gray-700">
-            <li>If your <span className="underline font-medium">home host cancels before check-in</span></li>
-            <li>If there's a problem and <span className="underline font-medium">you can’t get in touch with your host</span> </li>
-            <li>If the listing is <span className="underline font-medium">significantly different</span>  than advertised, and your host can’t resolve the issue</li>
+            <li>
+              If your{" "}
+              <span className="underline font-medium">
+                home host cancels before check-in
+              </span>
+            </li>
+            <li>
+              If there's a problem and{" "}
+              <span className="underline font-medium">
+                you can’t get in touch with your host
+              </span>{" "}
+            </li>
+            <li>
+              If the listing is{" "}
+              <span className="underline font-medium">
+                significantly different
+              </span>{" "}
+              than advertised, and your host can’t resolve the issue
+            </li>
           </ul>
           <p className="text-[1.1rem] text-gray-700 mb-5">
-            Our team can help you find a similar place, considering location and amenities, based on availability at comparable pricing. If a similar place isn’t available or you’d prefer not to rebook, we’ll give you a full or partial refund, including service fees.
+            Our team can help you find a similar place, considering location and
+            amenities, based on availability at comparable pricing. If a similar
+            place isn’t available or you’d prefer not to rebook, we’ll give you
+            a full or partial refund, including service fees.
           </p>
         </div>
         {/* How AirCover for guests works */}
         <div className="flex flex-col gap-5">
-          <p className="text-[1.6rem] leading-[1.6rem] font-medium text-gray-800">How AirCover for guests works</p>
-          <p className="text-[1.2rem] text-gray-800 font-light">AirCover for guests provides support for serious issues with your home booking, for example:</p>
+          <p className="text-[1.6rem] leading-[1.6rem] font-medium text-gray-800">
+            How AirCover for guests works
+          </p>
+          <p className="text-[1.2rem] text-gray-800 font-light">
+            AirCover for guests provides support for serious issues with your
+            home booking, for example:
+          </p>
           <ul className="list-disc pl-12 text-[1.1rem] marker:text-[1.2rem] text-gray-700">
             <li>Host cancels your reservation prior to check-in</li>
             <li>The heating is not working in winter</li>
             <li>The listing has fewer bedrooms than listed</li>
-            <li>t’s a different type of home–a private room instead of an entire home</li>
-            <li>A major advertised amenity, such as a pool or kitchen, is missing</li>
+            <li>
+              t’s a different type of home–a private room instead of an entire
+              home
+            </li>
+            <li>
+              A major advertised amenity, such as a pool or kitchen, is missing
+            </li>
           </ul>
-          <p className="text-[1.1rem] text-gray-700 mb-5">AirCover for guests doesn’t include more minor inconveniences, like a broken toaster.</p>
+          <p className="text-[1.1rem] text-gray-700 mb-5">
+            AirCover for guests doesn’t include more minor inconveniences, like
+            a broken toaster.
+          </p>
         </div>
 
         {/* Resolving issues during your stay */}
         <div className="flex flex-col gap-5">
-          <p className="text-[1.6rem] leading-[1.6rem] font-medium text-gray-800">Resolving issues during your stay</p>
-          <p className="text-[1.1rem] text-gray-800 font-light">Your host is your best point of contact to reach out to if anything comes up. You can <span className="underline font-medium">message your host</span>  directly to let them know what’s going on. If an issue does come up during your stay:</p>
+          <p className="text-[1.6rem] leading-[1.6rem] font-medium text-gray-800">
+            Resolving issues during your stay
+          </p>
+          <p className="text-[1.1rem] text-gray-800 font-light">
+            Your host is your best point of contact to reach out to if anything
+            comes up. You can{" "}
+            <span className="underline font-medium">message your host</span>{" "}
+            directly to let them know what’s going on. If an issue does come up
+            during your stay:
+          </p>
           <ol className="list-decimal pl-10 text-[1.1rem] text-gray-700 flex flex-col gap-2">
-            <li><span className="font-bold">Document the issue:</span> Take photos or videos as evidence.</li>
-            <li><span className="font-bold">Contact your host:</span> Notify your host within 72 hours of discovery, describing the problem and seeking a resolution.</li>
-            <li><span className="font-bold">Contact us:</span> If your host is unresponsive or unable to resolve the issue,<span className="font-semibold underline">contact us</span>  immediately.</li>
-            <li><span className="font-bold">AirCover for guests support:</span> If the issue is covered by AirCover for guests and you wish to leave, we’ll help you find comparable accommodation based on availability and pricing. If a similar place is unavailable or you prefer not to rebook, you’ll receive a full or partial refund.</li>
+            <li>
+              <span className="font-bold">Document the issue:</span> Take photos
+              or videos as evidence.
+            </li>
+            <li>
+              <span className="font-bold">Contact your host:</span> Notify your
+              host within 72 hours of discovery, describing the problem and
+              seeking a resolution.
+            </li>
+            <li>
+              <span className="font-bold">Contact us:</span> If your host is
+              unresponsive or unable to resolve the issue,
+              <span className="font-semibold underline">contact us</span>{" "}
+              immediately.
+            </li>
+            <li>
+              <span className="font-bold">AirCover for guests support:</span> If
+              the issue is covered by AirCover for guests and you wish to leave,
+              we’ll help you find comparable accommodation based on availability
+              and pricing. If a similar place is unavailable or you prefer not
+              to rebook, you’ll receive a full or partial refund.
+            </li>
           </ol>
         </div>
         {/* 24 hours safety line */}
         <div className="flex flex-col gap-5">
-          <p className="text-[1.6rem] leading-[1.6rem] font-medium text-gray-900">24-hour safety line</p>
-          <p className="text-[1.1rem] text-gray-800 font-light">Need to reach us? <span className="font-medium underline">Contact us</span> by phone, email, or chat.</p>
-          <p className="text-[1.1rem] text-gray-900 font-light">If you ever feel unsafe, we're here to help you get priority access to specially trained safety agents who will assist you with your safety issues or directly connect you to local emergency authorities, day or night.</p>
+          <p className="text-[1.6rem] leading-[1.6rem] font-medium text-gray-900">
+            24-hour safety line
+          </p>
+          <p className="text-[1.1rem] text-gray-800 font-light">
+            Need to reach us?{" "}
+            <span className="font-medium underline">Contact us</span> by phone,
+            email, or chat.
+          </p>
+          <p className="text-[1.1rem] text-gray-900 font-light">
+            If you ever feel unsafe, we're here to help you get priority access
+            to specially trained safety agents who will assist you with your
+            safety issues or directly connect you to local emergency
+            authorities, day or night.
+          </p>
         </div>
-        {/* Text box which show some notice. */}
-        <div className="border-[0.2px] border-gray-400  rounded-[0.9rem] flex flex-row gap-2 p-3">
-          <FaFile size={120} color="#ff7033"/>
-          <p className="text-gray-700 text-[0.9rem] px-2 py-5">AirCover for guests is not an insurance policy. It doesn’t cover travel related issues (example: Your trip is delayed due to a storm, or your luggage is damaged by your carrier). Learn more about <span className="font-semibold underline">AirCover for guests and travel, reservation, or stay protection insurance.</span> </p>
+        {/* Text box which show some notice. 24 hours safety line */}
+        <div className="border-[0.2px] border-gray-400  rounded-[0.9rem] flex flex-row gap-2 p-4">
+          <div><FaFile size={18} color="#ff7033" /></div>
+          <p className="text-gray-700 text-[0.9rem]">
+            AirCover for guests is not an insurance policy. It doesn’t cover
+            travel related issues (example: Your trip is delayed due to a storm,
+            or your luggage is damaged by your carrier). Learn more about{" "}
+            <span className="font-semibold underline">
+              AirCover for guests and travel, reservation, or stay protection
+              insurance.
+            </span>{" "}
+          </p>
         </div>
         <div className="flex flex-col gap-6">
-          <p className="text-[1.1rem] text-gray-900">If you're a host, learn more about <span className="font-medium underline">AirCover for Hosts</span>  and <span className="font-medium underline">improvements we've made.</span></p>
-          <p className="text-gray-900 text-[1.3rem] font-medium flex flex-row gap-4
-          ">Did this article help?   <span className="font-semibold underline text-gray-600 text-[1.1rem]">Yes</span> <span className="font-semibold underline text-gray-600 text-[1.1rem]">No</span></p>
+          <p className="text-[1.1rem] text-gray-900">
+            If you're a host, learn more about{" "}
+            <span className="font-medium underline">AirCover for Hosts</span>{" "}
+            and{" "}
+            <span className="font-medium underline">
+              improvements we've made.
+            </span>
+          </p>
         </div>
+        {/* did this article helpful */}
+        <div className="flex flex-row gap-3 items-center align-middle">
+            <p className="font-bold text-[1.3rem]">Did this article help? </p>
+            <p
+              className="underline text-black font-medium hover:cursor-pointer"
+              onClick={() => {
+                isSethelpful("yes");
+              }}
+            >
+              Yes
+            </p>
+            <p
+              className="underline text-black font-medium hover:cursor-pointer"
+              onClick={() => {
+                isSethelpful("no");
+              }}
+            >
+              No
+            </p>
+          </div>
+          {/* dynamic content. */}
+          <div>
+            {isHelpful === "yes" ? (
+              <p className="font-bold text-[1.1rem]">
+                Thank you for letting us know!
+              </p>
+            ) : isHelpful === "no" ? (
+              <div className="flex flex-col gap-8">
+                <div className="flex flex-col gap-1">
+                  <p className="text-[1.3rem] font-medium text-gray-900">
+                    Tell us a little more.
+                  </p>
+                  <p className="text-[#555454]">
+                    Please select all that apply.
+                  </p>
+                </div>
+                <form action="" className="flex flex-col gap-3 pl-3">
+                  <div className="flex gap-4 flex-row">
+                    <input
+                      type="checkbox"
+                      id="first"
+                      className="scale-200 border-2 border-gray-400 accent-black"
+                    />
+                    <label
+                      for="first"
+                      className="text-[1.2rem] text-[#555454] font-light"
+                    >
+                      I didn’t find the answer to my question
+                    </label>
+                  </div>
+                  {/* second */}
+                  <div className="flex gap-4 flex-row">
+                    <input
+                      type="checkbox"
+                      id="second"
+                      className="scale-200 border-2 border-gray-400 accent-black"
+                    />
+                    <label
+                      for="second"
+                      className="text-[1.2rem] text-[#555454] font-light"
+                    >
+                      This info is confusing or unclear
+                    </label>
+                  </div>
+                  {/* third */}
+                  <div className="flex gap-4 flex-row">
+                    <input
+                      type="checkbox"
+                      id="third"
+                      className="scale-200 border-2 border-gray-400 accent-black"
+                    />
+                    <label
+                      for="third"
+                      className="text-[1.2rem] text-[#555454] font-light"
+                    >
+                      These instructions didn’t work
+                    </label>
+                  </div>
+                  {/* fourth */}
+                  <div className="flex gap-4 flex-row">
+                    <input
+                      type="checkbox"
+                      id="fourth"
+                      className="scale-200 border-2 border-gray-400 accent-black"
+                    />
+                    <label
+                      for="fourth"
+                      className="text-[1.2rem] text-[#555454] font-light"
+                    >
+                      Something else
+                    </label>
+                  </div>
+                  <div>
+                    <button
+                      className="bg-black py-2 px-5 rounded-lg text-white"
+                      type="submit"
+                      name="submit"
+                    >
+                      Submit
+                    </button>
+                  </div>
+                </form>
+              </div>
+            ) : (
+              ""
+            )}
+          </div>
       </div>
       <Footer />
     </div>
