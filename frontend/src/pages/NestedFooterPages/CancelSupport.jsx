@@ -10,7 +10,7 @@ function CancelOption() {
   const [isHelpful, isSethelpful] = useState("value");
   return (
     <div>
-      <div className="flex flex-col gap-10 pb-10">
+      <div className="flex flex-col gap-10 ">
         {/* headers : in which airbnb logo and the search icons */}
         <div className="flex flex-row items-center align-middle justify-between px-6 py-4 border-b-[0.3px] sticky top-0 z-50 bg-white">
           <div className="flex flex-row align-middle  items-center gap-1">
@@ -327,7 +327,7 @@ function CancelOption() {
             </p>
           </div>
           {/* dynamic content which help to get feedback from the users. */}
-          <div>
+          <div className="pb-10">
             {isHelpful === "yes" ? (
               <p className="font-bold text-[1.1rem]">
                 Thank you for letting us know!

@@ -10,7 +10,7 @@ function ReportNeighbourhoodConcern() {
   const [isHelpful, isSethelpful] = useState("value");
   return (
     <div>
-      <div className="flex flex-col gap-10 pb-10">
+      <div className="flex flex-col gap-10 ">
         {/* search option with airbnb logo which is sticky. */}
         <div className="flex flex-row items-center align-middle justify-between px-6 py-4 border-b-[0.3px] border-[#dddada] sticky top-0 z-50 bg-white">
           <div className="flex flex-row align-middle  items-center gap-1">
@@ -117,7 +117,7 @@ function ReportNeighbourhoodConcern() {
             </p>
           </div>
           {/* dynamic content. */}
-          <div>
+          <div className="pb-10">
             {isHelpful === "yes" ? (
               <p className="font-bold text-[1.1rem]">
                 Thank you for letting us know!
@@ -204,7 +204,7 @@ function ReportNeighbourhoodConcern() {
             )}
           </div>
           {/* border bottom for separation  */}
-          <div className="border-[0.02px] border-[#cbc9c9]"></div>
+          
         </div>
       </div>
       {/* footer part. */}
