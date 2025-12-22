@@ -69,10 +69,18 @@ function Footer() {
       {/* hosting */}
       <div className="border-b-[0.5px] border-gray-400 flex flex-col gap-3 mt-3 pb-5">
         <p className="font-bold font-stretch-70%">Hosting</p>
-        <p className="text-gray-700 font-stretch-104%">Airbnb your home</p>
+        {/* Airbnb your home page link */}
+        <Link
+          to="/airbnbyourhome"
+          className="text-black hover:underline font-stretch-104% visited:text-gray-500"
+        >
+          Airbnb your home
+        </Link>
+        {/* Airbnb your exprience. */}
         <p className="text-gray-700 font-stretch-104%">
           Airbnb your experience
         </p>
+        {/* Airbnb your services. */}
         <p className="text-gray-700 font-stretch-104%">Airbnb your service</p>
         <p className="text-gray-700 font-stretch-104%">AirCover for Hosts</p>
         <p className="text-gray-700 font-stretch-104%">Hosting resources</p>

@@ -10,6 +10,7 @@ import Disabilitysupport from "./pages/NestedFooterPages/Disabilitysupport";
 import CancelSupport from "./pages/NestedFooterPages/CancelSupport";
 import CancelOption from "./pages/NestedFooterPages/CancelSupport";
 import ReportNeighbourhoodConcern from "./pages/NestedFooterPages/ReportNeighbourhoodConcern";
+import AirbnbYourHome from "./pages/NestedHostingPages/AirbnbYourHome";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/disablity_supports" element={<Disabilitysupport />} />
           <Route path="/cancel_option" element={<CancelOption />} />
           <Route path="/report_concern" element={<ReportNeighbourhoodConcern />} />
+          <Route path="/airbnbyourhome" element={<AirbnbYourHome />} />
         </Routes>
       </div>
     </BrowserRouter>
