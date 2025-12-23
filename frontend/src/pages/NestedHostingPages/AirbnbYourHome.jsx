@@ -154,7 +154,7 @@ function AirbnbYourHome() {
             All the tools you need to host, all in one app
           </p>
 
-          <div className="flex flex-row gap-4 overflow-x-auto whitespace-nowrap">
+          <div className="flex flex-row gap-4 overflow-x-auto whitespace-nowrap scrollbar-hide">
             <div className="flex flex-col gap-4">
               <img
                 src="https://a0.muscache.com/im/pictures/canvas/Canvas-1729549296719/original/6f1fe6c5-64e0-4a0c-ae23-4f82b3bed20f.jpeg?im_w=960"
