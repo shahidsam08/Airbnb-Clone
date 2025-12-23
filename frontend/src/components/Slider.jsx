@@ -13,7 +13,7 @@ export default function App() {
   return (
     <div className="flex flex-col gap-8 items-center justify-center w-full">
       <div>
-        <p className="text-center text-[2.7rem] leading-12 font-bold">
+        <p className="text-center text-[2.4rem] leading-12 font-bold">
           Your home could make <span className="text-red-600"> ₹{priceValue}</span> on
           Airbnb
         </p>
