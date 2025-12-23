@@ -17,7 +17,7 @@ function AirbnbYourHome() {
   const[Third , setThird] = useState(false);
   return (
     <div>
-      <div className="flex flex-col gap-10 px-7 py-10">
+      <div className="flex flex-col gap-10 px-5 py-10">
         {/* airbnb logo not sticky or fixed. */}
         <div className="w-fit">
           <Link to="/">

@@ -4,7 +4,7 @@ import { MdSearch } from "react-icons/md";
 export default function App() {
   const [value, setValue] = useState(0);
   const [show, setShow] = useState(false);
-  const [Toggle, SetToggle] = useState(false);
+  const [Toggle, SetToggle] = useState(false)
 
   // value 
   const priceperDay = 1703;
