@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import Footer from "../../components/Footer.jsx";
 import { FaAirbnb } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-import { MdSearch } from "react-icons/md";
+
 import { HiOutlineHome } from "react-icons/hi2";
 import { CiStopwatch } from "react-icons/ci";
 import { BiSupport } from "react-icons/bi";
 import { GoCheck } from "react-icons/go";
 import { FaAngleDown } from "react-icons/fa6";
 import { FaAngleUp } from "react-icons/fa6";
+import Slider from '../../components/Slider.jsx'
 
 function AirbnbYourHome() {
   const [First, setFirst] = useState(false);
@@ -26,33 +27,13 @@ function AirbnbYourHome() {
 
         {/* price changes when you select the day, and also show map of area */}
         <div className="flex flex-col gap-4 items-center justify-center">
+          {/* slider */}
           <div>
-            <p className="text-center text-[2.7rem] leading-12 font-bold">
-              Your home could make <span className="text-red-600">₹16,309</span>{" "}
-              on Airbnb
-            </p>
+            <Slider />
           </div>
-          <div className="flex flex-col gap-1 items-center">
-            <p className="">
-              <span className="underline font-bold">1 night </span>·
-              ₹2,330/night
-            </p>
-            <p className="text-[#636161]">
-              Learn how we{" "}
-              <span className="underline font-light">estimate earnings</span>{" "}
-            </p>
-          </div>
-          <div></div>
-          <div className="flex flex-row gap-3 items-center border-[0.7px] rounded-4xl border-[#706f6f] p-2 pl-4 w-full">
-            <MdSearch color="red" size={28} />
-            <div>
-              <p>Bhopal</p>
-              <p className="text-[1rem] text-[#737272]">
-                Entire place ·<span> 1 bedroom</span>
-              </p>
-            </div>
-          </div>
-          <div></div>
+          
+          
+          
         </div>
         {/* it easy to list your home on airbnb */}
         <div className="flex flex-col gap-6">

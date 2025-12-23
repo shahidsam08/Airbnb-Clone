@@ -1,1 +1,44 @@
 @import "tailwindcss";
+
+@layer components {
+  .airbnb-range {
+    @apply h-10 bg-transparent appearance-none;
+  }
+
+  /* TRACK */
+  .airbnb-range::-webkit-slider-runnable-track {
+    height: 6px;            
+    background: #cbcbcb;     
+    border-radius: 9999px;
+    background-color: #ff385c;
+  }
+
+  /* THUMB */
+  .airbnb-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 34px;             
+    height: 34px;
+    background: white;
+    border-radius: 9999px;
+    border: 3px solid white;
+    margin-top: -13px;       
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    cursor: pointer;
+  }
+
+  /* FIREFOX */
+  .airbnb-range::-moz-range-track {
+    height: 10px;
+    background: #e5e7eb;
+    border-radius: 9999px;
+  }
+
+  .airbnb-range::-moz-range-thumb {
+    width: 28px;
+    height: 28px;
+    background: #ff385c;
+    border-radius: 9999px;
+    border: 3px solid white;
+    cursor: pointer;
+  }
+}
