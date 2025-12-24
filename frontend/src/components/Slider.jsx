@@ -55,7 +55,7 @@ export default function App() {
               setShow(false);
             }
           }}
-          className="airbnb-range w-full max-w-[320px] cursor-pointer"
+          className="airbnb-range w-full min-w-[320px] cursor-pointer"
         />
       </div>
       {/* box with place and bedroom numbers */}
