@@ -38,7 +38,16 @@ function AirbnbyourExprience() {
         </div>
       </div>
       {/* scroll auto element */}
-
+      <div className="flex gap-4 w-max overflow-x-auto scrollbar-hide pl-8">
+        <div className="min-w-[200px] shrink-0">
+          <img src="https://a0.muscache.com/im/pictures/canvas/Canvas-1745861147063/original/4646d399-96b6-49c2-808b-ec9a0645b5ab.jpeg?im_w=480" alt="horse riding" className="rounded-2xl w-[80%]"/>
+          <p>Arnold leads horseback tours of Incan temples in Cusco</p>
+        </div>
+        <div>
+          <img src="https://a0.muscache.com/im/pictures/canvas/Canvas-1745861147063/original/4646d399-96b6-49c2-808b-ec9a0645b5ab.jpeg?im_w=480" alt="horse riding" className="rounded-2xl "/>
+          <p>Arnold leads horseback tours of Incan temples in Cusco</p>
+        </div>
+      </div>
       {/* Footer  */}
       <Footer />
       {/* bottom fixed button */}
