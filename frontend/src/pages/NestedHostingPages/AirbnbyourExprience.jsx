@@ -142,17 +142,25 @@ function AirbnbyourExprience() {
       </div>
       {/* clickable picture scrolling */}
       <div className="px-5 pb-10 flex flex-row gap-6 items-center justify-center ">
-        <div onClick={scrollPrev} className="p-2 rounded-[50%] bg-[#e62424]">
+        <div
+          onClick={scrollPrev}
+          className="p-2 rounded-[50%] bg-[#e62424] hover:cursor-pointer"
+        >
           <FaAngleLeft color="white" />
         </div>
-        <div onClick={scrollNext} className="p-2 rounded-[50%] bg-[#e62424]">
+        <div
+          onClick={scrollNext}
+          className="p-2 rounded-[50%] bg-[#e62424] hover:cursor-pointer"
+        >
           <FaAngleRight color="white" />
         </div>
       </div>
 
-      {/* host one of a king  */}
-      <div className="flex flex-col gap-8 px-5 pb-10 items-center" >
-        <p className="text-3xl text-center font-semibold">Host one-of-a-kind experiences of all kinds</p>
+      {/* host one of a kind */}
+      <div className="flex flex-col gap-8 px-5 pb-10 items-center">
+        <p className="text-3xl text-center font-semibold">
+          Host one-of-a-kind experiences of all kinds
+        </p>
         {/* first */}
         <div className="flex flex-row gap-4">
           <img
@@ -162,7 +170,9 @@ function AirbnbyourExprience() {
           />
           <div>
             <p className="font-medium text-[1.1rem]">Show off your city</p>
-            <p className="text-[1.05rem] text-[#787575]">Lead unique tours of landmarks, museums or cultural hotspots.</p>
+            <p className="text-[1.05rem] text-[#787575]">
+              Lead unique tours of landmarks, museums or cultural hotspots.
+            </p>
           </div>
         </div>
         {/* second */}
@@ -173,9 +183,10 @@ function AirbnbyourExprience() {
             className="w-20"
           />
           <div>
-            <p className="font-medium text-[1.1rem]">Share something tasty
-</p>
-            <p className="text-[1.05rem] text-[#787575]">Host cooking classes, food tours or dining experiences.</p>
+            <p className="font-medium text-[1.1rem]">Share something tasty</p>
+            <p className="text-[1.05rem] text-[#787575]">
+              Host cooking classes, food tours or dining experiences.
+            </p>
           </div>
         </div>
         {/* third */}
@@ -187,8 +198,11 @@ function AirbnbyourExprience() {
           />
           <div>
             <p className="font-medium text-[1.1rem]">
-Lead an outdoor adventure</p>
-            <p className="text-[1.05rem] text-[#787575]">Guide nature hikes, water sports or wildlife expeditions.</p>
+              Lead an outdoor adventure
+            </p>
+            <p className="text-[1.05rem] text-[#787575]">
+              Guide nature hikes, water sports or wildlife expeditions.
+            </p>
           </div>
         </div>
         {/* fourth */}
@@ -199,11 +213,10 @@ Lead an outdoor adventure</p>
             className="w-20"
           />
           <div>
-            <p className="font-medium text-[1.1rem]">
-
-Celebrate the arts
-</p>
-            <p className="text-[1.05rem] text-[#787575]">Explore galleries, shopping and fashion or run art workshops.</p>
+            <p className="font-medium text-[1.1rem]">Celebrate the arts</p>
+            <p className="text-[1.05rem] text-[#787575]">
+              Explore galleries, shopping and fashion or run art workshops.
+            </p>
           </div>
         </div>
         {/* fifth */}
@@ -214,12 +227,117 @@ Celebrate the arts
             className="w-20"
           />
           <div>
-            <p className="font-medium text-[1.1rem]">Teach fitness and self-care
-</p>
-            <p className="text-[1.05rem] text-[#787575]">Host workouts, wellness classes or beauty experiences.</p>
+            <p className="font-medium text-[1.1rem]">
+              Teach fitness and self-care
+            </p>
+            <p className="text-[1.05rem] text-[#787575]">
+              Host workouts, wellness classes or beauty experiences.
+            </p>
           </div>
         </div>
       </div>
+
+      {/* Millions of guests */}
+      <div className="px-5 py-10 flex flex-col gap-5 items-center justify-center ">
+        <p className="text-center w-[80%] text-3xl font-bold text-[#323131]">
+          Millions of guests. The most loved brand in travel.
+        </p>
+        <p className="text-center w-[90%] text-[1.2rem] text-[#696868]">
+          Airbnb is the best way to reach people looking to explore your city.
+        </p>
+        {/* first box */}
+        <div className="bg-[#efeeeeb6] w-full flex flex-col items-center gap-1 py-10 justify-center rounded-2xl">
+          <div>
+            <img
+              src="https://a0.muscache.com/im/pictures/canvas/Canvas-1745863949102/original/6918c96a-e479-44c6-a9e9-86e87326d65a.jpeg?im_w=720&im_q=medq"
+              alt="girl"
+              className="w-20 rounded-[50%]"
+            />
+          </div>
+          <p className="text-2xl font-bold">390 million guests</p>
+          <p className="text-center w-[90%] text-[1rem] text-[#696868]">
+            arrived in 2024
+          </p>
+        </div>
+        {/* second box */}
+        <div className="bg-[#efeeeeb6] w-full flex flex-col items-center gap-1 py-10 justify-center rounded-2xl">
+          <p className="text-2xl font-bold">$81 billion</p>
+          <p className="text-center w-[90%] text-[1rem] text-[#696868]">
+            spent on Airbnb in 2024
+          </p>
+        </div>
+        <p className="text-center text-[0.8rem] w-[85%] text-[#676565]">
+          390m includes new and returning guests. $81bn USD in gross bookings
+          for stays and experiences.
+        </p>
+      </div>
+
+      {/* The best exprience deserve the best tools */}
+      <div
+        ref={sliderRef}
+        className="flex flex-row gap-4 overflow-x-auto whitespace-nowrap scrollbar-hide px-8 pb-6"
+      >
+        {/* first */}
+        <div className="flex flex-col gap-4">
+          <img
+            src="https://a0.muscache.com/im/pictures/canvas/Canvas-1746049361312/original/d5d2a561-a7fb-4063-9288-3b0e026906bf.jpeg?im_w=1920"
+            alt="yourspace"
+            className="rounded-3xl h-90 min-w-78"
+          />
+          <div className="flex flex-col gap-1">
+            <p className="text-[1.2rem] font-medium">Manage reservations</p>
+            <p className="text-[1rem] text-wrap text-[#5a5858] max-w-[95%]">
+              See who’s coming and get relevant info to tailor your experience
+              to each guest.
+            </p>
+          </div>
+        </div>
+        {/* second */}
+        <div className="flex flex-col gap-4">
+          <img
+            src="https://a0.muscache.com/im/pictures/canvas/Canvas-1746051368645/original/752b2b6b-4a69-4d4a-b692-4b193243dd10.jpeg?im_w=1920"
+            alt="yourspace"
+            className="rounded-3xl h-90 min-w-78"
+          />
+          <div className="flex flex-col gap-1">
+            <p className="text-[1.2rem] font-medium">Simplify scheduling</p>
+            <p className="text-[1rem] text-wrap text-[#5a5858] max-w-[95%]">
+              Easily sync with Google Calendar, set availability and fill gaps
+              in your day.
+            </p>
+          </div>
+        </div>
+        {/* third */}
+        <div className="flex flex-col gap-4">
+          <img
+            src="https://a0.muscache.com/im/pictures/canvas/Canvas-1746039907559/original/7f5c25d0-7eef-44c5-bf4e-767662de6090.jpeg?im_w=1920"
+            alt="yourspace"
+            className="rounded-3xl h-90 min-w-78"
+          />
+          <div className="flex flex-col gap-1">
+            <p className="text-[1.2rem] font-medium">Connect with guests</p>
+            <p className="text-[1rem] text-wrap text-[#5a5858] max-w-[95%]">
+              Message all your guests in one group chat – now with images and
+              video.
+            </p>
+          </div>
+        </div>
+        {/* fourth */}
+        <div className="flex flex-col gap-4">
+          <img
+            src="https://a0.muscache.com/im/pictures/canvas/Canvas-1746043467217/original/ffd92f07-4007-4492-93e7-907ff65befd4.jpeg?im_w=1920"
+            alt="yourspace"
+            className="rounded-3xl h-90 min-w-78"
+          />
+          <div className="flex flex-col gap-1">
+            <p className="text-[1.2rem] font-medium">Get paid quickly</p>
+            <p className="text-[1rem] text-wrap text-[#5a5858] max-w-[95%]">
+              Receive payments securely and see your earnings in real time.
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* Footer  */}
       <Footer />
       {/* bottom fixed button */}
