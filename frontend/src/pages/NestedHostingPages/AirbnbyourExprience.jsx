@@ -144,13 +144,13 @@ function AirbnbyourExprience() {
       <div className="px-5 pb-10 flex flex-row gap-6 items-center justify-center ">
         <div
           onClick={scrollPrev}
-          className="p-2 rounded-[50%] bg-[#e62424] hover:cursor-pointer"
+          className="p-2 rounded-[50%] bg-[#e62424]"
         >
           <FaAngleLeft color="white" />
         </div>
         <div
           onClick={scrollNext}
-          className="p-2 rounded-[50%] bg-[#e62424] hover:cursor-pointer"
+          className="p-2 rounded-[50%] bg-[#e62424]"
         >
           <FaAngleRight color="white" />
         </div>
@@ -274,7 +274,6 @@ function AirbnbyourExprience() {
 
       {/* The best exprience deserve the best tools */}
       <div
-        ref={sliderRef}
         className="flex flex-row gap-4 overflow-x-auto whitespace-nowrap scrollbar-hide px-8 pb-6"
       >
         {/* first */}
