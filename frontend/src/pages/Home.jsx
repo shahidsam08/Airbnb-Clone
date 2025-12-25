@@ -11,8 +11,10 @@ function Home() {
       <Navbar />
       <ListingDetails />
       <ListingCard />
-      <Footer />
-      <div className="border-t-[0.1px] border-[#dedcdc] backdrop-blur-md fixed w-full bottom-0">
+      <div>
+        <Footer />
+      </div>
+      <div className="border-t-[0.1px] border-[#dedcdc] backdrop-blur-md sticky w-full bottom-0">
         <FooterBottom />
       </div>
     </div>
