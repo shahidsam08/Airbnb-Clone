@@ -85,7 +85,7 @@ function Footer() {
         </Link>
         {/* Airbnb your services. */}
         <Link
-          to="/airbnbexprience"
+          to="/airbnbservices"
           className="text-black hover:underline font-stretch-104% visited:text-gray-500"
         >
           Airbnb your service
