@@ -157,70 +157,65 @@ function AirbnbYourservices() {
           </p>
         </div>
         {/* world class tools for local business */}
-        <div
-        className="flex flex-row gap-4 overflow-x-auto whitespace-nowrap scrollbar-hide pb-6"
-      >
-        {/* first */}
-        <div className="flex flex-col gap-4">
-          <img
-            src="https://a0.muscache.com/im/pictures/canvas/Canvas-1746032082334/original/c35cadac-bbd5-41f6-b0d4-1ec4c16e2eab.jpeg?im_w=1920"
-            alt="yourspace"
-            className="rounded-3xl h-90 min-w-78"
-          />
-          <div className="flex flex-col gap-1">
-            <p className="text-[1.2rem] font-medium">Manage reservations</p>
-            <p className="text-[1rem] text-wrap text-[#5a5858] max-w-[95%]">
-              Stay organised with clear details for every booking.
-            </p>
+        <div className="flex flex-row gap-4 overflow-x-auto whitespace-nowrap scrollbar-hide pb-6">
+          {/* first */}
+          <div className="flex flex-col gap-4">
+            <img
+              src="https://a0.muscache.com/im/pictures/canvas/Canvas-1746032082334/original/c35cadac-bbd5-41f6-b0d4-1ec4c16e2eab.jpeg?im_w=1920"
+              alt="yourspace"
+              className="rounded-3xl h-90 min-w-78"
+            />
+            <div className="flex flex-col gap-1">
+              <p className="text-[1.2rem] font-medium">Manage reservations</p>
+              <p className="text-[1rem] text-wrap text-[#5a5858] max-w-[95%]">
+                Stay organised with clear details for every booking.
+              </p>
+            </div>
+          </div>
+          {/* second */}
+          <div className="flex flex-col gap-4">
+            <img
+              src="https://a0.muscache.com/im/pictures/canvas/Canvas-1746045462132/original/d80c443e-e44f-4082-8e67-a0fa2bcd340c.jpeg?im_w=1920"
+              alt="yourspace"
+              className="rounded-3xl h-90 min-w-78"
+            />
+            <div className="flex flex-col gap-1">
+              <p className="text-[1.2rem] font-medium">Simplify scheduling</p>
+              <p className="text-[1rem] text-wrap text-[#5a5858] max-w-[95%]">
+                Sync with Google Calendar, set business hours and fill gaps in
+                your day.
+              </p>
+            </div>
+          </div>
+          {/* third */}
+          <div className="flex flex-col gap-4">
+            <img
+              src="https://a0.muscache.com/im/pictures/canvas/Canvas-1746033430602/original/ecb5e352-9764-486f-bd75-36c534cd9548.jpeg?im_w=1920"
+              alt="yourspace"
+              className="rounded-3xl h-90 min-w-78"
+            />
+            <div className="flex flex-col gap-1">
+              <p className="text-[1.2rem] font-medium">Message with guests</p>
+              <p className="text-[1rem] text-wrap text-[#5a5858] max-w-[95%]">
+                Send photos, videos and accept payments for special requests.
+              </p>
+            </div>
+          </div>
+          {/* fourth */}
+          <div className="flex flex-col gap-4">
+            <img
+              src="https://a0.muscache.com/im/pictures/canvas/Canvas-1746031856012/original/fca969eb-8ffe-491e-8c77-a4096b454910.jpeg?im_w=1920"
+              alt="yourspace"
+              className="rounded-3xl h-90 min-w-78"
+            />
+            <div className="flex flex-col gap-1">
+              <p className="text-[1.2rem] font-medium">Get paid quickly</p>
+              <p className="text-[1rem] text-wrap text-[#5a5858] max-w-[95%]">
+                Receive payments securely and see your earnings in real time.
+              </p>
+            </div>
           </div>
         </div>
-        {/* second */}
-        <div className="flex flex-col gap-4">
-          <img
-            src="https://a0.muscache.com/im/pictures/canvas/Canvas-1746045462132/original/d80c443e-e44f-4082-8e67-a0fa2bcd340c.jpeg?im_w=1920"
-            alt="yourspace"
-            className="rounded-3xl h-90 min-w-78"
-          />
-          <div className="flex flex-col gap-1">
-            <p className="text-[1.2rem] font-medium">Simplify scheduling</p>
-            <p className="text-[1rem] text-wrap text-[#5a5858] max-w-[95%]">
-              Sync with Google Calendar, set business hours and fill gaps in your day.
-            </p>
-          </div>
-        </div>
-        {/* third */}
-        <div className="flex flex-col gap-4">
-          <img
-            src="https://a0.muscache.com/im/pictures/canvas/Canvas-1746033430602/original/ecb5e352-9764-486f-bd75-36c534cd9548.jpeg?im_w=1920"
-            alt="yourspace"
-            className="rounded-3xl h-90 min-w-78"
-          />
-          <div className="flex flex-col gap-1">
-            <p className="text-[1.2rem] font-medium">Message with guests
-</p>
-            <p className="text-[1rem] text-wrap text-[#5a5858] max-w-[95%]">
-              Send photos, videos and accept payments for special requests.
-
-            </p>
-          </div>
-        </div>
-        {/* fourth */}
-        <div className="flex flex-col gap-4">
-          <img
-            src="https://a0.muscache.com/im/pictures/canvas/Canvas-1746031856012/original/fca969eb-8ffe-491e-8c77-a4096b454910.jpeg?im_w=1920"
-            alt="yourspace"
-            className="rounded-3xl h-90 min-w-78"
-          />
-          <div className="flex flex-col gap-1">
-            <p className="text-[1.2rem] font-medium">Get paid quickly
-</p>
-            <p className="text-[1rem] text-wrap text-[#5a5858] max-w-[95%]">
-              Receive payments securely and see your earnings in real time.
-
-            </p>
-          </div>
-        </div>
-      </div>
       </div>
       <Footer />
       {/* bottom fixed button */}
