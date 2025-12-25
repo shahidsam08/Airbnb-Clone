@@ -8,9 +8,13 @@ import ListingCard from "../components/ListingCard";
 function Home() {
   return (
     <div>
-      <Navbar />
+      <div>
+        <div className="sticky top-0 bg-white">
+        <Navbar />
+      </div>
       <ListingDetails />
       <ListingCard />
+      </div>
       <div>
         <Footer />
       </div>
