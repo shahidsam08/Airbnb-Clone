@@ -12,6 +12,7 @@ import CancelOption from "./pages/NestedFooterPages/CancelSupport";
 import ReportNeighbourhoodConcern from "./pages/NestedFooterPages/ReportNeighbourhoodConcern";
 import AirbnbYourHome from "./pages/NestedHostingPages/AirbnbYourHome";
 import AirbnbyourExprience from "./pages/NestedHostingPages/AirbnbyourExprience";
+import Wishlist from "./pages/Wishlist";
 
 function App() {
   return (
@@ -20,11 +21,13 @@ function App() {
       <div className="scrollbar-hide">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/wishlist" element={<Wishlist />} />
+          <Route path="/login" element={<Login />}/>
           {/* Footer link setup */}
           <Route path="/helpcenter" element={<HelpCenter />} />
           <Route path="/safetyissue" element={<GethelpwithSafetyIssue />} />
           <Route path="/aircover" element={<Aircover />} />
-          <Route path="/login" element={<Login />}/>
+          
           <Route path="/anti_discrimination" element={<AntiDiscrimination />} />
           <Route path="/disablity_supports" element={<Disabilitysupport />} />
           <Route path="/cancel_option" element={<CancelOption />} />
