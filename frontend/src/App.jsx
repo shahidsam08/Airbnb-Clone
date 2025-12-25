@@ -13,6 +13,7 @@ import ReportNeighbourhoodConcern from "./pages/NestedFooterPages/ReportNeighbou
 import AirbnbYourHome from "./pages/NestedHostingPages/AirbnbYourHome";
 import AirbnbyourExprience from "./pages/NestedHostingPages/AirbnbyourExprience";
 import Wishlist from "./pages/Wishlist";
+import AirbnbYourservices from "./pages/NestedHostingPages/AirbnbYourservices";
 
 function App() {
   return (
@@ -34,6 +35,8 @@ function App() {
           <Route path="/report_concern" element={<ReportNeighbourhoodConcern />} />
           <Route path="/airbnbyourhome" element={<AirbnbYourHome />} />
           <Route path="/airbnbexprience" element={<AirbnbyourExprience />} />
+          <Route path="/airbnbservices" element={<AirbnbYourservices />} />
+
         </Routes>
       </div>
     </BrowserRouter>

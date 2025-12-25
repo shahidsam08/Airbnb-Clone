@@ -10,10 +10,10 @@ function Home() {
     <div>
       <div>
         <div className="sticky top-0 bg-white">
-        <Navbar />
-      </div>
-      <ListingDetails />
-      <ListingCard />
+          <Navbar />
+        </div>
+        <ListingDetails />
+        <ListingCard />
       </div>
       <div>
         <Footer />
