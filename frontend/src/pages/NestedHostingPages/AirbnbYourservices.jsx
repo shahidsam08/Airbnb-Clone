@@ -1,9 +1,10 @@
 import React from 'react'
+import Footer from '../../components/Footer'
 
 function AirbnbYourservices() {
   return (
     <div>
-      <p>this is airbnb your services.</p>
+      <Footer />
     </div>
   )
 }
