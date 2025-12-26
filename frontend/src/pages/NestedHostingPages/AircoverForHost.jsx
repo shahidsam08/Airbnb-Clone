@@ -46,9 +46,9 @@ function AircoverForHost() {
       {/* air cover for hosts */}
       <div className="bg-[#f6f4f4] px-5 py-15">
         {/* main heading */}
-        <div className="flex flex-col gap-6  items-center mb-20">
+        <div className="flex flex-col gap-4  items-center mb-20">
           <div className="flex flex-col items-center">
-            <p className="text-6xl text-center font-bold text-[#262626]">
+            <p className="text-[80px] px-2 text-center font-bold text-[#262626]">
               <span className="text-[#f94373]">air</span>cover
             </p>
             <p className="text-[2.2rem] lg:text-[5rem]">for Hosts</p>
@@ -195,7 +195,7 @@ function AircoverForHost() {
           <div className="w-[50%] ">
             <p className="text-[1.3rem] leading-7"></p>
           </div>
-          <div className="flex flex-row items-center gap-5 align-middle pl-6 justify-around w-[50%]">
+          <div className="flex flex-row items-center gap-5 align-middle justify-around w-[50%]">
             <p>Airbnb</p>
             <p>Competitors</p>
           </div>
