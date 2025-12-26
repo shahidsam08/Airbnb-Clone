@@ -91,7 +91,13 @@ function Footer() {
           Airbnb your service
         </Link>
         {/* air cover for hosts */}
-        <p className="text-gray-700 font-stretch-104%">AirCover for Hosts</p>
+        <Link
+          to="/aircoverforhosts"
+          className="text-black hover:underline font-stretch-104% visited:text-gray-500"
+        >
+          AirCover for Hosts
+        </Link>
+        {/* hosting resources */}
         <p className="text-gray-700 font-stretch-104%">Hosting resources</p>
         <p className="text-gray-700 font-stretch-104%">Community forum</p>
         <p className="text-gray-700 font-stretch-104%">Hosting responsibly</p>
