@@ -22,13 +22,13 @@ import Searchpage from "./components/Searchpage";
 function App() {
   return (
     <BrowserRouter>
-    <ScrolltoTop />
+      <ScrolltoTop />
       <div className="scrollbar-hide">
         <Routes>
           {/* home */}
           <Route path="/" element={<Home />} />
           <Route path="/wishlist" element={<Wishlist />} />
-          <Route path="/login" element={<Login />}/>
+          <Route path="/login" element={<Login />} />
           <Route path="/searchpage" element={<Searchpage />} />
           {/* Footer link setup */}
           <Route path="/helpcenter" element={<HelpCenter />} />
@@ -37,14 +37,16 @@ function App() {
           <Route path="/anti_discrimination" element={<AntiDiscrimination />} />
           <Route path="/disablity_supports" element={<Disabilitysupport />} />
           <Route path="/cancel_option" element={<CancelOption />} />
-          <Route path="/report_concern" element={<ReportNeighbourhoodConcern />} />
+          <Route
+            path="/report_concern"
+            element={<ReportNeighbourhoodConcern />}
+          />
           <Route path="/airbnbyourhome" element={<AirbnbYourHome />} />
           <Route path="/airbnbexprience" element={<AirbnbyourExprience />} />
           <Route path="/airbnbservices" element={<AirbnbYourservices />} />
           <Route path="/aircoverforhosts" element={<AircoverForHost />} />
           <Route path="/freehostingclass" element={<Freehostingclass />} />
           <Route path="/findcohost" element={<FindaCoHost />} />
-
         </Routes>
       </div>
     </BrowserRouter>
