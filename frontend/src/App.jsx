@@ -17,7 +17,7 @@ import AirbnbYourservices from "./pages/NestedHostingPages/AirbnbYourservices";
 import AircoverForHost from "./pages/NestedHostingPages/AircoverForHost";
 import Freehostingclass from "./pages/NestedHostingPages/Freehostingclass";
 import FindaCoHost from "./pages/NestedHostingPages/FindaCoHost";
-import Searchpage from "./components/searchpage";
+import Searchpage from "./components/Searchpage";
 
 function App() {
   return (
