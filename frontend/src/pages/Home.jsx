@@ -6,51 +6,22 @@ import FooterBottom from "../components/FooterBottom";
 import ListingCard from "../components/ListingCard";
 
 function Home() {
-  const [showBox, setShowBox] = useState(true);
-  const lastScrollY = useRef(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      if (currentScrollY < lastScrollY.current) {
-        setShowBox(true);
-      } else {
-        setShowBox(false);
-      }
-
-      lastScrollY.current = currentScrollY;
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
   return (
     <div>
-      <div className="sticky top-0 bg-white">
-        <Navbar />
-      </div>
+      {/* first body */}
       <div>
+        <div className="sticky bg-white top-0">
+          <Navbar />
+        </div>
         <ListingDetails />
-        <ListingCard />
       </div>
+      {/* second body */}
       <div>
+        <ListingCard />
         <Footer />
-      </div>
-      <div
-        className={`border-t-[0.1px] border-[#dedcdc] backdrop-blur-md sticky w-full bottom-0 ${
-          showBox
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 translate-y-6 hidden"
-        }`}
-      >
-        <FooterBottom />
-      </div>
-      <div
-        className={`border-t-[0.1px] border-[#dedcdc] backdrop-blur-md w-full bottom-0`}
-      >
-        <FooterBottom />
+        <div className="border-t-[0.1px] border-[#dedcdc] backdrop-blur-md sticky w-full bottom-0">
+          <FooterBottom />
+        </div>
       </div>
     </div>
   );
