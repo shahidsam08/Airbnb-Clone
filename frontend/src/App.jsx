@@ -17,6 +17,7 @@ import AirbnbYourservices from "./pages/NestedHostingPages/AirbnbYourservices";
 import AircoverForHost from "./pages/NestedHostingPages/AircoverForHost";
 import Freehostingclass from "./pages/NestedHostingPages/Freehostingclass";
 import FindaCoHost from "./pages/NestedHostingPages/FindaCoHost";
+import Searchpage from "./components/searchpage";
 
 function App() {
   return (
@@ -24,14 +25,15 @@ function App() {
     <ScrolltoTop />
       <div className="scrollbar-hide">
         <Routes>
+          {/* home */}
           <Route path="/" element={<Home />} />
           <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/login" element={<Login />}/>
+          <Route path="/searchpage" element={<Searchpage />} />
           {/* Footer link setup */}
           <Route path="/helpcenter" element={<HelpCenter />} />
           <Route path="/safetyissue" element={<GethelpwithSafetyIssue />} />
           <Route path="/aircover" element={<Aircover />} />
-          
           <Route path="/anti_discrimination" element={<AntiDiscrimination />} />
           <Route path="/disablity_supports" element={<Disabilitysupport />} />
           <Route path="/cancel_option" element={<CancelOption />} />

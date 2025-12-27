@@ -121,7 +121,7 @@ function Footer() {
       {/* airbnb block */}
 
       <div className="border-b-[0.5px] border-gray-400 flex flex-col gap-3 mt-3 pb-5">
-        <p className="font-bold font-stretch-70%">Aribnb</p>
+        <p className="font-bold font-stretch-70%">Airbnb</p>
         <p className="text-gray-700 font-stretch-104%">2025 Summer Release</p>
         <p className="text-gray-700 font-stretch-104%">Newsroom</p>
         <p className="text-gray-700 font-stretch-104%">Careers</p>
