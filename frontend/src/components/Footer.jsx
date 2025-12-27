@@ -109,7 +109,13 @@ function Footer() {
           Join a free Hosting class
         </Link>
         {/* find a co-host */}
-        <p className="text-gray-700 font-stretch-104%">Find a co‑host</p>
+        <Link
+          to="/findcohost"
+          className="text-black hover:underline font-stretch-104% visited:text-gray-500"
+        >
+          Find a co‑host
+        </Link>
+        {/* refer a host */}
         <p className="text-gray-700 font-stretch-104%">Refer a host</p>
       </div>
       {/* airbnb block */}

@@ -16,6 +16,7 @@ import Wishlist from "./pages/Wishlist";
 import AirbnbYourservices from "./pages/NestedHostingPages/AirbnbYourservices";
 import AircoverForHost from "./pages/NestedHostingPages/AircoverForHost";
 import Freehostingclass from "./pages/NestedHostingPages/Freehostingclass";
+import FindaCoHost from "./pages/NestedHostingPages/FindaCoHost";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
           <Route path="/airbnbservices" element={<AirbnbYourservices />} />
           <Route path="/aircoverforhosts" element={<AircoverForHost />} />
           <Route path="/freehostingclass" element={<Freehostingclass />} />
+          <Route path="/findcohost" element={<FindaCoHost />} />
 
         </Routes>
       </div>
