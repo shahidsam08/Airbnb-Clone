@@ -101,9 +101,14 @@ function Footer() {
         <p className="text-gray-700 font-stretch-104%">Hosting resources</p>
         <p className="text-gray-700 font-stretch-104%">Community forum</p>
         <p className="text-gray-700 font-stretch-104%">Hosting responsibly</p>
-        <p className="text-gray-700 font-stretch-104%">
+        {/* join a free hosting class */}
+        <Link
+          to="/freehostingclass"
+          className="text-black hover:underline font-stretch-104% visited:text-gray-500"
+        >
           Join a free Hosting class
-        </p>
+        </Link>
+        {/* find a co-host */}
         <p className="text-gray-700 font-stretch-104%">Find a co‑host</p>
         <p className="text-gray-700 font-stretch-104%">Refer a host</p>
       </div>
