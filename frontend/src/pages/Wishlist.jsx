@@ -1,5 +1,6 @@
 import React from "react";
 import FooterBottom from "../components/FooterBottom";
+import { Link } from "react-router";
 
 function Wishlist() {
   return (
@@ -14,9 +15,9 @@ function Wishlist() {
           <p className="text-2xl font-medium">Log in to view your wishlists</p>
           <p className="text-[#898787]">You can create, view, or edit wishlists once you’ve logged in.</p>
         </div>
-        <div>
-          <input type="button" value="Login" className="bg-[#da1249] text-[1.3rem] text-white w-30 py-3 rounded-[0.8rem]"/>
-        </div>
+        <Link to="/login" className="bg-[#da1249] text-[1.3rem] text-white w-30 py-3 rounded-[0.8rem]">
+          <p className="text-center">Login</p>
+        </Link>
       </div>
       <div className="border-t-[0.1px] border-[#dedcdc] backdrop-blur-md fixed w-full bottom-0">
         <FooterBottom />
