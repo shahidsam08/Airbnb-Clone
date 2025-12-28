@@ -7,7 +7,6 @@ import Login from "./pages/Login";
 import ScrolltoTop from "./Scrolltotop";
 import AntiDiscrimination from "./pages/NestedFooterPages/AntiDiscrimination";
 import Disabilitysupport from "./pages/NestedFooterPages/Disabilitysupport";
-import CancelSupport from "./pages/NestedFooterPages/CancelSupport";
 import CancelOption from "./pages/NestedFooterPages/CancelSupport";
 import ReportNeighbourhoodConcern from "./pages/NestedFooterPages/ReportNeighbourhoodConcern";
 import AirbnbYourHome from "./pages/NestedHostingPages/AirbnbYourHome";
@@ -18,6 +17,9 @@ import AircoverForHost from "./pages/NestedHostingPages/AircoverForHost";
 import Freehostingclass from "./pages/NestedHostingPages/Freehostingclass";
 import FindaCoHost from "./pages/NestedHostingPages/FindaCoHost";
 import Searchpage from "./components/Searchpage";
+import Exprience from "./pages/Exprience";
+import ListingDetails from "./pages/ListingDetails";
+import Services from "./pages/Services";
 
 function App() {
   return (
@@ -26,10 +28,17 @@ function App() {
       <div className="scrollbar-hide">
         <Routes>
           {/* home */}
-          <Route path="/" element={<Home />} />
+          {/* home nested routes */}
+          <Route path="/" element={<Home />}>
+            <Route path="/" element={<ListingDetails /> 
+          } />
+            <Route path="/exprience" element={<Exprience />} />
+            <Route path="/services" element={<Services />} />
+          </Route>
           <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/login" element={<Login />} />
           <Route path="/searchpage" element={<Searchpage />} />
+
           {/* Footer link setup */}
           <Route path="/helpcenter" element={<HelpCenter />} />
           <Route path="/safetyissue" element={<GethelpwithSafetyIssue />} />

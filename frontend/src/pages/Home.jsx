@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import ListingDetails from "./ListingDetails";
 import FooterBottom from "../components/FooterBottom";
 import ListingCard from "../components/ListingCard";
+import { Outlet } from "react-router-dom";
 
 function Home() {
   return (
@@ -13,7 +14,8 @@ function Home() {
         <div className="sticky bg-white top-0">
           <Navbar />
         </div>
-        <ListingDetails />
+        {/* listin details */}
+        <Outlet />
       </div>
       {/* second body */}
       <div>

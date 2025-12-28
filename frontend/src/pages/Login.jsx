@@ -39,22 +39,22 @@ function Login() {
         {/* option to login  : facebook , google, apple, email*/}
         <div className="px-5 flex flex-col gap-5 py-10">
           {/* continue with google */}
-          <div className="flex flex-row items-center gap-10 px-8 py-4 w-full border-[1.6px] border-[#202020] rounded-[0.6rem]">
+          <div className="flex flex-row items-center gap-10 px-8 py-4 w-full border-[1.6px] border-[#202020] rounded-[0.6rem] cursor-pointer">
             <FcGoogle size={25}/>
             <p className="font-medium">Continue with Google</p>
           </div>
           {/* continue with apple */}
-          <div className="flex flex-row items-center gap-10 px-8 py-4 w-full border-[1.6px] border-[#202020] rounded-[0.6rem]">
+          <div className="flex flex-row items-center gap-10 px-8 py-4 w-full border-[1.6px] border-[#202020] rounded-[0.6rem] cursor-pointer">
             <FaApple size={25}/>
             <p className="font-medium">Continue with Apple</p>
           </div>
           {/* continue with email */}
-          <div className="flex flex-row items-center gap-10 px-8 py-4 w-full border-[1.6px] border-[#202020] rounded-[0.6rem]">
+          <div className="flex flex-row items-center gap-10 px-8 py-4 w-full border-[1.6px] border-[#202020] rounded-[0.6rem] cursor-pointer">
             <MdOutlineMailOutline size={25}/>
             <p className="font-medium">Continue with email</p>
           </div>
           {/* continue with facebook */}
-          <div className="flex flex-row items-center gap-10 px-8 py-4 w-full border-[1.6px] border-[#202020] rounded-[0.6rem]">
+          <div className="flex flex-row items-center gap-10 px-8 py-4 w-full border-[1.6px] border-[#202020] rounded-[0.6rem] cursor-pointer">
             <SiFacebook color="#1877F2" size={25}/>
             <p className="font-medium">Continue with Facebook</p>
           </div>

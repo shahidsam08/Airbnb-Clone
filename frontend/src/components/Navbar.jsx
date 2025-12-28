@@ -1,5 +1,5 @@
 import { MdSearch } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 function Navbar() {
   return (
@@ -17,7 +17,8 @@ function Navbar() {
       {/* homes experiece and services. */}
       <div className="flex flex-row items-center justify-around mx-8">
         {/* homes */}
-        <div className="flex flex-col align-middle pb-2 justify-center items-center">
+        <NavLink to="/" className={({isActive}) => isActive ? "border-b-[2.9px]" : "border-white"}>
+          <div className="flex flex-col align-middle pb-2 justify-center items-center">
           <img
             src="https://cdn-icons-png.flaticon.com/128/3171/3171547.png"
             alt="homes"
@@ -25,8 +26,10 @@ function Navbar() {
           />
           <p className="text-gray-600 font-medium text-[0.9rem]">Homes</p>
         </div>
+        </NavLink>
         {/* exprience */}
-        <div className="flex flex-col align-middle pb-2  justify-center items-center">
+        <NavLink to="/exprience" className={({isActive}) => isActive ? "border-b-[2.9px]" : "border-white"}>
+          <div className="flex flex-col align-middle pb-2  justify-center items-center">
           <img
             src="https://cdn-icons-png.flaticon.com/128/2955/2955139.png"
             alt="Experience"
@@ -34,8 +37,10 @@ function Navbar() {
           />
           <p className="text-gray-600 font-medium text-[0.9rem]">Experience</p>
         </div>
+        </NavLink>
         {/* services */}
-        <div className="flex flex-col align-middle pb-2  justify-center items-center">
+        <NavLink to="/services" className={({isActive}) => isActive ? "border-b-[2.9px]" : "border-white"}>
+          <div className="flex flex-col align-middle pb-2  justify-center items-center">
           <img
             src="https://cdn-icons-png.flaticon.com/128/563/563976.png"
             alt="services"
@@ -43,6 +48,7 @@ function Navbar() {
           />
           <p className="text-gray-600 font-medium text-[0.9rem]">Service</p>
         </div>
+        </NavLink>
       </div>
       
     </nav>
