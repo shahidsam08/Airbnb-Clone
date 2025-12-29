@@ -39,18 +39,18 @@ function ListingCard() {
     });
   };
   return (
-    <div className="bg-gray-100 px-4 pt-8">
-      <p className="text-[1.3rem] font-stretch-expanded">
+    <div className="bg-gray-100 px-5 lg:px-10 pt-8">
+      <p className="text-[1.3rem] lg:text-3xl font-stretch-expanded">
         Inspiration for future getaways
       </p>
       {/* scrolling items of the footer side. */}
-      <div className="flex flex-row gap-2 justify-center items-center py-3">
-        <FaAngleLeft onClick={scrollPrev} />
+      <div className="flex flex-row gap-2 justify-center items-center py-3 md:justify-start">
+        <FaAngleLeft onClick={scrollPrev} className="md:hidden"/>
         <div
           ref={sliderRef}
-          className="flex flex-row items-center justify-start gap-4 overflow-x-auto scrollbar-hide  whitespace-nowrap p-4 "
+          className="flex flex-row items-center justify-start gap-4 overflow-x-auto scrollbar-hide  whitespace-nowrap p-4 lg:p-0 md:flex-row md:items-start lg:border-b-[1.2px] lg:border-[#c1c1c1] lg:w-full"
         >
-          {/* popular */}
+          {/* popular */} 
           <div
             onClick={() => dispatch({ type: "POPULAR" })}
             className={`cursor-pointer pb-2 ${state === "popular" ? "text-[#da1249] border-b-[2.1px] ": ""}`}
@@ -78,7 +78,7 @@ function ListingCard() {
             Things to do
           </div>
         </div>
-        <FaAngleRight onClick={scrollnext} />
+        <FaAngleRight onClick={scrollnext} className="md:hidden"/>
         {/* adding some items after the making the separate page of each items. */}
       </div>
       {/* show the data when I click on any button. */}
