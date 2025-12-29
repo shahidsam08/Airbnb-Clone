@@ -20,6 +20,7 @@ import Searchpage from "./components/Searchpage";
 import Exprience from "./pages/Exprience";
 import ListingDetails from "./pages/ListingDetails";
 import Services from "./pages/Services";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
             <Route path="/exprience" element={<Exprience />} />
             <Route path="/services" element={<Services />} />
           </Route>
+          <Route path="*" element={<NotFound />} />
           <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/login" element={<Login />} />
           <Route path="/searchpage" element={<Searchpage />} />

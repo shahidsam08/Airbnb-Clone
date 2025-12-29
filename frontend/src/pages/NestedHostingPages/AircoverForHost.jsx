@@ -366,7 +366,7 @@ function AircoverForHost() {
         <img
           src="https://a0.muscache.com/im/pictures/ce899d37-7ba9-4840-8cfb-8cbb4889f0bc.jpg"
           alt="customer"
-          className="bg-gray-800"
+          className="bg-gray-800 w-full"
         />
       </div>
       {/* footer part */}

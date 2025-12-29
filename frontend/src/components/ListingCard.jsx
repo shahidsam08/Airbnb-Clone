@@ -48,7 +48,7 @@ function ListingCard() {
         <FaAngleLeft onClick={scrollPrev} />
         <div
           ref={sliderRef}
-          className="flex flex-row items-center justify-start gap-4 overflow-x-auto  whitespace-nowrap p-4 "
+          className="flex flex-row items-center justify-start gap-4 overflow-x-auto scrollbar-hide  whitespace-nowrap p-4 "
         >
           {/* popular */}
           <div
