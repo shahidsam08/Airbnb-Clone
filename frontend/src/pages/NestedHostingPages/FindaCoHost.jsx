@@ -159,12 +159,12 @@ function FindaCoHost() {
             {/* card */}
             <div className="flex flex-col gap-4 items-center justify-center bg-[#f1f1f1] py-8 border-[#dfdbdb] border-[0.2px] rounded-4xl">
               <img
-                src="https://a0.muscache.com/im//pictures/user/User/original/a9b228c4-3b24-409b-a6b3-16bbef4ce52d.jpeg?im_w=240&im_q=medq"
+                src="/shahidali.jpg"
                 alt="user"
-                className="w-37 rounded-[50%]"
+                className="w-32 h-32 rounded-[50%]   object-contain object-center"
               />
-              <p className="text-[1.8rem] font-medium">Sven</p>
-              <p className="text-[0.9rem] font-medium">Frankfurt, Germany</p>
+              <p className="text-[1.8rem] font-medium">Shahid Ali</p>
+              <p className="text-[0.9rem] font-medium">Bhopal, India</p>
               <div className="bg-white w-[90%] py-2 px-5 flex flex-row items-center justify-around rounded-2xl">
                 <div className="flex flex-col items-center justify-center">
                   <div className="flex flex-row gap-1 items-center">
