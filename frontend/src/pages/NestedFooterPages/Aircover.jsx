@@ -5,6 +5,7 @@ import { FaAirbnb } from "react-icons/fa6";
 import { LuDot } from "react-icons/lu";
 import { FaAngleLeft } from "react-icons/fa6";
 import { FaFile } from "react-icons/fa6";
+import { MdSearch } from "react-icons/md";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { FaUser } from "react-icons/fa";
 
@@ -13,12 +14,15 @@ function Aircover() {
   const [show, setShow] = useState(false);
   return (
     <div>
-      <div className="p-6 flex md:items-center md:justify-between md:p-8 md:px-12 ">
+      <div className="p-6 flex items-center justify-between md:p-8 md:px-12">
         <div className="flex items-center ">
           <Link to="/">
             <FaAirbnb size={35} />
           </Link>
           <p className="text-[1.2rem] font-medium">Help Center</p>
+        </div>
+        <div className="md:hidden">
+          <MdSearch size={25} />
         </div>
         {/* medium size option */}
         <div
@@ -68,16 +72,20 @@ function Aircover() {
         </div>
       </div>
       {/* body parts of the page. */}
-      <div className="md:flex md:justify-center pt-10 md:flex-row-reverse md:items-start ">
-        <div className="md:border-[1.2px] md:border-[#e5e5e5] md:rounded-2xl md:px-2 md:py-4 md:flex md:flex-col md:gap-5 md:sticky md:top-20 md:mt-50 md:items-center md:text-wrap md:shadow-lg">
-          <p className="hidden md:block md:text-[1.2rem]">
+      <div className="lg:flex lg:justify-center pt-10 lg:flex-row-reverse lg:items-start lg:relative">
+        <div className="px-6 py-5 border-[0.4px] shadow-md border-[#d7d7d7] hidden lg:flex lg:flex-col gap-4 lg:w-[35%] rounded-2xl lg:sticky lg:top-20">
+          <p className="text-[1.2rem] text-[#525151]">
             Get help with your reservations, account, and more.
           </p>
-          <div className="border-2 text-center py-3 mx-10 rounded-[0.7rem] bg-[#d20962] text-white text-[1.2rem] md:px-5 md:w-full">
+          <p className="border-2 text-center py-3 rounded-[0.7rem] bg-[#d20962] text-white text-[1.2rem]">
             Log in or Sign up
-          </div>
+          </p>
         </div>
-        <div className="px-10 py-6 flex flex-col gap-9 lg:w-[60%]">
+
+        <div className="border-2 m-10 text-center py-3 rounded-[0.7rem] bg-[#d20962] text-white text-[1.2rem] lg:hidden">
+          Log in or Sign up
+        </div>
+        <div className="px-10 py-6 flex flex-col gap-9 lg:w-[50%]">
           {/* login and sign up button */}
 
           {/* booking basic link box */}

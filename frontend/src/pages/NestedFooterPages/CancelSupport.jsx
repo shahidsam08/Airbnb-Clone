@@ -5,14 +5,17 @@ import Footer from "../../components/Footer";
 import { FaAngleLeft } from "react-icons/fa6";
 import { IoMdBookmark } from "react-icons/io";
 import { useState } from "react";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { FaUser } from "react-icons/fa";
 
 function CancelOption() {
   const [isHelpful, isSethelpful] = useState("value");
+  const [show, setShow] = useState(false);
   return (
     <div>
-      <div className="flex flex-col gap-10 ">
-        {/* headers : in which airbnb logo and the search icons */}
-        <div className="flex flex-row items-center align-middle justify-between px-6 py-4 border-b-[0.3px] sticky top-0 z-50 bg-white">
+      {/* headers : in which airbnb logo and the search icons */}
+      <div>
+        <div className="flex flex-row items-center align-middle justify-between px-6 py-4 border-b-[0.3px] sticky top-0 z-50 bg-white mb-20">
           <div className="flex flex-row align-middle  items-center gap-1">
             <Link to="/">
               <FaAirbnb size={45} color="red" />
@@ -21,16 +24,73 @@ function CancelOption() {
               Help Centre
             </Link>
           </div>
-          <div>
+          <div className="md:hidden">
             <MdSearch size={25} />
           </div>
+          {/* adding profile and hamburger sign */}
+          <div
+            className="hidden md:flex md:flex-row items-center md:border-[1.2px] md:border-[#c1c1c1] md:w-fit md:gap-2 md:px-2 md:py-1 md:rounded-4xl relative"
+            onClick={() => {
+              if (show === false) {
+                setShow(true);
+              } else {
+                setShow(false);
+              }
+            }}
+          >
+            <RxHamburgerMenu size={20} color="black" />
+            <div className="p-2 bg-[#807f7f] rounded-2xl">
+              <FaUser size={20} color="white" />
+            </div>
+            {show ? (
+              <div className=" absolute h-auto w-60 bg-[#ffffff] shadow-md shadow-[#a3a2a2] top-14 right-10 rounded-2xl flex flex-col ">
+                <Link
+                  to="/allhelptopic"
+                  className="text-[1.2rem] border-b-[1.2px] border-[#c1c1c1] px-4 p-2  hover:bg-[#e1dede] hover:rounded-2xl hover:cursor-pointer"
+                >
+                  All help topics
+                </Link>
+                <Link
+                  to="/aircoverforhosts"
+                  className="text-[1.2rem] border-b-[1.2px] border-[#c1c1c1] px-4 p-2  hover:bg-[#e1dede] hover:rounded-2xl hover:cursor-pointer"
+                >
+                  Hosting Resources
+                </Link>
+                <Link
+                  to="/login"
+                  className="text-[1.2rem] border-b-[1.2px] border-[#c1c1c1] px-4 p-2  hover:bg-[#e1dede] hover:rounded-2xl hover:cursor-pointer"
+                >
+                  Log in{" "}
+                </Link>
+                <Link
+                  to="/login"
+                  className="text-[1.2rem] border-b-[1.2px] border-[#c1c1c1] px-4 p-2  hover:bg-[#e1dede] hover:rounded-2xl hover:cursor-pointer rounded-2xl"
+                >
+                  Sign up
+                </Link>
+              </div>
+            ) : (
+              " "
+            )}
+          </div>
+        </div>
+      </div>
+      <div className="flex flex-col gap-10 px-8 lg:flex lg:flex-row-reverse lg:items-start lg:justify-center">
+        {/* login or sign up option */}
+        <div className="px-6 py-5 border-[0.4px] shadow-md border-[#d7d7d7] hidden lg:flex lg:flex-col gap-4 lg:w-[35%] rounded-2xl lg:sticky lg:top-8">
+          <p className="text-[1.2rem] text-[#525151]">
+            Get help with your reservations, account, and more.
+          </p>
+          <p className="border-2 text-center py-3 rounded-[0.7rem] bg-[#d20962] text-white text-[1.2rem]">
+            Log in or Sign up
+          </p>
+        </div>
+
+        <div className="border-2 text-center py-3 rounded-[0.7rem] bg-[#d20962] text-white text-[1.2rem] lg:hidden">
+          Log in or Sign up
         </div>
         {/* ------------------all the body data which inside this div. -------------------------*/}
-        <div className="px-8 flex flex-col gap-14">
-          {/* login or sign up option */}
-          <div className="border-2 text-center py-3 rounded-[0.7rem] bg-[#d20962] text-white text-[1.2rem]">
-            Log in or Sign up
-          </div>
+        <div className=" flex flex-col gap-14 lg:w-[50%]">
           {/* booking basic link box */}
           <div className="flex flex-row items-center align-middle gap-3">
             <FaAngleLeft size={15} className="text-gray-400" />
