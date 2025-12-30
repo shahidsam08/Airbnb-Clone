@@ -43,7 +43,7 @@ function CancelOption() {
               <FaUser size={20} color="white" />
             </div>
             {show ? (
-              <div className=" absolute h-auto w-60 bg-[#ffffff] shadow-md shadow-[#a3a2a2] top-14 right-10 rounded-2xl flex flex-col ">
+              <div className=" absolute h-auto w-60 bg-[#ffffff] shadow-md shadow-[#a3a2a2] top-14 right-10 rounded-2xl flex flex-col">
                 <Link
                   to="/allhelptopic"
                   className="text-[1.2rem] border-b-[1.2px] border-[#c1c1c1] px-4 p-2  hover:bg-[#e1dede] hover:rounded-2xl hover:cursor-pointer"
@@ -77,7 +77,7 @@ function CancelOption() {
       </div>
       <div className="flex flex-col gap-10 px-8 lg:flex lg:flex-row-reverse lg:items-start lg:justify-center">
         {/* login or sign up option */}
-        <div className="px-6 py-5 border-[0.4px] shadow-md border-[#d7d7d7] hidden lg:flex lg:flex-col gap-4 lg:w-[35%] rounded-2xl lg:sticky lg:top-8">
+        <div className="px-6 py-5 border-[0.4px] shadow-md border-[#d7d7d7] hidden lg:flex lg:flex-col gap-4 lg:w-[35%] rounded-2xl lg:sticky lg:top-8 lg:bottom-10">
           <p className="text-[1.2rem] text-[#525151]">
             Get help with your reservations, account, and more.
           </p>
