@@ -198,7 +198,7 @@ function AntiDiscrimination() {
             <p className="text-[1.5rem] font-semibold md:text-4xl">
               Our commitment to fighting discrimination
             </p>
-            <p className="text-[1rem] text-gray-800 md:text-[1.1rem]">
+            <p className="text-[0.9rem] text-gray-800 md:text-[1.1rem] md:leading-6">
               This work follows a history of working to fight discrimination
               including one of the first Civil Rights Audits in 2016, an
               additional update in 2019, the announcement of Project Lighthouse

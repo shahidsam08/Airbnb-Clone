@@ -58,20 +58,22 @@ function Disabilitysupport() {
           </Link>
         </div>
         {/* Accessibility at airbnb */}
-        <div className="flex flex-col gap-6 items-center text-center py-10">
-          <h1 className=" w-[70%] text-5xl font-semibold text-gray-800">
+        <div className="flex flex-col gap-6 items-center text-center justify-center md:text-base py-10 md:items-center md:justify-center">
+          <h1 className=" w-[70%] text-5xl  font-semibold text-gray-800 lg:text-9xl md:text-black md:w-[50%]">
             Accessibility at Airbnb
           </h1>
-          <p className="w-[60%] text-[1.14rem] text-gray-500">
+          <p className="w-[60%] text-[1.14rem] text-gray-500 md:text-[1.9rem]">
             Here’s how we’re making it easier to travel with us.
           </p>
         </div>
         {/* Enhanced searc filter */}
         {/* first div ( enhanced search filters ) */}
-        <div className="flex flex-col gap-4 items-center mt-8">
-          <div className="w-[80%] text-center flex flex-col items-center gap-3">
-            <p className="text-2xl font-semibold">Enhanced search filters</p>
-            <p className="text-[1.1rem] text-gray-500">
+        <div className="flex flex-col gap-4 items-center mt-8  md:flex md:flex-row-reverse md:items-center md:justify-center">
+          <div className="w-[80%] text-center md:text-start  flex flex-col items-center gap-3 md:items-start md:gap-5">
+            <p className="text-2xl font-semibold md:text-5xl">
+              Enhanced search filters
+            </p>
+            <p className="text-[1.1rem] text-gray-500 md:text-3xl md:w-[60%] ">
               We’ve simplified our accessibility filters to provide an even
               better search experience.
             </p>
@@ -79,13 +81,16 @@ function Disabilitysupport() {
           <img
             src="https://a0.muscache.com/im/pictures/canvas/Canvas-1749855852023/original/9325313d-d918-4439-b86c-eac7d28c2235.png?im_w=960&im_q=medq"
             alt="searchfilter1"
+            className="md:w-[50%]"
           />
         </div>
         {/* accessibility review */}
-        <div className="flex flex-col gap-4 items-center pt-15 bg-gray-100">
-          <div className="w-[80%] text-center flex flex-col items-center gap-3">
-            <p className="text-2xl font-semibold">Accessibility review</p>
-            <p className="text-[1.1rem] text-gray-500">
+        <div className="flex flex-col gap-4 items-center pt-15 bg-gray-100 md:flex md:flex-row md:items-center md:justify-center">
+          <div className="w-[80%] text-center md:text-start flex flex-col md:items-start gap-3 md:gap-5 md:w-[60%]">
+            <p className="text-2xl font-semibold md:text-start md:text-5xl">
+              Accessibility review
+            </p>
+            <p className="text-[1.1rem] text-gray-500 md:text-start md:text-3xl">
               We review every accessibility feature submitted by stays hosts for
               accuracy.
             </p>
@@ -93,13 +98,16 @@ function Disabilitysupport() {
           <img
             src="https://a0.muscache.com/im/pictures/canvas/Canvas-1749856025414/original/245da055-fa8a-4140-9e51-8ddb06d02e56.png?im_w=960&im_q=medq"
             alt="searchfilter2"
+            className="md:w-[50%]"
           />
         </div>
         {/* messaging with hosts. */}
-        <div className="flex flex-col gap-4 items-center pt-15 pb-5">
-          <div className="w-[80%] text-center flex flex-col items-center gap-3">
-            <p className="text-2xl font-semibold">1:1 messaging with hosts</p>
-            <p className="text-[1.1rem] text-gray-500">
+        <div className="flex flex-col gap-4 items-center pt-15 pb-5 md:flex md:flex-row-reverse md:items-center md:justify-center">
+          <div className="w-[80%] text-center md:text-start flex flex-col items-center gap-3 md:items-start md:gap-5">
+            <p className="text-2xl font-semibold md:text-5xl">
+              1:1 messaging with hosts
+            </p>
+            <p className="text-[1.1rem] text-gray-500 md:text-3xl md:w-[60%]">
               Chat directly with hosts for more information about the
               accessibility features of their stay or experience.
             </p>
@@ -107,36 +115,43 @@ function Disabilitysupport() {
           <img
             src="https://a0.muscache.com/im/pictures/canvas/Canvas-1749856092356/original/bee668cf-af57-447e-883e-24b5e03340ea.png?im_w=960&im_q=medq"
             alt="searchfilter3"
+            className="md:w-[50%]"
           />
         </div>
         {/* Black box with image and text and other details */}
         <div className="bg-black">
-          <img
-            src="https://a0.muscache.com/im/pictures/canvas/Canvas-1733264347358/original/88069db7-9bb9-4f20-886e-cf5c0860f83b.jpeg?im_w=960&im_q=medq"
-            alt="wellfamily"
-          />
-          {/* audio box which handle the audio & some content */}
-          <div className="w-full px-7 py-10 bg-[#1c1b1b] flex flex-col items-center gap-5">
-            <p className="text-gray-100 text-2xl w-[80%] text-center align-middle justify-center">
-              Listen to Airbnb’s digital accessibility statement
-            </p>
-            {/* audio box which handle the audio. */}
-            <div className="w-full bg-[#5f5f5f] flex flex-row align-middle justify-between items-center gap-2 pt-8 pb-3 px-5 rounded-2xl ">
-              <div className="bg-[#313030] rounded-full p-2 flex flex-col items-center hover:cursor-pointer">
-                <audio ref={audioRef} src="/airbnb.mp3"></audio>
-                {isPlaying ? (
-                  <IoMdPause color="white" onClick={togglePlay} size={25} />
-                ) : (
-                  <IoPlay
-                    className="pl-[0.2rem]"
-                    onClick={togglePlay}
-                    color="white"
-                    size={25}
-                  />
-                )}
-              </div>
+          {/* box with photo and audion player */}
+          <div className="md:flex md:flex-col md:gap-4 md:items-center md:justify-center">
+            <div className="md:w-full md:flex md:items-center md:justify-center md:py-19">
+              <img
+              src="https://a0.muscache.com/im/pictures/canvas/Canvas-1733264347358/original/88069db7-9bb9-4f20-886e-cf5c0860f83b.jpeg?im_w=960&im_q=medq"
+              alt="wellfamily"
+              className="md:w-[90%] md:h-200 md:object-top md:object-cover md:rounded-4xl"
+            />
+            </div>
+            {/* audio box which handle the audio & some content */}
+            <div className="w-full px-7 py-10 bg-[#1c1b1b] flex flex-col items-center gap-5 md:flex md:flex-row">
+              <p className="text-gray-100 text-2xl w-[80%] text-center align-middle justify-center md:w-[50%]">
+                Listen to Airbnb’s digital accessibility statement
+              </p>
+              {/* audio box which handle the audio. */}
+              <div className="w-full md:w-[40%] bg-[#5f5f5f] flex flex-row align-middle justify-between items-center gap-2 pt-8 pb-3 px-5 rounded-2xl ">
+                <div className="bg-[#313030] rounded-full p-2 flex flex-col items-center hover:cursor-pointer">
+                  <audio ref={audioRef} src="/airbnb.mp3"></audio>
+                  {isPlaying ? (
+                    <IoMdPause color="white" onClick={togglePlay} size={25} />
+                  ) : (
+                    <IoPlay
+                      className="pl-[0.2rem]"
+                      onClick={togglePlay}
+                      color="white"
+                      size={25}
+                    />
+                  )}
+                </div>
 
-              <LuAudioLines color="white" size={50} />
+                <LuAudioLines color="white" size={50} />
+              </div>
             </div>
           </div>
           {/* Digital accessibility at airbnb */}
@@ -550,7 +565,10 @@ function Disabilitysupport() {
           <div>
             <p className="text-[2.7rem]">We’re here to help</p>
             <p className="text-[#727171] text-[1.6rem] font-light leading-8 w-[90%]">
-              Visit our <Link to="/helpcenter" className="underline font-medium w-[70%]">Help Center</Link>{" "}
+              Visit our{" "}
+              <Link to="/helpcenter" className="underline font-medium w-[70%]">
+                Help Center
+              </Link>{" "}
               for more information.
             </p>
           </div>
