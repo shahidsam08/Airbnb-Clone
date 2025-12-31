@@ -9,20 +9,31 @@ import { BiSupport } from "react-icons/bi";
 import { GoCheck } from "react-icons/go";
 import { FaAngleDown } from "react-icons/fa6";
 import { FaAngleUp } from "react-icons/fa6";
-import Slider from '../../components/Slider.jsx'
+import Slider from "../../components/Slider.jsx";
 
 function AirbnbYourHome() {
   const [First, setFirst] = useState(false);
   const [Second, setSecond] = useState(false);
-  const[Third , setThird] = useState(false);
+  const [Third, setThird] = useState(false);
   return (
     <div>
       <div className="flex flex-col gap-10 px-5 py-10">
         {/* airbnb logo not sticky or fixed. */}
-        <div className="w-fit">
-          <Link to="/">
-            <FaAirbnb size={45} color="red" />
-          </Link>
+        <div className="md:flex md:items-center md:justify-between md:sticky md:top-0 md:py-6 md:px-8 md:backdrop-blur-lg md:rounded-2xl">
+          <div className="w-fit">
+            <Link to="/">
+              <FaAirbnb size={45} color="red" />
+            </Link>
+          </div>
+          {/* get started */}
+          <div className="hidden md:block">
+            <Link
+              to="/login"
+              className="bg-[#da1249] w-[90%] py-3 text-center text-[1.2rem] rounded-4xl text-white px-3"
+            >
+              Get Started
+            </Link>
+          </div>
         </div>
 
         {/* price changes when you select the day, and also show map of area */}
@@ -31,52 +42,52 @@ function AirbnbYourHome() {
           <div>
             <Slider />
           </div>
-          
-          
-          
         </div>
         {/* it easy to list your home on airbnb */}
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-6 md:items-center md:justify-center">
           <p className="text-4xl text-center font-bold p-2">
             It’s easy to list your home on Airbnb
           </p>
           <img
             src="https://a0.muscache.com/im/pictures/canvas/Canvas-1727297676509/original/dd948131-a986-425f-8e4b-1e67e47824fb.jpeg?im_w=1200"
             alt="aboutplace"
+            className="md:w-[60%] md:pb-10"
           />
         </div>
         {/* create listing for your place */}
-        <div className="w-[90%] flex flex-col gap-6">
-          <div className="flex flex-row gap-4 items-center ">
-            {/* first */}
-            <div className=" bg-[#eeebeb] w-fit p-2 rounded-[0.6rem]">
-              <HiOutlineHome size={28} />
+        <div className="w-[90%] flex flex-col gap-6 md:flex md:flex-row md:w-full md:items-center md:justify-center ">
+          <div className="w-[90%] flex flex-col  gap-6 md:flex-row md:gap-7 md:items-center md:justify-around">
+            <div className="flex flex-row gap-4 items-center md:flex-col">
+              {/* first */}
+              <div className=" bg-[#eeebeb] w-fit p-2 rounded-[0.6rem]">
+                <HiOutlineHome size={28} />
+              </div>
+              <p className="text-[1.12rem] leading-6 font-light md:text-center text-[#2f2e2e]">
+                Create a listing for your place in just a few steps
+              </p>
             </div>
-            <p className="text-[1.12rem] leading-6 font-light text-[#2f2e2e]">
-              Create a listing for your place in just a few steps
-            </p>
-          </div>
-          {/* second  */}
-          <div className="flex flex-row gap-4 items-center ">
-            <div className=" bg-[#eeebeb] w-fit p-2 rounded-[0.6rem]">
-              <CiStopwatch size={28} />
+            {/* second  */}
+            <div className="flex flex-row gap-4 items-center md:flex-col">
+              <div className=" bg-[#eeebeb] w-fit p-2 rounded-[0.6rem]">
+                <CiStopwatch size={28} />
+              </div>
+              <p className="text-[1.12rem] leading-6 font-light md:text-center text-[#2f2e2e]">
+                Go at your own pace, and make changes whenever
+              </p>
             </div>
-            <p className="text-[1.12rem] leading-6 font-light text-[#2f2e2e]">
-              Go at your own pace, and make changes whenever
-            </p>
-          </div>
-          {/* third */}
-          <div className="flex flex-row gap-4 items-center ">
-            <div className=" bg-[#eeebeb] w-fit p-2 rounded-[0.6rem]">
-              <BiSupport size={28} />
+            {/* third */}
+            <div className="flex flex-row gap-4 items-center md:flex-col">
+              <div className=" bg-[#eeebeb] w-fit p-2 rounded-[0.6rem]">
+                <BiSupport size={28} />
+              </div>
+              <p className="text-[1.12rem] leading-6 font-light md:text-center text-[#2f2e2e]">
+                Get 1:1 support from experienced hosts at any time
+              </p>
             </div>
-            <p className="text-[1.12rem] leading-6 font-light text-[#2f2e2e]">
-              Get 1:1 support from experienced hosts at any time
-            </p>
           </div>
         </div>
         {/* aircover for hosts */}
-        <div className="flex flex-col gap-5 items-center pt-9">
+        <div className="flex flex-col gap-5 items-center pt-9 md:w-[70%] md:self-center">
           <img
             src="https://a0.muscache.com/im/pictures/canvas/Canvas-1727211098415/original/127d7106-4f3e-4c9b-aff4-fc109f08e574.png?im_w=720"
             alt="aircoverforhosts"
@@ -91,7 +102,7 @@ function AirbnbYourHome() {
           </p>
         </div>
         {/* Learn about air cover and their list type content. */}
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-6 md:w-[60%] md:self-center">
           {/* first */}
           <div className="flex flex-row items-center justify-between align-middle">
             <p
@@ -138,8 +149,8 @@ function AirbnbYourHome() {
           </div>
         </div>
         {/*host damage protection reimbursment. */}
-        <div>
-          <p className="text-[0.97rem] text-center text-[#666565]">
+        <div className="md:text-center md:w-[60%] md:self-center">
+          <p className="text-[0.97rem] text-center text-[#666565] md:text-[1.1rem]">
             Host Damage Protection reimburses for certain guest damages during
             Airbnb stays. It’s not insurance and may apply if guests don’t pay.
             Liability insurance is provided by 3rd parties.{" "}
@@ -149,7 +160,7 @@ function AirbnbYourHome() {
           </p>
         </div>
         {/* All the tools you need to host App link ( all in one) */}
-        <div className="flex flex-col gap-8 mt-10">
+        <div className="flex flex-col gap-8 mt-10 md:w-[80%] md:self-center">
           <p className="text-center text-[2.1rem] leading-8 font-semibold">
             All the tools you need to host, all in one app
           </p>
@@ -214,7 +225,7 @@ function AirbnbYourHome() {
           Your questions, answered
         </p>
         {/* clicking answered */}
-        <div>
+        <div className="md:w-[60%] md:self-center">
           <div
             className="flex flex-row items-center justify-between pb-8 hover:cursor-pointer"
             onClick={() => {
@@ -234,22 +245,35 @@ function AirbnbYourHome() {
           {First ? (
             <div className="flex flex-col gap-5 pt-10 pb-10">
               <div className="flex flex-col gap-2">
-                <p className="text-[1.2rem] font-bold text-[#797676]">Is my place right for Airbnb?</p>
+                <p className="text-[1.2rem] font-bold text-[#797676]">
+                  Is my place right for Airbnb?
+                </p>
                 <p className="text-[1.1rem] text-[#797676]">
                   Airbnb guests are interested in all kinds of places – spare
                   rooms, flats, houses, holiday homes, even treehouses.
                 </p>
               </div>
               <div className="flex flex-col gap-2">
-                <p className="text-[1.2rem] font-bold text-[#797676]">Do I have to host all the time?</p>
+                <p className="text-[1.2rem] font-bold text-[#797676]">
+                  Do I have to host all the time?
+                </p>
                 <p className="text-[1.1rem] text-[#797676]">
-                  No – you control your calendar. You can host once a year, a few nights a month or more often.
+                  No – you control your calendar. You can host once a year, a
+                  few nights a month or more often.
                 </p>
               </div>
               <div className="flex flex-col gap-2">
-                <p className="text-[1.2rem] font-bold text-[#797676]">What are Airbnb’s fees?</p>
+                <p className="text-[1.2rem] font-bold text-[#797676]">
+                  What are Airbnb’s fees?
+                </p>
                 <p className="text-[1.1rem] text-[#797676]">
-                  It’s free to create a listing, and Airbnb typically collects a service fee of 3% of the reservation subtotal once you get paid. In many areas, Airbnb automatically collects and pays sales and tourism taxes on your behalf. <span className="underline font-medium">Learn more about fees.</span> 
+                  It’s free to create a listing, and Airbnb typically collects a
+                  service fee of 3% of the reservation subtotal once you get
+                  paid. In many areas, Airbnb automatically collects and pays
+                  sales and tourism taxes on your behalf.{" "}
+                  <span className="underline font-medium">
+                    Learn more about fees.
+                  </span>
                 </p>
               </div>
             </div>
@@ -277,22 +301,42 @@ function AirbnbYourHome() {
           {Second ? (
             <div className="flex flex-col gap-5 pt-10 pb-10">
               <div className="flex flex-col gap-2">
-                <p className="text-[1.2rem] font-bold text-[#797676]">How do I get started?</p>
+                <p className="text-[1.2rem] font-bold text-[#797676]">
+                  How do I get started?
+                </p>
                 <p className="text-[1.1rem] text-[#797676]">
-                  You can create a listing in just a few steps, all at your own pace. Start by telling us about your home, take some photos and add details about what makes it unique. <span className="underline font-medium">Start your listing.</span>  
+                  You can create a listing in just a few steps, all at your own
+                  pace. Start by telling us about your home, take some photos
+                  and add details about what makes it unique.{" "}
+                  <span className="underline font-medium">
+                    Start your listing.
+                  </span>
                 </p>
               </div>
               <div className="flex flex-col gap-2">
-                <p className="text-[1.2rem] font-bold text-[#797676]">How do I get my home ready for guests?</p>
+                <p className="text-[1.2rem] font-bold text-[#797676]">
+                  How do I get my home ready for guests?
+                </p>
                 <p className="text-[1.1rem] text-[#797676]">
-                  Make sure that your home is clean, clutter-free and that everything is working properly. Items like fresh linen and stocked toiletries help create a comfortable and inviting place to stay. <span className="underline font-medium">Check out our guide to getting your home ready.</span> 
-
+                  Make sure that your home is clean, clutter-free and that
+                  everything is working properly. Items like fresh linen and
+                  stocked toiletries help create a comfortable and inviting
+                  place to stay.{" "}
+                  <span className="underline font-medium">
+                    Check out our guide to getting your home ready.
+                  </span>
                 </p>
               </div>
               <div className="flex flex-col gap-2">
-                <p className="text-[1.2rem] font-bold text-[#797676]">How am I protected when I host?</p>
+                <p className="text-[1.2rem] font-bold text-[#797676]">
+                  How am I protected when I host?
+                </p>
                 <p className="text-[1.1rem] text-[#797676]">
-                  AirCover for Hosts provides top-to-bottom protection every time you host your home on Airbnb. <span className="underline font-medium">Learn more about AirCover for Hosts and what’s included.</span> 
+                  AirCover for Hosts provides top-to-bottom protection every
+                  time you host your home on Airbnb.{" "}
+                  <span className="underline font-medium">
+                    Learn more about AirCover for Hosts and what’s included.
+                  </span>
                 </p>
               </div>
             </div>
@@ -320,16 +364,30 @@ function AirbnbYourHome() {
           {Third ? (
             <div className="flex flex-col gap-5 pt-10 pb-10">
               <div className="flex flex-col gap-2">
-                <p className="text-[1.2rem] font-bold text-[#797676]">Are there any regulations that apply in my city?</p>
+                <p className="text-[1.2rem] font-bold text-[#797676]">
+                  Are there any regulations that apply in my city?
+                </p>
                 <p className="text-[1.1rem] text-[#797676]">
-                  Some areas have laws and regulations for hosting your home. It’s important to familiarise yourself with any laws that may apply to your location. Also, depending on where you live, you may need to check with your HOA, read your lease agreement or notify your landlord or neighbours about your plans to host on Airbnb.<span className="underline font-medium">Learn more about responsible hosting.</span>  
+                  Some areas have laws and regulations for hosting your home.
+                  It’s important to familiarise yourself with any laws that may
+                  apply to your location. Also, depending on where you live, you
+                  may need to check with your HOA, read your lease agreement or
+                  notify your landlord or neighbours about your plans to host on
+                  Airbnb.
+                  <span className="underline font-medium">
+                    Learn more about responsible hosting.
+                  </span>
                 </p>
               </div>
               <div className="flex flex-col gap-2">
-                <p className="text-[1.2rem] font-bold text-[#797676]">What if I have other questions?</p>
+                <p className="text-[1.2rem] font-bold text-[#797676]">
+                  What if I have other questions?
+                </p>
                 <p className="text-[1.1rem] text-[#797676]">
-                  Local hosts are a great source for information and insights. We can connect you with an experienced Airbnb host in your area who may be able to answer additional questions. <span className="underline font-medium">Ask a host.</span> 
-
+                  Local hosts are a great source for information and insights.
+                  We can connect you with an experienced Airbnb host in your
+                  area who may be able to answer additional questions.{" "}
+                  <span className="underline font-medium">Ask a host.</span>
                 </p>
               </div>
             </div>
@@ -339,16 +397,23 @@ function AirbnbYourHome() {
           <div className="border-b-[0.5px] border-[#c1c1c1] mb-8"></div>
         </div>
         {/* still have a question  */}
-        <div className="flex flex-col gap-5 items-center justify-center">
+        <div className="flex flex-col gap-5 items-center justify-center md:w-[50%] md:self-center md:pb-10">
           <p className="text-2xl font-bold">Still have questions?</p>
-          <p className="text-[1.07rem] text-center text-gray-500">Get answers from an experienced local host.</p>
-          <button type="button" className="bg-[#222121] w-full py-3 rounded-4xl text-[#d3d0d0] text-[1.2rem]">Ask a Host</button>
+          <p className="text-[1.07rem] text-center text-gray-500">
+            Get answers from an experienced local host.
+          </p>
+          <button
+            type="button"
+            className="bg-[#222121] w-full py-3 rounded-4xl text-[#d3d0d0] text-[1.2rem]"
+          >
+            Ask a Host
+          </button>
         </div>
       </div>
       {/* footer part */}
       <Footer />
       {/* bottom fixed button */}
-      <div className="sticky bottom-0 backdrop-blur-sm w-full h-20 flex flex-col items-center justify-center align-middle ">
+      <div className="sticky bottom-0 backdrop-blur-sm w-full h-20 flex flex-col items-center justify-center align-middle md:hidden">
         <Link
           to="/login"
           className="bg-[#da1249] w-[90%] py-3 text-center text-[1.2rem] rounded-4xl text-white"

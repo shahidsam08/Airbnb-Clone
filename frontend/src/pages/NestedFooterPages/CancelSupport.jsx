@@ -12,7 +12,13 @@ function CancelOption() {
   const [isHelpful, isSethelpful] = useState("value");
   const [show, setShow] = useState(false);
   return (
-    <div>
+    <div
+      onClick={() => {
+        if (window.screen.width >= 768 && show === true) {
+          setShow(false);
+        }
+      }}
+    >
       {/* headers : in which airbnb logo and the search icons */}
       <div>
         <div className="flex flex-row items-center align-middle justify-between px-6 py-4 border-b-[0.3px] sticky top-0 z-50 bg-white mb-20">
@@ -81,14 +87,20 @@ function CancelOption() {
           <p className="text-[1.2rem] text-[#525151]">
             Get help with your reservations, account, and more.
           </p>
-          <p className="border-2 text-center py-3 rounded-[0.7rem] bg-[#d20962] text-white text-[1.2rem]">
+          <Link
+            to="/login"
+            className="border-2 text-center py-3 rounded-[0.7rem] bg-[#d20962] text-white text-[1.2rem]"
+          >
             Log in or Sign up
-          </p>
+          </Link>
         </div>
 
-        <div className="border-2 text-center py-3 rounded-[0.7rem] bg-[#d20962] text-white text-[1.2rem] lg:hidden">
+        <Link
+          to="/login"
+          className="border-2 text-center py-3 rounded-[0.7rem] bg-[#d20962] text-white text-[1.2rem] lg:hidden"
+        >
           Log in or Sign up
-        </div>
+        </Link>
         {/* ------------------all the body data which inside this div. -------------------------*/}
         <div className=" flex flex-col gap-14 lg:w-[50%]">
           {/* booking basic link box */}
