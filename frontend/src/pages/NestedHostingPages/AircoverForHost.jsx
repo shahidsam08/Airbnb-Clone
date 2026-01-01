@@ -27,8 +27,8 @@ function AircoverForHost() {
     });
   };
   return (
-    <div>
-      <div className="flex flex-col gap-10 px-5 py-5 sticky top-0 backdrop-blur-md">
+    <div className="md:flex md:flex-col bg-[#f6f4f4]">
+      <div className="flex flex-col gap-10 px-5 py-5 sticky top-0 backdrop-blur-md ">
         <div className="flex flex-row items-center justify-between sticky top-0 ">
           <div>
             <Link to="/">
@@ -44,22 +44,22 @@ function AircoverForHost() {
         </div>
       </div>
       {/* air cover for hosts */}
-      <div className="bg-[#f6f4f4] px-5 py-15">
+      <div className="bg-[#f6f4f4] px-5 py-15 md:flex md:flex-col">
         {/* main heading */}
-        <div className="flex flex-col gap-4  items-center mb-20">
+        <div className="flex flex-col gap-4  items-center mb-20 md:w-[80%] md:self-center">
           <div className="flex flex-col items-center">
-            <p className="text-[80px] px-2 text-center font-bold text-[#262626]">
-              <span className="text-[#f94373]">air</span>cover
+            <p className="text-7xl px-2 text-center font-bold text-[#262626] md:text-8xl lg:text-[10rem]">
+              <span className="text-[#f94373] ">air</span>cover
             </p>
             <p className="text-[2.2rem] lg:text-[5rem]">for Hosts</p>
           </div>
-          <p className="text-center text-2xl w-[90%]  text-[#4f4e4e]">
+          <p className="text-center text-2xl  w-[90%]  text-[#4f4e4e] md:w-[80%] md:text-3xl lg:w-[60%]">
             Top-to-bottom protection. Always included, always free. Only on
             Airbnb.
           </p>
         </div>
         {/* Guest identity verification */}
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-5 md:w-[70%] md:self-center">
           {/* first items */}
           <div className="border-[#dedcdc] border-[1.4px]"></div>
           <div className="flex flex-col gap-2 pb-5">
@@ -95,57 +95,64 @@ function AircoverForHost() {
               belongings, Host damage protection is in place to help reimburse
               costs up to $3m USD, including these specialised protections:
             </p>
-            {/* first subtopic */}
-            <div className="flex flex-col gap-2">
-              <p className="text-[1.3rem] font-light text-[#212020]">
-                Art & valuables
-              </p>
-              <p className="text-[1.1rem] font-light text-[#6e6d6d] pb-5">
-                Get reimbursed for damaged art or valuables.
-              </p>
-            </div>
-            <div className="border-[#d2d0d0] border-[0.9px]"></div>
-            {/* second subtopic */}
-            <div className="flex flex-col gap-2">
-              <p className="text-[1.3rem] font-light text-[#212020]">
-                Auto & boat
-              </p>
-              <p className="text-[1.1rem] font-light text-[#6e6d6d] pb-5">
-                Get reimbursed for damage to cars, boats and other watercraft
-                that you park or store at your home.
-              </p>
-            </div>
-            <div className="border-[#d2d0d0] border-[0.9px]"></div>
-            {/* third subtopic */}
-            <div className="flex flex-col gap-2">
-              <p className="text-[1.3rem] font-light text-[#212020]">
-                Pet damage
-              </p>
-              <p className="text-[1.1rem] font-light text-[#6e6d6d] pb-5">
-                Get reimbursed for damage caused by a guest’s pet.
-              </p>
-            </div>
-            <div className="border-[#d2d0d0] border-[0.9px]"></div>
-            {/* fourth subtopic */}
-            <div className="flex flex-col gap-2">
-              <p className="text-[1.3rem] font-light text-[#212020]">
-                Income loss
-              </p>
-              <p className="text-[1.1rem] font-light text-[#6e6d6d] pb-5">
-                If you have to cancel Airbnb bookings due to guest damage,
-                you'll be compensated for the lost income.
-              </p>
-            </div>
-            <div className="border-[#d2d0d0] border-[0.9px]"></div>
-            {/* fifth subtopic */}
-            <div className="flex flex-col gap-2">
-              <p className="text-[1.3rem] font-light text-[#212020]">
-                Deep cleaning
-              </p>
-              <p className="text-[1.1rem] font-light text-[#6e6d6d] pb-5">
-                Get reimbursed for extra cleaning services required to remove
-                stains and smoke odours.
-              </p>
+
+            <div className="md:grid lg:grid-cols-2 lg:gap-6 lg:items-end grid gap-3">
+              {/* first subtopic */}
+              <div className="flex flex-col gap-2 lg:col-span-1">
+                <p className="text-[1.3rem] font-light text-[#212020]">
+                  Art & valuables
+                </p>
+                <p className="text-[1.1rem] font-light text-[#6e6d6d] pb-5">
+                  Get reimbursed for damaged art or valuables.
+                </p>
+                <div className="border-[#d2d0d0] border-[0.9px] hidden lg:block"></div>
+              </div>
+              <div className="border-[#d2d0d0] border-[0.9px] lg:hidden"></div>
+              {/* second subtopic */}
+              <div className="flex flex-col gap-2">
+                <p className="text-[1.3rem] font-light text-[#212020]">
+                  Auto & boat
+                </p>
+                <p className="text-[1.1rem] font-light text-[#6e6d6d] pb-5">
+                  Get reimbursed for damage to cars, boats and other watercraft
+                  that you park or store at your home.
+                </p>
+                <div className="border-[#d2d0d0] border-[0.9px] hidden lg:block"></div>
+              </div>
+              <div className="border-[#d2d0d0] border-[0.9px] lg:hidden"></div>
+              {/* third subtopic */}
+              <div className="flex flex-col gap-2">
+                <p className="text-[1.3rem] font-light text-[#212020]">
+                  Pet damage
+                </p>
+                <p className="text-[1.1rem] font-light text-[#6e6d6d] pb-5">
+                  Get reimbursed for damage caused by a guest’s pet.
+                </p>
+                <div className="border-[#d2d0d0] border-[0.9px] hidden lg:block"></div>
+              </div>
+              <div className="border-[#d2d0d0] border-[0.9px] lg:hidden"></div>
+              {/* fourth subtopic */}
+              <div className="flex flex-col gap-2">
+                <p className="text-[1.3rem] font-light text-[#212020]">
+                  Income loss
+                </p>
+                <p className="text-[1.1rem] font-light text-[#6e6d6d] pb-5">
+                  If you have to cancel Airbnb bookings due to guest damage,
+                  you'll be compensated for the lost income.
+                </p>
+                <div className="border-[#d2d0d0] border-[0.9px] hidden md:block"></div>
+              </div>
+              <div className="border-[#d2d0d0] border-[0.9px] md:hidden"></div>
+              {/* fifth subtopic */}
+              <div className="flex flex-col gap-2">
+                <p className="text-[1.3rem] font-light text-[#212020]">
+                  Deep cleaning
+                </p>
+                <p className="text-[1.1rem] font-light text-[#6e6d6d] pb-5">
+                  Get reimbursed for extra cleaning services required to remove
+                  stains and smoke odours.
+                </p>
+              </div>
             </div>
           </div>
           {/* fourth */}
@@ -186,7 +193,7 @@ function AircoverForHost() {
         </div>
       </div>
       {/* Only airbnb gives you aircover */}
-      <div className="bg-[#f6f4f4] px-5 py-15 flex flex-col gap-2">
+      <div className="bg-[#f6f4f4] px-5 py-15 flex flex-col gap-2 md:w-[90%] lg:w-[70%] md:self-center">
         <p className="text-4xl w-[90%] font-medium pb-12">
           Only Airbnb gives you AirCover
         </p>
@@ -345,29 +352,33 @@ function AircoverForHost() {
         </div>
       </div>
 
-      {/* The super easy way to airbnb your place */}
       <div>
-        <div className="px-5 py-10 bg-white flex flex-col items-center gap-8">
-          <p className="text-4xl w-[80%] text-center font-bold">
-            The super easy way to Airbnb your place
-          </p>
-          <p className="text-center text-[1.24rem] font-light text-[#5b5959] ">
-            Airbnb Setup makes it easier to put your place on Airbnb, with
-            hands-on help from a Superhost from your first question to your
-            first guest.
-          </p>
-          <Link to="/login">
-            <div className="bg-[#da1249] px-8 py-3 rounded-[0.6rem] flex flex-row gap-2">
-              <MdOutlineAddHome color="white" size={30} />
-              <p className="text-white text-[1.3rem]">List your home</p>
-            </div>
-          </Link>
+        {/* The super easy way to airbnb your place */}
+        <div>
+          <div className="px-5 py-10 bg-white flex flex-col items-center gap-8">
+            <p className="text-4xl w-[80%] text-center font-bold ">
+              The super easy way to Airbnb your place
+            </p>
+            <p className="text-center text-[1.24rem] font-light text-[#5b5959] ">
+              Airbnb Setup makes it easier to put your place on Airbnb, with
+              hands-on help from a Superhost from your first question to your
+              first guest.
+            </p>
+            <Link to="/login">
+              <div className="bg-[#da1249] px-8 py-3 rounded-[0.6rem] flex flex-row gap-2">
+                <MdOutlineAddHome color="white" size={30} />
+                <p className="text-white text-[1.3rem]">List your home</p>
+              </div>
+            </Link>
+          </div>
+          <div>
+            <img
+            src="https://a0.muscache.com/im/pictures/ce899d37-7ba9-4840-8cfb-8cbb4889f0bc.jpg"
+            alt="customer"
+            className="bg-gray-800 w-full "
+          />
+          </div>
         </div>
-        <img
-          src="https://a0.muscache.com/im/pictures/ce899d37-7ba9-4840-8cfb-8cbb4889f0bc.jpg"
-          alt="customer"
-          className="bg-gray-800 w-full"
-        />
       </div>
       {/* footer part */}
       <Footer />

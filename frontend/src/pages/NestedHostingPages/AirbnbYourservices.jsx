@@ -7,7 +7,7 @@ function AirbnbYourservices() {
   return (
     <div>
       <div className="flex flex-col gap-10 px-5 py-10 md:gap-15">
-        <div className="md:flex md:flex-row md:items-center md:justify-between">
+        <div className="md:flex md:flex-row md:items-center md:justify-between md:sticky md:top-0 md:backdrop-blur-md  md:py-5">
           {/* airbnb logo not sticky or fixed. */}
           <div className="w-fit">
             <Link to="/">
