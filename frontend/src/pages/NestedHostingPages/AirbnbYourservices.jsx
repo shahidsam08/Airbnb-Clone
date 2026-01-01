@@ -6,36 +6,49 @@ import { Link } from "react-router-dom";
 function AirbnbYourservices() {
   return (
     <div>
-      <div className="flex flex-col gap-10 px-5 py-10">
-        {/* airbnb logo not sticky or fixed. */}
-        <div className="w-fit">
-          <Link to="/">
-            <FaAirbnb size={45} color="red" />
-          </Link>
+      <div className="flex flex-col gap-10 px-5 py-10 md:gap-15">
+        <div className="md:flex md:flex-row md:items-center md:justify-between">
+          {/* airbnb logo not sticky or fixed. */}
+          <div className="w-fit">
+            <Link to="/">
+              <FaAirbnb size={45} color="red" />
+            </Link>
+          </div>
+          <div className="hidden md:block">
+            <Link
+              to="/login"
+              className="bg-[#da1249] w-[90%] py-3 text-center text-[1.2rem] rounded-4xl text-white px-3"
+            >
+              Get Started
+            </Link>
+          </div>
         </div>
         {/* get paid to do what you love */}
-        <div className="flex flex-col gap-6 items-center justify-center">
-          <p className="text-4xl font-bold text-center">
-            Give your business a new home
-          </p>
-          <p className="text-center w-[80%] text-[1.3rem]">
-            Now your service can reach millions of people on Airbnb.
-          </p>
+        <div className="flex flex-col gap-6 items-center justify-center md:flex md:flex-row md:items-center md:pt-20">
+          <div className="flex flex-col items-center justify-center px-3 gap-3 md:w-[40%]">
+            <p className="text-4xl font-bold text-center md:text-5xl">
+              Give your business a new home
+            </p>
+            <p className="text-center w-[80%] text-[1.3rem] md:text-[1.6rem]">
+              Now your service can reach millions of people on Airbnb.
+            </p>
+          </div>
           <img
             src="https://a0.muscache.com/im/pictures/canvas/Canvas-1727297676509/original/dd948131-a986-425f-8e4b-1e67e47824fb.jpeg?im_w=1200"
             alt=""
+            className="md:w-[40%]"
           />
         </div>
         {/* Offer what you do best with Airbnb Services*/}
-        <div className="flex flex-col gap-4 items-center py-15">
-          <p className="text-center text-[2.1rem] leading-9 font-semibold text-[#2c2c2c]">
+        <div className="flex flex-col gap-8 items-center py-15">
+          <p className="text-center text-[2.1rem] leading-9 font-semibold text-[#2c2c2c] md:w-[80%] lg:w-[60%] md:text-6xl md:leading-17 md:font-bold">
             Offer what you do best with Airbnb Services
           </p>
-          <p className="text-center text-[1.3rem] leading-7 w-[90%] font-light text-[#585656]">
+          <p className="text-center text-[1.3rem] leading-7 w-[90%] font-light text-[#585656] md:text-[1.5rem] lg:text-[2rem] md:w-[80%] lg:w-[60%]">
             Airbnb is for more than homes. Now it’s for businesses like yours.
           </p>
           {/* offer by host */}
-          <div className="flex flex-row flex-wrap items-center justify-center gap-15">
+          <div className=" grid grid-cols-2 flex-wrap items-center justify-center gap-15 md:grid md:grid-cols-2 md:gap-20 md:pt-20 lg:grid-cols-5 md:w-[80%] lg:w-[70%]">
             {/* first */}
             <div className="flex flex-col gap-1 items-center ">
               <img
@@ -123,15 +136,15 @@ function AirbnbYourservices() {
           </div>
         </div>
         {/* welcome a world of new customer */}
-        <div className=" flex flex-col gap-5 items-center justify-center ">
-          <p className="text-center w-[90%] text-3xl font-bold text-[#323131]">
+        <div className=" flex flex-col gap-5 items-center justify-center md:w-[80%] md:self-center lg:w-[60%]">
+          <p className="text-center w-[90%] text-3xl font-bold text-[#323131] md:text-6xl md:w-[70%]">
             Welcome a world of new customers
           </p>
           <p className="text-center w-[90%] text-[1.2rem] text-[#696868]">
             Reach millions of people travelling and living near you on Airbnb.
           </p>
           {/* first box */}
-          <div className="bg-[#efeeeeb6] w-full flex flex-col items-center gap-1 py-10 justify-center rounded-2xl">
+          <div className="bg-[#efeeeeb6] w-full flex flex-col items-center gap-1 py-10 justify-center rounded-2xl ">
             <div>
               <img
                 src="https://a0.muscache.com/im/pictures/canvas/Canvas-1745863949102/original/6918c96a-e479-44c6-a9e9-86e87326d65a.jpeg?im_w=720&im_q=medq"
@@ -157,7 +170,7 @@ function AirbnbYourservices() {
           </p>
         </div>
         {/* world class tools for local business */}
-        <div className="flex flex-row gap-4 overflow-x-auto whitespace-nowrap scrollbar-hide pb-6">
+        <div className="flex flex-row gap-4 overflow-x-auto whitespace-nowrap scrollbar-hide pb-6 md:overflow-hidden md:grid md:grid-cols-2 md:px-4 md:gap-15 lg:gap-20 md:w-[95%] md:self-center lg:w-[70%] lg:self-center">
           {/* first */}
           <div className="flex flex-col gap-4">
             <img
@@ -219,7 +232,7 @@ function AirbnbYourservices() {
       </div>
       <Footer />
       {/* bottom fixed button */}
-      <div className="sticky bottom-0 backdrop-blur-sm w-full h-20 flex flex-col items-center justify-center align-middle ">
+      <div className="sticky bottom-0 backdrop-blur-sm w-full h-20 flex flex-col items-center justify-center align-middle md:hidden">
         <Link
           to="/login"
           className="bg-[#da1249] w-[90%] py-3 text-center text-[1.2rem] rounded-4xl text-white"
