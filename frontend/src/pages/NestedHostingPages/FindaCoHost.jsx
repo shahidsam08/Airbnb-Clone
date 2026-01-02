@@ -17,14 +17,14 @@ function FindaCoHost() {
               <FaAirbnb size={40} color="red" />
             </Link>
           </div>
-          <div className="px-5 py-4 hidden md:block md:w-[60%]">
-            <div className="flex flex-row gap-2 items-center justify-center py-3 bg-[#f42c62] rounded-[0.6rem] md:px-10">
+          
+            <div className="md:flex flex-row gap-2 items-center justify-center py-2 bg-[#ff277a] rounded-[0.6rem] md:px-8 hidden">
               <MdSearch color="white" size={25} />
               <button className="text-white text-[1.2rem] ">
                 Find a co-host
               </button>
             </div>
-          </div>
+         
         </div>
         {/* find a co host */}
         <div className="flex flex-col gap-8 items-center justify-center py-15 md:w-[70%] lg:w-[50%] md:self-center">
