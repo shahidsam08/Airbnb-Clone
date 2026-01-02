@@ -17,7 +17,7 @@ function FindaCoHost() {
               <FaAirbnb size={40} color="red" />
             </Link>
           </div>
-          <div className="px-5 py-4 hidden md:block">
+          <div className="px-5 py-4 hidden md:block md:w-[60%]">
             <div className="flex flex-row gap-2 items-center justify-center py-3 bg-[#f42c62] rounded-[0.6rem] md:px-10">
               <MdSearch color="white" size={25} />
               <button className="text-white text-[1.2rem] ">
