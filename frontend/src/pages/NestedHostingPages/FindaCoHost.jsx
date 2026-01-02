@@ -9,9 +9,9 @@ function FindaCoHost() {
   return (
     <div>
       {/* first body */}
-      <div className="px-6 py-5 flex flex-col gap-5">
+      <div className="px-6 pb-5 flex flex-col gap-5">
         {/* airbnb logo and sticky navbar */}
-        <div className="md:flex md:flex-row md:items-center md:justify-between md:sticky md:top-0 md:backdrop-blur-md">
+        <div className="md:flex md:flex-row md:items-center md:justify-between md:sticky md:top-0 md:backdrop-blur-md md:pt-4">
           <div>
             <Link to="/">
               <FaAirbnb size={40} color="red" />
