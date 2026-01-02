@@ -12,10 +12,12 @@ function FindaCoHost() {
       <div className="px-6 py-5 flex flex-col gap-5">
         {/* airbnb logo and sticky navbar */}
         <div className="md:flex md:flex-row md:items-center md:justify-between md:sticky md:top-0 md:backdrop-blur-md">
-          <Link to="/">
-            <FaAirbnb size={40} color="red" />
-          </Link>
-          <div className="px-5 py-4 hidden md:block lg:w-[40] md:w-[80]  ">
+          <div>
+            <Link to="/">
+              <FaAirbnb size={40} color="red" />
+            </Link>
+          </div>
+          <div className="px-5 py-4 hidden md:block">
             <div className="flex flex-row gap-2 items-center justify-center py-3 bg-[#f42c62] rounded-[0.6rem] md:px-10">
               <MdSearch color="white" size={25} />
               <button className="text-white text-[1.2rem] ">
