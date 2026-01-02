@@ -48,7 +48,7 @@ function ListingCard() {
         <FaAngleLeft onClick={scrollPrev} className="md:hidden"/>
         <div
           ref={sliderRef}
-          className="flex flex-row items-center justify-start gap-4 overflow-x-auto scrollbar-hide  whitespace-nowrap p-4 lg:p-0 md:flex-row md:items-start lg:border-b-[1.2px] lg:border-[#c1c1c1] lg:w-full"
+          className="flex flex-row items-center justify-start gap-4 overflow-x-auto scrollbar-hide  whitespace-nowrap p-4 md:p-0 md:flex-row md:items-start md:border-b-[1.2px] md:border-[#c1c1c1] md:w-full"
         >
           {/* popular */} 
           <div
@@ -82,7 +82,11 @@ function ListingCard() {
         {/* adding some items after the making the separate page of each items. */}
       </div>
       {/* show the data when I click on any button. */}
-      {state === "popular" ? <div>This is the data</div> : " "}
+      {/* show the data of the popular */}
+      {state === "popular" ? <div>
+        
+      </div> : " "}
+      {/* show art and culture data */}
       {state === "artculture" ? <div> art and culture data</div> : " "}
       {state === "beach" ? <div>This is beach data</div> : " "}
       {state === "mountain" ? <div>this is the mountain</div> : " "}

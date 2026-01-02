@@ -4,27 +4,28 @@ import { Link } from "react-router-dom";
 import { MdSearch } from "react-icons/md";
 import Footer from "../../components/Footer";
 import { FaStar } from "react-icons/fa";
+import ScrollWatcher from "../../components/VerticalScreen.jsx";
 
 function FindaCoHost() {
   return (
     <div>
       {/* first body */}
+      <ScrollWatcher />
       <div className="px-6 pb-5 flex flex-col gap-5">
         {/* airbnb logo and sticky navbar */}
-        <div className="md:flex md:flex-row md:items-center md:justify-between md:sticky md:top-0 md:backdrop-blur-md md:pt-4">
+        <div className="py-4 md:flex md:flex-row md:items-center md:justify-between md:sticky md:top-0 md:backdrop-blur-md md:py-4">
           <div>
             <Link to="/">
               <FaAirbnb size={40} color="red" />
             </Link>
           </div>
-          
-            <div className="md:flex flex-row gap-2 items-center justify-center py-2 bg-[#ff277a] rounded-[0.6rem] md:px-8 hidden">
-              <MdSearch color="white" size={25} />
-              <button className="text-white text-[1.2rem] ">
-                Find a co-host
-              </button>
-            </div>
-         
+
+          <div className="md:flex flex-row gap-2 items-center justify-center py-2 bg-[#ff277a] rounded-[0.6rem] md:px-8 hidden">
+            <MdSearch color="white" size={25} />
+            <button className="text-white text-[1.2rem] ">
+              Find a co-host
+            </button>
+          </div>
         </div>
         {/* find a co host */}
         <div className="flex flex-col gap-8 items-center justify-center py-15 md:w-[70%] lg:w-[50%] md:self-center">
@@ -169,12 +170,14 @@ function FindaCoHost() {
             </p>
             {/* card */}
             <div className="flex flex-col gap-4 items-center justify-center bg-[#f1f1f1] py-8 border-[#dfdbdb] border-[0.2px] rounded-4xl">
-              <img
+              <div className="w-32 h-32 rounded-full overflow-hidden">
+                <img
                 src="/shahidali.jpg"
                 alt="user"
-                className="w-32 h-32 rounded-[50%]   object-contain object-center"
+                className="w-full h-full object-cover object-top"
               />
-              <p className="text-[1.8rem] font-medium">Shahid Ali</p>
+              </div>
+              <p className="text-[1.8rem] font-medium">Md Shahid Ali</p>
               <p className="text-[0.9rem] font-medium">Bhopal, India</p>
               <div className="bg-white w-[90%] py-2 px-5 flex flex-row items-center justify-around rounded-2xl">
                 <div className="flex flex-col items-center justify-center">

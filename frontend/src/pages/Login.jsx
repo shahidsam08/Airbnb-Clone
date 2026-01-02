@@ -7,7 +7,7 @@ import { MdOutlineMailOutline } from "react-icons/md";
 import { SiFacebook } from "react-icons/si";
 import Footer from "../components/Footer.jsx";
 import { FaAirbnb } from "react-icons/fa6";
-import { RxHamburgerMenu } from "react-icons/rx";
+import { CgMenu } from "react-icons/cg";
 import { RxQuestionMarkCircled } from "react-icons/rx";
 
 function Login() {
@@ -26,7 +26,7 @@ function Login() {
           <FaAirbnb size={50} color="red" />
           <div className="flex flex-row items-center justify-center gap-8">
             <Link to="/host">
-              <div className="px-3 py-2 rounded-2xl hover:bg-[#ebebebdd] text-[1.2rem]">Become a host</div>
+              <div className="px-3 py-2 rounded-2xl hover:bg-[#ebebebdd] text-[1rem]">Become a host</div>
             </Link>
             <div
               className="md:p-2 md:bg-[#efefef] md:w-fit md:rounded-4xl md:flex md:items-center md:justify-center relative cursor-pointer"
@@ -38,7 +38,7 @@ function Login() {
                 }
               }}
             >
-              <RxHamburgerMenu size={25} color="black" />
+              <CgMenu size={25} color="black" />
             </div>
           </div>
 
