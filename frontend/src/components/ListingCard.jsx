@@ -84,7 +84,7 @@ function ListingCard() {
       {/* show the data when I click on any button. */}
       {/* show the data of the popular */}
       {state === "popular" ? <div>
-        
+        This is the popular page
       </div> : " "}
       {/* show art and culture data */}
       {state === "artculture" ? <div> art and culture data</div> : " "}
