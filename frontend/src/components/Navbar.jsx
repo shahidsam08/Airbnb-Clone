@@ -4,6 +4,7 @@ import { FaAirbnb } from "react-icons/fa6";
 import { RxQuestionMarkCircled } from "react-icons/rx";
 import { useReducer, useState } from "react";
 import { CgMenu } from "react-icons/cg";
+import { IoSearch } from "react-icons/io5";
 
 // logic of useReducer
 const reducer = (state, action) => {
@@ -166,7 +167,7 @@ function Navbar() {
           </div>
           {/* large hamburger sign / become a host */}
           <div>
-            <div className="hidden md:flex md:flex-row md:items-center md:justify-between md:sticky md:top-0 md:bg-zinc-100">
+            <div className="hidden md:flex md:flex-row md:items-center md:justify-between md:sticky md:top-0 md:bg-zinc-100 z-10">
               <div className="flex flex-row items-center justify-center gap-8">
                 <Link to="/host" className="md:hidden lg:block">
                   <div className="px-3 py-2 rounded-2xl hover:bg-[#ebebebdd] text-[1rem]">
@@ -246,7 +247,7 @@ function Navbar() {
           </div>
           <div
             className={`md:w-[33%] py-3 px-5 rounded-full ${
-              active === "when" ? "bg-white" : ""
+              active === "when" ? "bg-white shadow-md" : ""
             }`}
             onClick={() => dispatch({ type: "WHEN" })}
           >
@@ -257,16 +258,22 @@ function Navbar() {
               className="outline-none"
             />
           </div>
-          <div className={`md:w-[33%] py-3 px-5 rounded-full ${
-              active === "who" ? "bg-white" : ""
+          <div className={`md:w-[33%] py-3 px-5 rounded-full flex flex-row items-center justify-between ${
+              active === "who" ? "bg-white shadow-md" : ""
             }`}
             onClick={() => dispatch({ type: "WHO" })}>
-            <p>who</p>
+            <div>
+              <p>who</p>
             <input
               type="text"
               placeholder="Add guests"
               className="outline-none"
             />
+            </div>
+            <div className="p-3 rounded-4xl bg-[#ff385c] flex flex-row gap-2 items-center group">
+              <IoSearch color="white" size={22}/>
+              <p className="text-white text-[1.08rem]">Search</p>
+            </div>
           </div>
         </div>
       </div>
