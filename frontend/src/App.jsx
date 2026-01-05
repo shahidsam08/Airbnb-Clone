@@ -1,5 +1,5 @@
 import Home from "./pages/Home";
-import { BrowserRouter, Route, Routes } from "react-router";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HelpCenter from "./pages/NestedFooterPages/HelpCenter";
 import Aircover from "./pages/NestedFooterPages/Aircover";
 import GethelpwithSafetyIssue from "./pages/NestedFooterPages/GethelpwithSafetyIssue";
