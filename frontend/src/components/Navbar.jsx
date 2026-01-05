@@ -2,9 +2,10 @@ import { MdSearch } from "react-icons/md";
 import { Link, NavLink } from "react-router-dom";
 import { FaAirbnb } from "react-icons/fa6";
 import { RxQuestionMarkCircled } from "react-icons/rx";
-import { useReducer, useState } from "react";
+import { useReducer, useState, useEffect } from "react";
 import { CgMenu } from "react-icons/cg";
 import { IoSearch } from "react-icons/io5";
+
 
 // logic of useReducer
 const reducer = (state, action) => {
@@ -24,6 +25,7 @@ function Navbar() {
   const [Toggle, setToggle] = useState(false);
   // using useReducer
   const [active, dispatch] = useReducer(reducer, "where");
+
   return (
     <nav
       className="bg-zinc-100"
@@ -33,6 +35,7 @@ function Navbar() {
         }
       }}
     >
+      
       {/* this show only less than md ( <= 768 px) */}
       <div className="flex flex-col gap-6 border-b-gray-300 border-b-[1.2px] pb-[0.5] shadow-md shadow-gray-500/20 md:hidden">
         {/* searchpage components. */}
@@ -228,8 +231,8 @@ function Navbar() {
         </div>
         {/* search box with where, when , who( select the poeple) */}
         <div
-          className={`self-center md:w-[70%] md:flex md:justify-between border-[1.2px] border-zinc-300 md:items-center bg-white  rounded-full shadow-md overflow-hidden p-[3.5px] md:sticky top-0 ${
-            active === "where" || "when" || "who" ? "bg-zinc-100" : "bg-white"
+          className={`self-center md:w-[70%] md:flex md:justify-between border-[1.2px] border-zinc-300 md:items-center bg-white  rounded-full shadow-md overflow-hidden p-[3.5px] ${
+            active === "where" || "when" || "who" ? "bg-zinc-300" : "bg-white"
           }`}
         >
           <div
@@ -270,9 +273,9 @@ function Navbar() {
               className="outline-none"
             />
             </div>
-            <div className="p-3 rounded-4xl bg-[#ff385c] flex flex-row gap-2 items-center group">
-              <IoSearch color="white" size={22}/>
-              <p className="text-white text-[1.08rem]">Search</p>
+            <div className="p-2 rounded-4xl bg-[#ff385c] flex flex-row gap-2 items-center group">
+              <IoSearch color="white" size={21}/>
+              <p className={`text-white text-[1.08rem] ${active === "who" ? "block transition ease-in-out" : "hidden" }`} >Search</p>
             </div>
           </div>
         </div>

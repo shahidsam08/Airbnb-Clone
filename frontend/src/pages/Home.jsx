@@ -11,7 +11,7 @@ function Home() {
     <div>
       {/* first body */}
       <div>
-        <div className="sticky bg-white top-0">
+        <div className="sticky top-0 bg-white">
           <Navbar />
         </div>
         {/* listin details */}
