@@ -9,9 +9,16 @@ import Footer from "../components/Footer.jsx";
 import { FaAirbnb } from "react-icons/fa6";
 import { CgMenu } from "react-icons/cg";
 import { RxQuestionMarkCircled } from "react-icons/rx";
+import { GoEye, GoEyeClosed } from "react-icons/go";
+import { SignupSchema } from "../Validation/Schema.js";
 
 function Login() {
   const [Toggle, setToggle] = useState(false);
+  // for show and hide the password
+  const [showPassword, setShowPassword] = useState(false);
+  const [showRepassword, setshowRepassword] = useState(false);
+
+
   return (
     <div
       onClick={() => {
@@ -22,11 +29,13 @@ function Login() {
     >
       <div>
         {/* header only after medium size screen and large screen size */}
-        <div className="hidden md:px-10 md:py-4 md:border-b-[1.1px] md:border-b-[#cfcece] md:flex md:flex-row md:items-center md:justify-between md:sticky md:top-0 md:bg-white">
+        <div className="hidden md:px-10 md:py-4 md:border-b-[1.1px] md:border-b-[#cfcece] md:flex md:flex-row md:items-center md:justify-between md:sticky md:top-0 z-100 md:bg-white">
           <FaAirbnb size={50} color="red" />
           <div className="flex flex-row items-center justify-center gap-8">
             <Link to="/host">
-              <div className="px-3 py-2 rounded-2xl hover:bg-[#ebebebdd] text-[1rem]">Become a host</div>
+              <div className="px-3 py-2 rounded-2xl hover:bg-[#ebebebdd] text-[1rem]">
+                Become a host
+              </div>
             </Link>
             <div
               className="md:p-2 md:bg-[#efefef] md:w-fit md:rounded-4xl md:flex md:items-center md:justify-center relative cursor-pointer"
@@ -90,26 +99,59 @@ function Login() {
             {/* welcom to airbnb */}
             <form className="px-5 flex flex-col gap-5 py-10 md:w-[80%]">
               <p className="text-2xl font-medium">Welcome to Airbnb</p>
-              <div className="flex flex-col border-[1.4px] border-[#686767] rounded-[0.6rem] ">
-                <select className="w-[full] border-b-[1.4px] text-[1.2rem] py-4 px-2 outline-black outline-inset-2 focus:rounded-[0.6rem]">
-                  <option value="+91">India(+91)</option>
-                  <option value="+966">Saudi Arabia(+966)</option>
-                  <option value="USA(+1)">USA(+1)</option>
-                  <option value="United Arab Emirated(+973)">
-                    United Arab Emirated(+973)
-                  </option>
-                  <option value="France(+33)">France(+33)</option>
-                  <option value="Japan(+81)">Japan(+81)</option>
-                  <option value="Thailand(+66)">Thailand(+66)</option>
-                </select>
+              <div className="flex flex-col gap-4">
                 <input
-                  className="w-[full]  text-[1.2rem] py-4 px-2 outline-black outline-inset-2 focus:rounded-[0.6rem] border-t-white"
-                  type="text"
-                  name=""
-                  id=""
-                  placeholder="Phone number"
-                  required
+                  className="w-[full]  text-[1.2rem] py-4 px-2 outline-black border-[2.1px] rounded-[0.6rem] outline-inset-2 focus:rounded-[0.6rem]"
+                  type="email"
+                  placeholder="Enter your Email"
                 />
+                {/* show the error if email format is wrong */}
+
+                <input
+                  className="w-[full]  text-[1.2rem] py-4 px-2 outline-black border-[2.1px] rounded-[0.6rem] outline-inset-2 focus:rounded-[0.6rem]"
+                  type="text"
+                  placeholder="Enter your your name"
+                />
+                {/* show the error if name format is wrong */}
+
+                <div className="w-[full] relative">
+                  {/* password */}
+                  <input
+                    className="w-full text-[1.2rem] py-4 px-2 outline-black border-[2.1px] rounded-[0.6rem] outline-inset-2 focus:rounded-[0.6rem]"
+                    type={showPassword ? "text" : "password"}
+                    placeholder="Enter your your password"
+                  />
+                  <button
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute top-5 right-7"
+                  >
+                    {showPassword ? (
+                      <GoEye size={20} />
+                    ) : (
+                      <GoEyeClosed size={20} />
+                    )}
+                  </button>
+                </div>
+
+                {/* check your password */}
+                <div className="w-[full] relative">
+                  {/* password */}
+                  <input
+                    className="w-full text-[1.2rem] py-4 px-2 outline-black border-[2.1px] rounded-[0.6rem] outline-inset-2 focus:rounded-[0.6rem]"
+                    type={showRepassword ? "text" : "password"}
+                    placeholder="Enter your your password"
+                  />
+                  <button
+                    onClick={() => setshowRepassword(!showRepassword)}
+                    className="absolute top-5 right-7"
+                  >
+                    {showRepassword ? (
+                      <GoEye size={20} />
+                    ) : (
+                      <GoEyeClosed size={20} />
+                    )}
+                  </button>
+                </div>
               </div>
               <p className="text-[0.8rem] text-[#535151]">
                 We’ll call or text you to confirm your number. Standard message
