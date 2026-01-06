@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import FooterBottom from "../components/FooterBottom";
 import { FcGoogle } from "react-icons/fc";
@@ -10,13 +10,26 @@ import { FaAirbnb } from "react-icons/fa6";
 import { CgMenu } from "react-icons/cg";
 import { RxQuestionMarkCircled } from "react-icons/rx";
 import { GoEye, GoEyeClosed } from "react-icons/go";
+import { useFormik } from "formik";
 import { SignupSchema } from "../Validation/Schema.js";
+
 
 function Login() {
   const [Toggle, setToggle] = useState(false);
   // for show and hide the password
   const [showPassword, setShowPassword] = useState(false);
   const [showRepassword, setshowRepassword] = useState(false);
+
+  // using the formik for form validation.
+  const { values, errors, handleChange, handleSubmit } = useFormik({
+    initialValues: {
+      email: "",
+      username: "",
+      password: "",
+      confirmPassword: "",
+    },
+    validationSchema: SignupSchema,
+  });
 
 
   return (
@@ -97,21 +110,39 @@ function Login() {
             </div>
             {/* welcome to airbnb and country region , phone number and other login option. */}
             {/* welcom to airbnb */}
-            <form className="px-5 flex flex-col gap-5 py-10 md:w-[80%]">
+            <form
+              className="px-5 flex flex-col gap-5 py-10 md:w-[80%]"
+              autoComplete="off"
+              onSubmit={handleSubmit}
+            >
               <p className="text-2xl font-medium">Welcome to Airbnb</p>
-              <div className="flex flex-col gap-4">
-                <input
-                  className="w-[full]  text-[1.2rem] py-4 px-2 outline-black border-[2.1px] rounded-[0.6rem] outline-inset-2 focus:rounded-[0.6rem]"
-                  type="email"
-                  placeholder="Enter your Email"
-                />
-                {/* show the error if email format is wrong */}
-
-                <input
-                  className="w-[full]  text-[1.2rem] py-4 px-2 outline-black border-[2.1px] rounded-[0.6rem] outline-inset-2 focus:rounded-[0.6rem]"
-                  type="text"
-                  placeholder="Enter your your name"
-                />
+              <div className="flex flex-col gap-4 w-full">
+                <div className="w-full">
+                  <input
+                    className="w-full text-[1.2rem] py-4 px-2 outline-black border-[2.1px] rounded-[0.6rem] outline-inset-2 focus:rounded-[0.6rem]"
+                    type="email"
+                    placeholder="Enter your Email"
+                    id="email"
+                    name="email"
+                    value={values.email}
+                    onChange={handleChange}
+                  />
+                  {/* show the error if email format is wrong */}
+                  <p className="text-red-500">{errors.email}</p>
+                </div>
+                {/* user name */}
+                <div>
+                  <input
+                    className="w-full text-[1.2rem] py-4 px-2 outline-black border-[2.1px] rounded-[0.6rem] outline-inset-2 focus:rounded-[0.6rem]"
+                    type="text"
+                    placeholder="Enter your your name"
+                    value={values.username}
+                    onChange={handleChange}
+                    id="username"
+                    name="username"
+                  />
+                  <p className="text-red-500">{errors.username}</p>
+                </div>
                 {/* show the error if name format is wrong */}
 
                 <div className="w-[full] relative">
@@ -120,6 +151,10 @@ function Login() {
                     className="w-full text-[1.2rem] py-4 px-2 outline-black border-[2.1px] rounded-[0.6rem] outline-inset-2 focus:rounded-[0.6rem]"
                     type={showPassword ? "text" : "password"}
                     placeholder="Enter your your password"
+                    value={values.password}
+                    onChange={handleChange}
+                    id="password"
+                    name="password"
                   />
                   <button
                     onClick={() => setShowPassword(!showPassword)}
@@ -131,15 +166,21 @@ function Login() {
                       <GoEyeClosed size={20} />
                     )}
                   </button>
+
+                  <p className="text-red-500">{errors.password}</p>
                 </div>
 
-                {/* check your password */}
+                {/* confirm password */}
                 <div className="w-[full] relative">
                   {/* password */}
                   <input
                     className="w-full text-[1.2rem] py-4 px-2 outline-black border-[2.1px] rounded-[0.6rem] outline-inset-2 focus:rounded-[0.6rem]"
                     type={showRepassword ? "text" : "password"}
-                    placeholder="Enter your your password"
+                    placeholder="Confirm your password"
+                    value={values.confirmPassword}
+                    onChange={handleChange}
+                    id="confirmPassword"
+                    name="confirmPassword"
                   />
                   <button
                     onClick={() => setshowRepassword(!showRepassword)}
@@ -151,6 +192,7 @@ function Login() {
                       <GoEyeClosed size={20} />
                     )}
                   </button>
+                  <p className="text-red-500">{errors.confirmPassword}</p>
                 </div>
               </div>
               <p className="text-[0.8rem] text-[#535151]">
