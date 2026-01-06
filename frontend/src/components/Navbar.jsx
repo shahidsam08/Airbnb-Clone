@@ -124,7 +124,7 @@ function Navbar() {
               <div className="flex flex-col align-middle pb-2 justify-center items-center">
                 <motion.img
                   animate={{
-                    rotateY: 360,
+                    rotateY : 360,
                     transition: { duration: 1 },
                   }}
                   src="https://cdn-icons-png.flaticon.com/128/3171/3171547.png"

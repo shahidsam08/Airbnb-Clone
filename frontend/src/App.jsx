@@ -21,6 +21,9 @@ import Exprience from "./pages/Exprience";
 import ListingDetails from "./pages/ListingDetails";
 import Services from "./pages/Services";
 import NotFound from "./pages/NotFound";
+// adding the toastify show alerts on error, login, or other purpose.
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
@@ -31,8 +34,7 @@ function App() {
           {/* home */}
           {/* home nested routes */}
           <Route path="/" element={<Home />}>
-            <Route path="/" element={<ListingDetails /> 
-          } />
+            <Route path="/" element={<ListingDetails />} />
             <Route path="/exprience" element={<Exprience />} />
             <Route path="/services" element={<Services />} />
           </Route>
@@ -58,9 +60,18 @@ function App() {
           <Route path="/aircoverforhosts" element={<AircoverForHost />} />
           <Route path="/freehostingclass" element={<Freehostingclass />} />
           <Route path="/findcohost" element={<FindaCoHost />} />
-          
         </Routes>
       </div>
+      <ToastContainer
+        position="top-center"
+        autoClose={4000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        pauseOnHover
+        draggable={true}
+        theme="dark"
+      />
     </BrowserRouter>
   );
 }
