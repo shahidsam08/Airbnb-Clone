@@ -5,7 +5,7 @@ import { RxQuestionMarkCircled } from "react-icons/rx";
 import { useReducer, useState, useEffect } from "react";
 import { CgMenu } from "react-icons/cg";
 import { IoSearch } from "react-icons/io5";
-
+import { motion } from "motion/react";
 
 // logic of useReducer
 const reducer = (state, action) => {
@@ -35,7 +35,6 @@ function Navbar() {
         }
       }}
     >
-      
       {/* this show only less than md ( <= 768 px) */}
       <div className="flex flex-col gap-6 border-b-gray-300 border-b-[1.2px] pb-[0.5] shadow-md shadow-gray-500/20 md:hidden">
         {/* searchpage components. */}
@@ -123,7 +122,11 @@ function Navbar() {
               }
             >
               <div className="flex flex-col align-middle pb-2 justify-center items-center">
-                <img
+                <motion.img
+                  animate={{
+                    rotateY: 360,
+                    transition: { duration: 1 },
+                  }}
                   src="https://cdn-icons-png.flaticon.com/128/3171/3171547.png"
                   alt="homes"
                   width={40}
@@ -139,7 +142,11 @@ function Navbar() {
               }
             >
               <div className="flex flex-col align-middle pb-2  justify-center items-center">
-                <img
+                <motion.img
+                  animate={{
+                    rotateY: 360,
+                    transition: { duration: 1 },
+                  }}
                   src="https://cdn-icons-png.flaticon.com/128/2955/2955139.png"
                   alt="Experience"
                   width={40}
@@ -157,7 +164,11 @@ function Navbar() {
               }
             >
               <div className="flex flex-col align-middle pb-2  justify-center items-center">
-                <img
+                <motion.img
+                  animate={{
+                    rotateY: 360,
+                    transition: { duration: 1 },
+                  }}
                   src="https://cdn-icons-png.flaticon.com/128/563/563976.png"
                   alt="services"
                   width={40}
@@ -261,21 +272,29 @@ function Navbar() {
               className="outline-none"
             />
           </div>
-          <div className={`md:w-[33%] py-3 px-5 rounded-full flex flex-row items-center justify-between ${
+          <div
+            className={`md:w-[33%] py-3 px-5 rounded-full flex flex-row items-center justify-between ${
               active === "who" ? "bg-white shadow-md" : ""
             }`}
-            onClick={() => dispatch({ type: "WHO" })}>
+            onClick={() => dispatch({ type: "WHO" })}
+          >
             <div>
               <p>who</p>
-            <input
-              type="text"
-              placeholder="Add guests"
-              className="outline-none"
-            />
+              <input
+                type="text"
+                placeholder="Add guests"
+                className="outline-none"
+              />
             </div>
             <div className="p-2 rounded-4xl bg-[#ff385c] flex flex-row gap-2 items-center group">
-              <IoSearch color="white" size={21}/>
-              <p className={`text-white text-[1.08rem] ${active === "who" ? "block transition ease-in-out" : "hidden" }`} >Search</p>
+              <IoSearch color="white" size={21} />
+              <p
+                className={`text-white text-[1.08rem] ${
+                  active === "who" ? "block transition ease-in-out" : "hidden"
+                }`}
+              >
+                Search
+              </p>
             </div>
           </div>
         </div>

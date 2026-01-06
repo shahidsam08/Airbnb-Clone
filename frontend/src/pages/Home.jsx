@@ -1,7 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import ListingDetails from "./ListingDetails";
 import FooterBottom from "../components/FooterBottom";
 import ListingCard from "../components/ListingCard";
 import { Outlet } from "react-router-dom";

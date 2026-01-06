@@ -58,6 +58,7 @@ function App() {
           <Route path="/aircoverforhosts" element={<AircoverForHost />} />
           <Route path="/freehostingclass" element={<Freehostingclass />} />
           <Route path="/findcohost" element={<FindaCoHost />} />
+          
         </Routes>
       </div>
     </BrowserRouter>
