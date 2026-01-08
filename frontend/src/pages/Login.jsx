@@ -11,11 +11,23 @@ import { CgMenu } from "react-icons/cg";
 import { RxQuestionMarkCircled } from "react-icons/rx";
 import { GoEye, GoEyeClosed } from "react-icons/go";
 import { useFormik } from "formik";
-import { SignupSchema } from "../Validation/Schema.js";
+import { loginSchema, SignupSchema } from "../Validation/Schema.js";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { motion } from "motion/react";
 import { toast } from "react-toastify";
+import { useReducer } from "react";
+
+const reducer = (_, action) => {
+  switch (action.type) {
+    case "SIGNUP":
+      return "signup";
+    case "LOGIN":
+      return "login";
+    default:
+      return "signup";
+  }
+};
 
 function Login() {
   const [Toggle, setToggle] = useState(false);
@@ -23,12 +35,14 @@ function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [showRepassword, setshowRepassword] = useState(false);
 
+  const [state, dispatch] = useReducer(reducer, "signup");
+
   // useNavigate() for conditional routing.
 
   const navigate = useNavigate();
 
   // using the formik for form validation. and send to the server side.
-
+  // for signup
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -41,18 +55,51 @@ function Login() {
     onSubmit: async (values, { resetForm }) => {
       try {
         const response = await axios.post(
-          "http://localhost:8000/api/login",
+          "http://localhost:8000/api/signup",
 
           values
         );
 
         console.log(response.data.message);
         if (response.data.message === "New User Created!") {
-          toast.success("Welcome back!");
+          toast.success("Welcome to airbnb");
           navigate("/", { replace: true });
         } else if (response.data.message === "Already Registered!") {
-          toast.success("Already Registered!");
-          navigate("/", { replace: true });
+          toast.success("Already Registered. Go to login!");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  });
+
+  // for Login using the formik
+  const LoginFormik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+    validationSchema: loginSchema,
+
+    onSubmit: async (values, { resetForm }) => {
+      try {
+        const response = await axios.post(
+          "http://localhost:8000/api/login",
+          values
+        );
+
+        console.log(values);
+
+        if (response.data.message === "Login Successfully") {
+          toast.success("Welcome back, You are login successfully!");
+          navigate("/");
+        } else if (response.data.message === "Email not found") {
+          resetForm();
+          toast.error("Account not found! Create you Account");
+        } else if (response.data.message === "password is incorrect") {
+          toast.error("Password is Incorrect");
+        } else {
+          console.log("something else error");
         }
       } catch (error) {
         console.log(error);
@@ -132,119 +179,230 @@ function Login() {
         </div>
 
         <div className="md:flex md:items-center md:justify-center md:my-20">
-          <div className="md:flex md:flex-col md:w-[70%] lg:w-[65%] md:border-[1.1px] md:border-[#c1c1c1] md:rounded-2xl md:items-center ">
-            <div>
-              <p className="text-[1.1rem] font-bold text-center py-5 border-b-[0.2px] md:border-b-[#ef1212]">
-                Log in or sign up
-              </p>
+          <div className="md:flex md:flex-col md:w-[70%] lg:w-[65%] md:border-[1.1px] md:border-[#c1c1c1] md:rounded-4xl md:items-center ">
+            <div className="flex flex-row items-center justify-center">
+              <div className="flex flex-row self-center gap-8">
+                <p
+                  className={`text-[1.1rem] font-bold text-center px-4 pt-6 pb-1 rounded-[0.3rem] cursor-pointer  ${
+                    state === "signup"
+                      ? "md:border-b-[#ef1212] border-b-[4.5px]"
+                      : ""
+                  }`}
+                  onClick={() => {
+                    dispatch({ type: "SIGNUP" });
+                  }}
+                >
+                  Sign UP
+                </p>
+                <p
+                  className={`text-[1.1rem] font-bold text-center px-4 pt-6 pb-1 rounded-[0.3rem] cursor-pointer  ${
+                    state === "login"
+                      ? "md:border-b-[#ef1212] border-b-[4.5px]"
+                      : ""
+                  }`}
+                  onClick={() => {
+                    dispatch({ type: "LOGIN" });
+                  }}
+                >
+                  Log In
+                </p>
+              </div>
             </div>
             {/* welcome to airbnb and country region , phone number and other login option. */}
             {/* welcom to airbnb */}
-            <form
-              className="px-5 flex flex-col gap-5 py-10 md:w-[80%]"
-              autoComplete="off"
-              onSubmit={formik.handleSubmit}
-            >
-              <p className="text-2xl font-medium">Welcome to Airbnb</p>
-              <div className="flex flex-col gap-4 w-full">
-                <div className="w-full">
-                  <input
-                    className="w-full text-[1.2rem] py-4 px-2 outline-black border-[2.1px] rounded-[0.6rem] outline-inset-2 focus:rounded-[0.6rem]"
-                    type="email"
-                    placeholder="Enter your Email"
-                    id="email"
-                    name="email"
-                    value={formik.values.email}
-                    onChange={formik.handleChange}
-                  />
-                  {/* show the error if email format is wrong */}
-                  <p className="text-red-500">{formik.errors.email}</p>
-                </div>
-                {/* user name */}
-                <div>
-                  <input
-                    className="w-full text-[1.2rem] py-4 px-2 outline-black border-[2.1px] rounded-[0.6rem] outline-inset-2 focus:rounded-[0.6rem]"
-                    type="text"
-                    placeholder="Enter your your name"
-                    value={formik.values.username}
-                    onChange={formik.handleChange}
-                    id="username"
-                    name="username"
-                  />
-                  <p className="text-red-500">{formik.errors.username}</p>
-                </div>
-                {/* show the error if name format is wrong */}
-
-                <div className="w-[full] relative">
-                  {/* password */}
-                  <input
-                    className="w-full text-[1.2rem] py-4 px-2 outline-black border-[2.1px] rounded-[0.6rem] outline-inset-2 focus:rounded-[0.6rem]"
-                    type={showPassword ? "text" : "password"}
-                    placeholder="Enter your your password"
-                    value={formik.values.password}
-                    onChange={formik.handleChange}
-                    id="password"
-                    name="password"
-                  />
-                  <p
-                    onClick={() => setShowPassword(!showPassword)}
-                    className="absolute top-5 right-7"
-                  >
-                    {showPassword ? (
-                      <GoEye size={20} />
-                    ) : (
-                      <GoEyeClosed size={20} />
-                    )}
-                  </p>
-
-                  <p className="text-red-500">{formik.errors.password}</p>
-                </div>
-
-                {/* confirm password */}
-                <div className="w-[full] relative">
-                  {/* password */}
-                  <input
-                    className="w-full text-[1.2rem] py-4 px-2 outline-black border-[2.1px] rounded-[0.6rem] outline-inset-2 focus:rounded-[0.6rem]"
-                    type={showRepassword ? "text" : "password"}
-                    placeholder="Confirm your password"
-                    value={formik.values.confirmPassword}
-                    onChange={formik.handleChange}
-                    id="confirmPassword"
-                    name="confirmPassword"
-                  />
-                  <p
-                    onClick={() => setshowRepassword(!showRepassword)}
-                    className="absolute top-5 right-7"
-                  >
-                    {showRepassword ? (
-                      <GoEye size={20} />
-                    ) : (
-                      <GoEyeClosed size={20} />
-                    )}
-                  </p>
-                  <p className="text-red-500">
-                    {formik.errors.confirmPassword}
-                  </p>
-                </div>
-              </div>
-              <p className="text-[0.8rem] text-[#535151]">
-                We’ll call or text you to confirm your number. Standard message
-                and data rates apply.{" "}
-                <span className="underline font-bold">Privacy Policy</span>{" "}
-              </p>
-              <motion.button
-                whileHover={formik.isValid ? { scale: 1.02 } : ""}
-                whileTap={formik.isValid ? { scale: 0.9 } : ""}
-                type="submit"
-                disabled={formik.isSubmitting}
-                className={`bg-[#da1247eb] text-white text-[1.2rem] py-3 rounded-[0.4rem] ${
-                  formik.isValid ? "" : "cursor-not-allowed"
-                }`}
+            {state === "signup" ? (
+              <form
+                className="px-5 flex flex-col gap-5 py-10 md:w-[80%]"
+                autoComplete="off"
+                onSubmit={formik.handleSubmit}
               >
-                {formik.isSubmitting ? "Submitting..." : "Submit"}
-              </motion.button>
-              {formik.isValid ? "" : "Enter the valid Information!"}
-            </form>
+                <p className="text-2xl font-medium">Welcome to Airbnb</p>
+                <div className="flex flex-col gap-4 w-full">
+                  <div className="w-full">
+                    <input
+                      className="w-full text-[1.2rem] py-4 px-2 outline-black border-[2.1px] rounded-[0.6rem] outline-inset-2 focus:rounded-[0.6rem]"
+                      type="email"
+                      placeholder="Enter your Email"
+                      id="email"
+                      name="email"
+                      value={formik.values.email}
+                      onChange={formik.handleChange}
+                    />
+                    {/* show the error if email format is wrong */}
+                    <p className="text-red-500">{formik.errors.email}</p>
+                  </div>
+                  {/* user name */}
+                  <div>
+                    <input
+                      className="w-full text-[1.2rem] py-4 px-2 outline-black border-[2.1px] rounded-[0.6rem] outline-inset-2 focus:rounded-[0.6rem]"
+                      type="text"
+                      placeholder="Enter your your name"
+                      value={formik.values.username}
+                      onChange={formik.handleChange}
+                      id="username"
+                      name="username"
+                    />
+                    <p className="text-red-500">{formik.errors.username}</p>
+                  </div>
+                  {/* show the error if name format is wrong */}
+
+                  <div className="w-[full] relative">
+                    {/* password */}
+                    <input
+                      className="w-full text-[1.2rem] py-4 px-2 outline-black border-[2.1px] rounded-[0.6rem] outline-inset-2 focus:rounded-[0.6rem]"
+                      type={showPassword ? "text" : "password"}
+                      placeholder="Enter your your password"
+                      value={formik.values.password}
+                      onChange={formik.handleChange}
+                      id="password"
+                      name="password"
+                    />
+                    <p
+                      onClick={() => setShowPassword(!showPassword)}
+                      className="absolute top-5 right-7"
+                    >
+                      {showPassword ? (
+                        <GoEye size={20} />
+                      ) : (
+                        <GoEyeClosed size={20} />
+                      )}
+                    </p>
+
+                    <p className="text-red-500">{formik.errors.password}</p>
+                  </div>
+
+                  {/* confirm password */}
+                  <div className="w-[full] relative">
+                    {/* password */}
+                    <input
+                      className="w-full text-[1.2rem] py-4 px-2 outline-black border-[2.1px] rounded-[0.6rem] outline-inset-2 focus:rounded-[0.6rem]"
+                      type={showRepassword ? "text" : "password"}
+                      placeholder="Confirm your password"
+                      value={formik.values.confirmPassword}
+                      onChange={formik.handleChange}
+                      id="confirmPassword"
+                      name="confirmPassword"
+                    />
+                    <p
+                      onClick={() => setshowRepassword(!showRepassword)}
+                      className="absolute top-5 right-7"
+                    >
+                      {showRepassword ? (
+                        <GoEye size={20} />
+                      ) : (
+                        <GoEyeClosed size={20} />
+                      )}
+                    </p>
+                    <p className="text-red-500">
+                      {formik.errors.confirmPassword}
+                    </p>
+                  </div>
+                </div>
+                <p className="text-[0.8rem] text-[#535151]">
+                  We’ll call or text you to confirm your number. Standard
+                  message and data rates apply.{" "}
+                  <span className="underline font-bold">Privacy Policy</span>{" "}
+                </p>
+                <motion.button
+                  whileHover={formik.isValid ? { scale: 1.02 } : ""}
+                  whileTap={formik.isValid ? { scale: 0.9 } : ""}
+                  type="submit"
+                  disabled={formik.isSubmitting}
+                  className={`bg-[#da1247eb] text-white text-[1.2rem] py-3 rounded-[0.4rem] ${
+                    formik.isValid ? "" : "cursor-not-allowed"
+                  }`}
+                >
+                  {formik.isSubmitting ? "Submitting..." : "Submit"}
+                </motion.button>
+                {!formik.isValid ? (
+                  <p className="text-red-500 text-2xl">
+                    Enter the valid information
+                  </p>
+                ) : (
+                  ""
+                )}
+              </form>
+            ) : (
+              ""
+            )}
+            {/* ------------------- When you click on the login it show these two blocks ------------------------------------- */}
+            {state === "login" ? (
+              <form
+                className="px-5 flex flex-col gap-5 py-10 md:w-[80%]"
+                autoComplete="off"
+                onSubmit={LoginFormik.handleSubmit}
+              >
+                <p className="text-2xl font-medium">Welcome to Airbnb</p>
+                <div className="flex flex-col gap-4 w-full">
+                  {/* email */}
+                  <div className="w-full">
+                    <input
+                      className="w-full text-[1.2rem] py-4 px-2 outline-black border-[2.1px] rounded-[0.6rem] outline-inset-2 focus:rounded-[0.6rem]"
+                      type="email"
+                      placeholder="Enter your Email"
+                      id="email"
+                      name="email"
+                      value={LoginFormik.values.email}
+                      onChange={LoginFormik.handleChange}
+                    />
+                    {/* show the error if email format is wrong */}
+                    <p className="text-red-500">{LoginFormik.errors.email}</p>
+                  </div>
+                  {/* password */}
+                  <div className="w-[full] relative">
+                    <input
+                      className="w-full text-[1.2rem] py-4 px-2 outline-black border-[2.1px] rounded-[0.6rem] outline-inset-2 focus:rounded-[0.6rem]"
+                      type={showPassword ? "text" : "password"}
+                      placeholder="Enter your your password"
+                      value={LoginFormik.values.password}
+                      onChange={LoginFormik.handleChange}
+                      id="password"
+                      name="password"
+                    />
+                    <p
+                      onClick={() => setShowPassword(!showPassword)}
+                      className="absolute top-5 right-7"
+                    >
+                      {showPassword ? (
+                        <GoEye size={20} />
+                      ) : (
+                        <GoEyeClosed size={20} />
+                      )}
+                    </p>
+
+                    <p className="text-red-500">{LoginFormik.errors.password}</p>
+                  </div>
+                </div>
+                <p className="text-[0.8rem] text-[#535151]">
+                  We’ll call or text you to confirm your number. Standard
+                  message and data rates apply.{" "}
+                  <span className="underline font-bold">Privacy Policy</span>{" "}
+                </p>
+                <motion.button
+                  whileHover={LoginFormik.isValid ? { scale: 1.02 } : ""}
+                  whileTap={LoginFormik.isValid ? { scale: 0.9 } : ""}
+                  type="submit"
+                  disabled={LoginFormik.isSubmitting}
+                  className={`bg-[#da1247eb] text-white text-[1.2rem] py-3 rounded-[0.4rem] ${
+                    LoginFormik.isValid ? "" : "cursor-not-allowed"
+                  }`}
+                >
+                  {LoginFormik.isSubmitting ? "Submitting..." : "Submit"}
+                </motion.button>
+                {!LoginFormik.isValid ? (
+                  <p className="text-red-500 text-2xl">
+                    Enter the valid information
+                  </p>
+                ) : (
+                  ""
+                )}
+              </form>
+            ) : (
+              ""
+            )}
+
+            {/* end of the login block */}
+
             {/* option to login  : facebook , google, apple, email*/}
             <div className="px-5 flex flex-col gap-5 py-10 md:w-[80%]">
               {/* continue with google */}

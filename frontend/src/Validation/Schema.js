@@ -23,4 +23,13 @@ export const SignupSchema = yup.object({
     .required("Confirm password is required"),
 });
 
+
+
+// validation schema for the login.
+
+export const loginSchema = yup.object({
+  email: yup.string().email("Email should be valid").required("Email is required!"),
+  password: yup.string().required("Password is required!")
+})
+
 // oneof([yup.ref("password")]) : check the password and match with the checkpassword if both are not equal it gives error like password must match.
