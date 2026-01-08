@@ -84,7 +84,7 @@ function Login() {
 
     onSubmit: async (values, { resetForm }) => {
       try {
-        const response = await axios.post("/api/login", values);
+        const response = await api.post("/api/login", values);
 
         console.log(values);
 
