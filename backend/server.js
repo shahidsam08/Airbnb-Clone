@@ -14,10 +14,14 @@ app.use(
       "http://localhost:5173",
       "https://airbnb-clone-wine-ten.vercel.app",
     ], // deployed frontend // React app
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
+
+
+// ------ Fixes preflight errors
+app.options("*", cors()); 
 app.use(express.json());
 app.use(helmet());
 
