@@ -29,8 +29,8 @@ app.use(helmet({crossOriginResourcePolicy : false}));
 // connnect to the database.
 dbconnection();
 
-app.get("/", (req, res) => {
-  res.json("Home backend method for testing.");
+app.get("*", (req, res) => {
+  res.json({message : "Route not found!"});
 });
 
 app.use("/api", Authrouter);
