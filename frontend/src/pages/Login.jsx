@@ -17,6 +17,7 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "motion/react";
 import { toast } from "react-toastify";
 import { useReducer } from "react";
+import api from "../api/axios.js";
 
 const reducer = (_, action) => {
   switch (action.type) {
@@ -54,8 +55,8 @@ function Login() {
 
     onSubmit: async (values, { resetForm }) => {
       try {
-        const response = await axios.post(
-          "http://localhost:8000/api/signup",
+        const response = await api.post(
+          "/api/signup",
 
           values
         );
@@ -83,10 +84,7 @@ function Login() {
 
     onSubmit: async (values, { resetForm }) => {
       try {
-        const response = await axios.post(
-          "http://localhost:8000/api/login",
-          values
-        );
+        const response = await axios.post("/api/login", values);
 
         console.log(values);
 
@@ -370,7 +368,9 @@ function Login() {
                       )}
                     </p>
 
-                    <p className="text-red-500">{LoginFormik.errors.password}</p>
+                    <p className="text-red-500">
+                      {LoginFormik.errors.password}
+                    </p>
                   </div>
                 </div>
                 <p className="text-[0.8rem] text-[#535151]">

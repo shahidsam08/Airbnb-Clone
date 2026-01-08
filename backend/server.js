@@ -10,7 +10,10 @@ const app = express();
 dotenv.config();
 app.use(
   cors({
-    origin: "http://localhost:5173", // React app
+    origin: [
+      "http://localhost:5173",
+      "https://airbnb-clone-wine-ten.vercel.app",
+    ], // deployed frontend // React app
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
@@ -22,7 +25,7 @@ app.use(helmet());
 dbconnection();
 
 app.get("/", (req, res) => {
-  res.json("this is the data where database run");
+  res.json("Home backend method for testing.");
 });
 
 app.use("/api", Authrouter);
