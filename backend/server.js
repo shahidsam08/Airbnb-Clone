@@ -22,7 +22,7 @@ app.use(
   })
 );
 // ------ Fixes preflight errors
-app.options("/*", cors()); 
+// app.options("/*", cors()); 
 
 app.use(helmet({crossOriginResourcePolicy : false}));
 
@@ -35,7 +35,7 @@ app.use("/api", Authrouter);
 // http://localhost:PORT/api/user
 
 
-app.get("/*", (req, res) => {
+app.use((req, res) => {
   res.json({message : "Route not found!"});
 });
 
