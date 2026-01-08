@@ -5,25 +5,26 @@ import dotenv from "dotenv";
 import helmet from "helmet";
 import Authrouter from "./src/router/AuthRouter.js";
 
-const app = express();
+
 
 dotenv.config();
+const app = express();
+app.use(express.json());
 app.use(
   cors({
     origin: [
       "http://localhost:5173",
       "https://airbnb-clone-wine-ten.vercel.app",
     ], // deployed frontend // React app
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
-
-
 // ------ Fixes preflight errors
 app.options("*", cors()); 
-app.use(express.json());
-app.use(helmet());
+
+app.use(helmet({crossOriginResourcePolicy : false}));
 
 // connnect to the database.
 dbconnection();
