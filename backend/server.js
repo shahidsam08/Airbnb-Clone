@@ -22,19 +22,22 @@ app.use(
   })
 );
 // ------ Fixes preflight errors
-app.options("*", cors()); 
+app.options("/*", cors()); 
 
 app.use(helmet({crossOriginResourcePolicy : false}));
 
 // connnect to the database.
 dbconnection();
 
-app.get("*", (req, res) => {
-  res.json({message : "Route not found!"});
-});
+
 
 app.use("/api", Authrouter);
 // http://localhost:PORT/api/user
+
+
+app.get("/*", (req, res) => {
+  res.json({message : "Route not found!"});
+});
 
 app.listen(process.env.PORT, () => {
   console.log(`http://localhost:${process.env.PORT}`);
