@@ -91,10 +91,10 @@ function Login() {
         if (response.data.message === "Login Successfully") {
           toast.success("Welcome back, You are login successfully!");
           navigate("/");
-        } else if (response.data.message === "Email not found") {
-          resetForm();
+        } else if (response.data.message === "Invalid email") {
           toast.success("Account not found! Create you Account");
-        } else if (response.data.message === "password is incorrect") {
+          
+        } else if (response.data.message === "Invalid password") {
           toast.success("Password is Incorrect");
         } else {
           console.log("something else error");

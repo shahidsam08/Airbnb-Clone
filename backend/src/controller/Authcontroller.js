@@ -32,11 +32,11 @@ export const LoginController = async (req, res) => {
     const { email, password } = req.body;
     const user = await User.findOne({ email: email });
     if (!user) {
-      return res.status(404).json({ message: "Email not found" });
+      return res.status(401).json({ message: "Invalid email" });
     }
     const isMatchPassword = await bcrypt.compare(password, user.password);
     if (!isMatchPassword) {
-      return res.status(404).json({ message: "password is incorrect" });
+      return res.status(401).json({ message: "Invalid password" });
     } else {
       const token = jwt.sign(
         {  id : user._id, email: user.email },
