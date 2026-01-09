@@ -3,6 +3,8 @@ import User from "../model/User.model.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
+
+// sign up controller
 export const SignupController = async (req, res) => {
   try {
     const { email, username, password } = req.body;
@@ -37,14 +39,14 @@ export const LoginController = async (req, res) => {
       return res.status(404).json({ message: "password is incorrect" });
     } else {
       const token = jwt.sign(
-        { _id: user._id, email: user.email },
+        {  id : user._id, email: user.email },
         process.env.SECRET_KEY,
         { expiresIn: "1d" }
       );
 
       res.cookie("token", token);
 
-      return res.status(200).json({ message: "Login Successfully", token });
+      return res.status(200).json({ message: "Login Successfully", token: token });
     }
   } catch (error) {
     console.log(error);
