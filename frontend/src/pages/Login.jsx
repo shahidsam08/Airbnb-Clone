@@ -93,9 +93,9 @@ function Login() {
           navigate("/");
         } else if (response.data.message === "Email not found") {
           resetForm();
-          toast.error("Account not found! Create you Account");
+          toast.success("Account not found! Create you Account");
         } else if (response.data.message === "password is incorrect") {
-          toast.error("Password is Incorrect");
+          toast.success("Password is Incorrect");
         } else {
           console.log("something else error");
         }
