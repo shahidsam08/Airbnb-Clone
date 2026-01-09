@@ -42,6 +42,8 @@ export const LoginController = async (req, res) => {
         { expiresIn: "1d" }
       );
 
+      res.cookie("token", token);
+
       return res.status(200).json({ message: "Login Successfully", token });
     }
   } catch (error) {
