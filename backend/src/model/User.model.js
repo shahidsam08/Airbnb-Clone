@@ -22,6 +22,11 @@ const UserSchema = new mongoose.Schema(
       type: String,
       enum: ["user", "host", "admin"],
       default: "user"
+    }, 
+    country : {
+      type: String,
+      default : "India",
+      trim : true,
     }
     
   },

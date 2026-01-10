@@ -8,6 +8,10 @@ const ListingSchema = new mongoose.Schema({
     required: true,
     trim: true
   },
+  description : {
+    type : String,
+    trim: true
+  },
   image: {
     url: String,
     public_id: String,
@@ -22,7 +26,7 @@ const ListingSchema = new mongoose.Schema({
     required: true,
     trim: true
   },
-  
+
 })
 
 const Listing = mongoose.model("Listing", ListingSchema)
