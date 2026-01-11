@@ -1,7 +1,8 @@
 import express from "express";
 import User from "../model/User.model.js";
 import { LoginController, SignupController } from "../controller/Authcontroller.js";
-import verifyToken  from "../middleware/VerifyToken.js"
+import VerifyToken from "../middleware/VerifyToken.js"
+import { NavbarAuth } from "../controller/Authcontroller.js";
 
 const router = express.Router();
 
@@ -9,5 +10,8 @@ const router = express.Router();
 router.post("/signup", SignupController)
 
 router.post("/login", LoginController) 
+
+
+router.get("/navbar", VerifyToken, NavbarAuth)
 
 export default router;

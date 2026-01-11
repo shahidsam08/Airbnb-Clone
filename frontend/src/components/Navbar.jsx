@@ -6,6 +6,7 @@ import { useReducer, useState, useEffect } from "react";
 import { CgMenu } from "react-icons/cg";
 import { IoSearch } from "react-icons/io5";
 import { motion } from "motion/react";
+import api from "../api/axios";
 
 // logic of useReducer
 const reducer = (state, action) => {
@@ -25,6 +26,18 @@ function Navbar() {
   const [Toggle, setToggle] = useState(false);
   // using useReducer
   const [active, dispatch] = useReducer(reducer, "where");
+
+  useEffect(async () => {
+    try {
+      const response = await api.get("/api/home", { withCredentials: true });
+
+      if(response.data.message === "") {
+        
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  });
 
   return (
     <nav
@@ -124,7 +137,7 @@ function Navbar() {
               <div className="flex flex-col align-middle pb-2 justify-center items-center">
                 <motion.img
                   animate={{
-                    rotateY : 360,
+                    rotateY: 360,
                     transition: { duration: 1 },
                   }}
                   src="https://cdn-icons-png.flaticon.com/128/3171/3171547.png"
