@@ -55,11 +55,7 @@ function Login() {
 
     onSubmit: async (values, { resetForm }) => {
       try {
-        const response = await api.post(
-          "/api/signup",
-
-          values
-        );
+        const response = await api.post("/api/signup", values);
 
         console.log(response.data.message);
         if (response.data.message === "New User Created!") {
@@ -86,14 +82,11 @@ function Login() {
       try {
         const response = await api.post("/api/login", values);
 
-        console.log(values);
-
         if (response.data.message === "Login Successfully") {
           toast.success("Welcome back, You are login successfully!");
           navigate("/");
         } else if (response.data.message === "Invalid email") {
-          toast.success("Account not found! Create you Account");
-          
+          toast.success("Account not found! Create your Account");
         } else if (response.data.message === "Invalid password") {
           toast.success("Password is Incorrect");
         } else {

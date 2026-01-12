@@ -27,17 +27,17 @@ function Navbar() {
   // using useReducer
   const [active, dispatch] = useReducer(reducer, "where");
 
-  useEffect(async () => {
-    try {
-      const response = await api.get("/api/home", { withCredentials: true });
+  // useEffect(async () => {
+  //   try {
+  //     const response = await api.get("/api/home", { withCredentials: true });
 
-      if(response.data.message === "") {
+  //     if(response.data.message === "") {
         
-      }
-    } catch (error) {
-      console.log(error)
-    }
-  });
+  //     }
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // });
 
   return (
     <nav

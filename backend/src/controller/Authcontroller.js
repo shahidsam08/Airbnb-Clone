@@ -31,11 +31,11 @@ export const LoginController = async (req, res) => {
     const { email, password } = req.body;
     const user = await User.findOne({ email: email });
     if (!user) {
-      return res.status(401).json({ message: "Invalid email" });
+      return res.status(400).json({ message: "Invalid email" });
     }
     const isMatchPassword = await bcrypt.compare(password, user.password);
     if (!isMatchPassword) {
-      return res.status(401).json({ message: "Invalid password" });
+      return res.status(400).json({ message: "Invalid password" });
     } else {
       const token = jwt.sign(
         { id: user._id, email: user.email },
@@ -54,14 +54,14 @@ export const LoginController = async (req, res) => {
   }
 };
 
-// -------- Navbar authentication
-export const NavbarAuth = async (req, res) => {
-  const token = req.cookies
-  try {
-    const user = await User.findOne({email : req.user.emai})
-    console.log(user)
-    console.log(token)
-  } catch (error) {
-    res.status(400).json({ message: "Something went wrong" });
-  }
-};
+// // -------- Navbar authentication
+// export const NavbarAuth = async (req, res) => {
+//   const token = req.cookies
+//   try {
+//     const user = await User.findOne({email : req.user.email})
+//     console.log(user)
+//     console.log(token)
+//   } catch (error) {
+//     res.status(400).json({ message: "Something went wrong" });
+//   }
+// };
