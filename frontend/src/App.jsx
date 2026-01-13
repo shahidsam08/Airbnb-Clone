@@ -29,6 +29,7 @@ import Messages from "./pages/Messages";
 import Trips from "./pages/Trips";
 import AccountSetting from "./pages/AccountSetting";
 import HostingPage from "./pages/HostingPage";
+import Notification from "./pages/Notification";
 
 function App() {
   return (
@@ -51,6 +52,10 @@ function App() {
           <Route path="/trips" element={<Trips />} />
           <Route path="/accountsetting" element={<AccountSetting />} />
           <Route path="/host" element={<HostingPage />} />
+          <Route path="/notification" element={<Notification />} />
+          <Route path="/login" element={<Login />} />
+          
+
           <Route path="/searchpage" element={<Searchpage />} />
 
           {/* Footer link setup */}

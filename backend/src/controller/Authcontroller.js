@@ -65,7 +65,7 @@ export const NavbarAuth = async (req, res) => {
     const user = await User.findOne({ email: req.user.email });
     // res.json({ user_Details: req.user });
     if (user) {
-      return res.status(200).json({ message: "User loggged In" , token : token});
+      return res.status(200).json({ message: "User loggged In" , token : token, userdata : user});
     }
   } catch (error) {
     console.log(error);
