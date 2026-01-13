@@ -1,16 +1,27 @@
-import jwt from "jsonwebtoken"
-
+import jwt from "jsonwebtoken";
 
 const verifyJWT = (req, res, next) => {
-  const token = req.cookies
-  if (!token) return res.status(401).json({ message: "Unauthorized" });
+  const token = req.cookies.token;
 
-  jwt.verify(token, process.env.SECRET_KEY, (err, decoded) => {
-    if (err) return res.status(403).json({ message: "Token invalid" });
+  if (!token) {
+    return res.status(401).json({ message: "Unauthorized" });
+  }
+
+  try {
+    const decoded = jwt.verify(token, process.env.SECRET_KEY);
     req.user = decoded;
     next();
-  });
+  } catch (err) {
+    if (err.name === "TokenExpiredError") {
+      return res.status(401).json({
+        message: "Token expired",
+      });
+    }
+
+    return res.status(401).json({
+      message: "Invalid token",
+    });
+  }
 };
 
-
-export default verifyJWT
+export default verifyJWT;

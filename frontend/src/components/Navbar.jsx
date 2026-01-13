@@ -27,17 +27,32 @@ function Navbar() {
   // using useReducer
   const [active, dispatch] = useReducer(reducer, "where");
 
-  // useEffect(async () => {
-  //   try {
-  //     const response = await api.get("/api/home", { withCredentials: true });
+  const [loggedIn, setLoggedIn] = useState(false);
 
-  //     if(response.data.message === "") {
-        
-  //     }
-  //   } catch (error) {
-  //     console.log(error)
-  //   }
-  // });
+  useEffect(() => {
+    const navbarCalling = async () => {
+      try {
+        const response = await api.get("/api/navbar", {
+          withCredentials: true,
+        });
+
+        const token = response.data.token;
+        console.log(token);
+
+        if (response.data.message === "User loggged In") {
+          setLoggedIn(true);
+        } else if (response.data.message === "Unauthorized") {
+          setLoggedIn(false);
+        } else if (response.data.message === "Token expired") {
+          setLoggedIn(false);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    navbarCalling();
+  }, []);
 
   return (
     <nav
@@ -198,9 +213,10 @@ function Navbar() {
               <div className="flex flex-row items-center justify-center gap-8">
                 <Link to="/host" className="md:hidden lg:block">
                   <div className="px-3 py-2 rounded-2xl hover:bg-[#ebebebdd] text-[1rem]">
-                    Become a host
+                    {loggedIn ? <p>Switch to Hosting</p> : <p>Become a Host</p> }
                   </div>
                 </Link>
+                {/*  */}
                 <div
                   className="md:p-2 md:bg-zinc-200 md:w-fit md:rounded-4xl md:flex md:items-center md:justify-center relative cursor-pointer"
                   onClick={() => {

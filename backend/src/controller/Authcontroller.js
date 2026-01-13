@@ -43,7 +43,11 @@ export const LoginController = async (req, res) => {
         { expiresIn: "1d" }
       );
 
-      res.cookie("token", token);
+      res.cookie("token", token, {
+        httpOnly: true,
+        sameSite: "Strict",
+        secure: true,
+      });
 
       return res
         .status(200)
@@ -54,14 +58,17 @@ export const LoginController = async (req, res) => {
   }
 };
 
-// // -------- Navbar authentication
-// export const NavbarAuth = async (req, res) => {
-//   const token = req.cookies
-//   try {
-//     const user = await User.findOne({email : req.user.email})
-//     console.log(user)
-//     console.log(token)
-//   } catch (error) {
-//     res.status(400).json({ message: "Something went wrong" });
-//   }
-// };
+// -------- Navbar authentication
+export const NavbarAuth = async (req, res) => {
+  const token = req.user;
+  try {
+    const user = await User.findOne({ email: req.user.email });
+    // res.json({ user_Details: req.user });
+    if (user) {
+      return res.status(200).json({ message: "User loggged In" , token : token});
+    }
+  } catch (error) {
+    console.log(error);
+    return res.status(400).json({ message: "Something went wrong" });
+  }
+};

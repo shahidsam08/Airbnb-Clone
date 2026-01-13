@@ -4,12 +4,14 @@ import cors from "cors";
 import dotenv from "dotenv";
 import helmet from "helmet";
 import Authrouter from "./src/router/AuthRouter.js";
+import cookieParser from "cookie-parser";
 
 
 
 dotenv.config();
 const app = express();
 app.use(express.json());
+app.use(cookieParser())
 app.use(
   cors({
     origin: [
