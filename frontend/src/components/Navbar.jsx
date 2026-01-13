@@ -225,7 +225,7 @@ function Navbar() {
                 {/* show the user if user logged in show this otherwise hide. */}
                 {loggedIn ? (
                   <Link
-                    to="/userSetting"
+                    to="/profile"
                     className="bg-gray-900 w-12 h-12  rounded-full flex flex-col justify-center items-center"
                   >
                     <p className="text-white text-2xl">{userName}</p>
@@ -275,7 +275,7 @@ function Navbar() {
                     </Link>
 
                     {/* profile */}
-                    <Link to="/findcohost" className="hover:bg-[#f1f0f0] flex flex-row items-center justify-start pl-4 py-2 gap-2">
+                    <Link to="/profile" className="hover:bg-[#f1f0f0] flex flex-row items-center justify-start pl-4 py-2 gap-2">
                     <FaRegUserCircle size={17} />
                       <p className="text-[1.1rem]">Profile</p>
                     </Link>

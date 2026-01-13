@@ -74,7 +74,7 @@ function FooterBottom() {
 
       {/* this block shown when the user logged in, if logged out the upperblock will run */}
 
-      <div className={`flex flex-row justify-around align-middle items-center p-4 backdrop-blur-md ${loggedIn ? "block" : "hidden"}`}>
+      <div className={`flex flex-row justify-around align-middle items-center p-4 backdrop-blur-md ${loggedIn ? "block md:hidden" : "hidden"}`}>
         {/* explore home page. */}
         <NavLink
           to="/"

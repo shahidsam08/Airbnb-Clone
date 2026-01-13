@@ -24,6 +24,11 @@ import NotFound from "./pages/NotFound";
 // adding the toastify show alerts on error, login, or other purpose.
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Profile from "./pages/Profile";
+import Messages from "./pages/Messages";
+import Trips from "./pages/Trips";
+import AccountSetting from "./pages/AccountSetting";
+import HostingPage from "./pages/HostingPage";
 
 function App() {
   return (
@@ -40,7 +45,12 @@ function App() {
           </Route>
           <Route path="*" element={<NotFound />} />
           <Route path="/wishlist" element={<Wishlist />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/messages" element={<Messages />} />
+          <Route path="/trips" element={<Trips />} />
+          <Route path="/trips" element={<Trips />} />
+          <Route path="/accountsetting" element={<AccountSetting />} />
+          <Route path="/host" element={<HostingPage />} />
           <Route path="/searchpage" element={<Searchpage />} />
 
           {/* Footer link setup */}
