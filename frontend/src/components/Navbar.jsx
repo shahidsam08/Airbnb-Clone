@@ -7,6 +7,9 @@ import { CgMenu } from "react-icons/cg";
 import { IoSearch } from "react-icons/io5";
 import { motion } from "motion/react";
 import api from "../api/axios";
+import { FaRegHeart, FaSuitcaseRolling, FaRegUserCircle } from "react-icons/fa";
+import { FaRegMessage } from "react-icons/fa6";
+import { IoSettingsOutline } from "react-icons/io5";
 
 // logic of useReducer
 const reducer = (state, action) => {
@@ -28,6 +31,7 @@ function Navbar() {
   const [active, dispatch] = useReducer(reducer, "where");
 
   const [loggedIn, setLoggedIn] = useState(false);
+  const [userName, setUserName] = useState("");
 
   useEffect(() => {
     const navbarCalling = async () => {
@@ -37,7 +41,9 @@ function Navbar() {
         });
 
         const token = response.data.token;
-        console.log(token);
+        console.log(token.email.charAt(0));
+
+        setUserName(token.email.charAt(0).toUpperCase());
 
         if (response.data.message === "User loggged In") {
           setLoggedIn(true);
@@ -213,10 +219,21 @@ function Navbar() {
               <div className="flex flex-row items-center justify-center gap-8">
                 <Link to="/host" className="md:hidden lg:block">
                   <div className="px-3 py-2 rounded-2xl hover:bg-[#ebebebdd] text-[1rem]">
-                    {loggedIn ? <p>Switch to Hosting</p> : <p>Become a Host</p> }
+                    {loggedIn ? <p>Switch to Hosting</p> : <p>Become a Host</p>}
                   </div>
                 </Link>
-                {/*  */}
+                {/* show the user if user logged in show this otherwise hide. */}
+                {loggedIn ? (
+                  <Link
+                    to="/userSetting"
+                    className="bg-gray-900 w-12 h-12  rounded-full flex flex-col justify-center items-center"
+                  >
+                    <p className="text-white text-2xl">{userName}</p>
+                  </Link>
+                ) : (
+                  " "
+                )}
+                {/* show the hamburger which show */}
                 <div
                   className="md:p-2 md:bg-zinc-200 md:w-fit md:rounded-4xl md:flex md:items-center md:justify-center relative cursor-pointer"
                   onClick={() => {
@@ -227,17 +244,52 @@ function Navbar() {
                     }
                   }}
                 >
-                  <CgMenu size={20} color="black" />
+                  <CgMenu size={30} color="black" />
                 </div>
               </div>
 
               {/* show toggle data */}
               {Toggle ? (
                 <div className="absolute top-15 right-5 bg-white shadow-2xl ring-gray-700 ring-offset-2 w-70 py-3 rounded-2xl flex flex-col gap-2">
+                  {/* show this when user is logged in when user logout don't show these block */}
+                  <div className={`${loggedIn ? "block" : "hidden"}`}>
+                    {/* wishlist */}
+                    <Link
+                      to="/wishlist"
+                      className="flex flex-row gap-2 items-center justify-start hover:bg-[#f1f0f0] pl-4 py-2"
+                    >
+                      <FaRegHeart size={17} />
+                      <p className="text-[1rem]">WishList</p>
+                    </Link>
+
+                    {/*trips */}
+                    <Link to="/trips" className="hover:bg-[#f1f0f0] flex flex-row items-center justify-start pl-4 py-2 gap-2">
+                      <FaSuitcaseRolling size={17} />
+                      <p className="text-[1.1rem] ">Trips</p>
+                    </Link>
+
+                    {/* messages */}
+                    <Link to="/messages" className="hover:bg-[#f1f0f0] flex flex-row items-center justify-start pl-4 py-2 gap-2">
+                      <FaRegMessage size={17} />
+                      <p className="text-[1.1rem]">Messages</p>
+                    </Link>
+
+                    {/* profile */}
+                    <Link to="/findcohost" className="hover:bg-[#f1f0f0] flex flex-row items-center justify-start pl-4 py-2 gap-2">
+                    <FaRegUserCircle size={17} />
+                      <p className="text-[1.1rem]">Profile</p>
+                    </Link>
+                    {/* account setting */}
+                    <Link to="/accountSetting" className="hover:bg-[#f1f0f0] flex flex-row items-center justify-start pl-4 py-2 gap-2">
+                    <IoSettingsOutline size={17} />
+                      <p className="text-[1.1rem]">Account Setting</p>
+                    </Link>
+                  </div>
+                  {/* end of the loggedIn shows data , one in the bottom in this div box which is logoout */}
                   {/* help center */}
                   <Link
                     to="/helpcenter"
-                    className="flex flex-row gap-2 items-center justify-start hover:bg-[#f1f0f0] pl-2 py-2"
+                    className="flex flex-row gap-2 items-center justify-start hover:bg-[#f1f0f0] pl-4 py-2"
                   >
                     <RxQuestionMarkCircled size={20} />
                     <p className="text-[1rem]">Help Center</p>
@@ -245,23 +297,36 @@ function Navbar() {
                   <div className="border-[0.2px] border-[#dfdcdc] "></div>
                   {/* become a host */}
                   <Link to="/host" className="hover:bg-[#f1f0f0]">
-                    <p className="text-[1.1rem] pl-2 py-2">Become a host</p>
+                    <p className="text-[1.1rem] pl-4 py-2">Become a host</p>
                   </Link>
                   <div className="border-[0.2px] border-[#dfdcdc] "></div>
                   {/* Refer a host */}
                   <Link to="/refer-co-host" className="hover:bg-[#f1f0f0]">
-                    <p className="text-[1.1rem] pl-2 py-2">Refer a host</p>
+                    <p className="text-[1.1rem] pl-4 py-2">Refer a host</p>
                   </Link>
                   <div className="border-[0.2px] border-[#dfdcdc] "></div>
                   {/* find a co host */}
                   <Link to="/findcohost" className="hover:bg-[#f1f0f0]">
-                    <p className="text-[1.1rem] pl-2 py-2">Find a co-host</p>
+                    <p className="text-[1.1rem] pl-4 py-2">Find a co-host</p>
                   </Link>
                   <div className="border-[0.2px] border-[#dfdcdc] "></div>
                   {/* login or sign up  */}
-                  <Link to="/login" className="hover:bg-[#f1f0f0]">
-                    <p className="text-[1.1rem] pl-2 py-2">Login or signup</p>
+                  <Link
+                    to="/login"
+                    className={`hover:bg-[#f1f0f0] ${
+                      loggedIn ? "hidden" : "block"
+                    }`}
+                  >
+                    <p className="text-[1.1rem] pl-4 py-2">Login or signup</p>
                   </Link>
+                  {/* show logout when the user is logged in */}
+                  <div
+                    className={`hover:bg-[#f1f0f0] cursor-pointer ${
+                      loggedIn ? "block" : "hidden"
+                    }`}
+                  >
+                    <p className="text-[1.1rem] pl-4 py-2">Log Out</p>
+                  </div>
                 </div>
               ) : (
                 " "
