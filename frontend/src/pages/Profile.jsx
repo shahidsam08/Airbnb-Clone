@@ -218,7 +218,7 @@ function Profile() {
                   {userFirstLetter}
                 </p>
               </div>
-              <p className="text-[1.2rem] text-zinc-700 font-medium text-start w-[80]">
+              <p className="text-[1.2rem] text-zinc-700 font-medium text-start">
                 About me
               </p>
             </div>
