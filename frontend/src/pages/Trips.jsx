@@ -50,7 +50,9 @@ function Trips() {
         <Footer />
       </div>
 
-      <FooterBottom />
+      <div className="md:hidden sticky bottom-0">
+        <FooterBottom />
+      </div>
     </div>
   );
 }

@@ -68,6 +68,24 @@ function Profile() {
 
     navbarCalling();
   });
+
+  // logout method
+  const logout = async () => {
+    try {
+      const response = await api.get("/api/logout", { withCredentials: true });
+
+      if (response.data.message === "Logged out successfully") {
+        toast.success("Log Out successfully");
+        setTimeout(() => {
+          window.location.reload();
+        }, 4000);
+      } else if (response.data.message === "User not found") {
+        toast.error("User not found");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div>
       {/* show this block when the screen size is medium and small */}
@@ -192,7 +210,8 @@ function Profile() {
             <FaAngleRight size={20} />
           </div>
           {/* Logout */}
-          <div className="flex flex-row items-center justify-between">
+          <div className="flex flex-row items-center justify-between"
+          onClick={logout}>
             <div className="flex flex-row gap-4 items-center">
               <SlLogout size={30} />
               <p className="text-[1.2rem]">Log Out</p>
@@ -303,7 +322,7 @@ function Profile() {
                         get to know you.
                       </p>
                       <Link
-                        to="/editprofile"
+                        to="/accountsetting"
                         className="bg-[#cc2551] lg:w-[90%] p-3 rounded-2xl"
                       >
                         <p className="text-white text-2xl text-center">
@@ -379,7 +398,7 @@ function Profile() {
         </div>
       </div>
       {/* it's show on when the screen is small */}
-      <div className="sticky bottom-0">
+      <div className="sticky bottom-0 md:hidden">
         <FooterBottom />
       </div>
       {/* show when the screen is big */}

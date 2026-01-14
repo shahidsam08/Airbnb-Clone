@@ -37,7 +37,9 @@ function Wishlist() {
       <HeaderCommon />
 
       {LoggedIn ? (
-        <p>show the wishlist data which are added by you</p>
+        <div className="h-60">
+          <p className="p-10 font-bold text-2xl">No wishlist.</p>
+        </div>
       ) : (
         <div>
           <div>
