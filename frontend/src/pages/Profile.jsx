@@ -14,6 +14,7 @@ import { SlLogout } from "react-icons/sl";
 import { Link, NavLink } from "react-router-dom";
 import api from "../api/axios.js";
 import HeaderCommon from "../components/HeaderCommon.jsx";
+import { toast } from "react-toastify";
 
 const reducer = (state, action) => {
   switch (action.type) {
