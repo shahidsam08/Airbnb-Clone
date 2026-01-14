@@ -15,6 +15,7 @@ import { Link, NavLink } from "react-router-dom";
 import api from "../api/axios.js";
 import HeaderCommon from "../components/HeaderCommon.jsx";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -35,6 +36,8 @@ function Profile() {
   const [username, setUserName] = useState("");
   const [userType, setUserType] = useState("");
   const [loggedin, setLoggedIn] = useState(false);
+
+  const navigate = useNavigate();
   useEffect(() => {
     const navbarCalling = async () => {
       try {
@@ -80,6 +83,7 @@ function Profile() {
         setTimeout(() => {
           window.location.reload();
         }, 4000);
+        navigate("/", {replace : true})
       } else if (response.data.message === "User not found") {
         toast.error("User not found");
       }
