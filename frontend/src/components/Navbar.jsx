@@ -10,7 +10,7 @@ import api from "../api/axios";
 import { FaRegHeart, FaSuitcaseRolling, FaRegUserCircle } from "react-icons/fa";
 import { FaRegMessage } from "react-icons/fa6";
 import { IoSettingsOutline } from "react-icons/io5";
-
+import { toast } from "react-toastify";
 // logic of useReducer
 const reducer = (state, action) => {
   switch (action.type) {
@@ -59,6 +59,25 @@ function Navbar() {
 
     navbarCalling();
   }, []);
+
+  // write the logout method
+
+  const logout = async () => {
+    try {
+      const response = await api.get("/api/logout", { withCredentials: true });
+
+      if (response.data.message === "Logged out successfully") {
+        toast.success("Log Out successfully");
+        setTimeout(() => {
+          window.location.reload();
+        }, 4000);
+      } else if (response.data.message === "User not found") {
+        toast.error("User not found");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <nav
@@ -222,11 +241,11 @@ function Navbar() {
                     {loggedIn ? <p>Switch to Hosting</p> : <p>Become a Host</p>}
                   </div>
                 </Link>
-                {/* show the user if user logged in show this otherwise hide. */}
+                {/* -----------show the user if user logged in show this otherwise hide.-------------------- */}
                 {loggedIn ? (
                   <Link
                     to="/profile"
-                    className="bg-gray-900 w-12 h-12  rounded-full flex flex-col justify-center items-center"
+                    className="bg-gray-900 w-10 h-10  rounded-full flex flex-col justify-center items-center"
                   >
                     <p className="text-white text-2xl">{userName}</p>
                   </Link>
@@ -244,7 +263,7 @@ function Navbar() {
                     }
                   }}
                 >
-                  <CgMenu size={30} color="black" />
+                  <CgMenu size={25} color="black" />
                 </div>
               </div>
 
@@ -263,25 +282,37 @@ function Navbar() {
                     </Link>
 
                     {/*trips */}
-                    <Link to="/trips" className="hover:bg-[#f1f0f0] flex flex-row items-center justify-start pl-4 py-2 gap-2">
+                    <Link
+                      to="/trips"
+                      className="hover:bg-[#f1f0f0] flex flex-row items-center justify-start pl-4 py-2 gap-2"
+                    >
                       <FaSuitcaseRolling size={17} />
                       <p className="text-[1.1rem] ">Trips</p>
                     </Link>
 
                     {/* messages */}
-                    <Link to="/messages" className="hover:bg-[#f1f0f0] flex flex-row items-center justify-start pl-4 py-2 gap-2">
+                    <Link
+                      to="/messages"
+                      className="hover:bg-[#f1f0f0] flex flex-row items-center justify-start pl-4 py-2 gap-2"
+                    >
                       <FaRegMessage size={17} />
                       <p className="text-[1.1rem]">Messages</p>
                     </Link>
 
                     {/* profile */}
-                    <Link to="/profile" className="hover:bg-[#f1f0f0] flex flex-row items-center justify-start pl-4 py-2 gap-2">
-                    <FaRegUserCircle size={17} />
+                    <Link
+                      to="/profile"
+                      className="hover:bg-[#f1f0f0] flex flex-row items-center justify-start pl-4 py-2 gap-2"
+                    >
+                      <FaRegUserCircle size={17} />
                       <p className="text-[1.1rem]">Profile</p>
                     </Link>
                     {/* account setting */}
-                    <Link to="/accountSetting" className="hover:bg-[#f1f0f0] flex flex-row items-center justify-start pl-4 py-2 gap-2">
-                    <IoSettingsOutline size={17} />
+                    <Link
+                      to="/accountSetting"
+                      className="hover:bg-[#f1f0f0] flex flex-row items-center justify-start pl-4 py-2 gap-2"
+                    >
+                      <IoSettingsOutline size={17} />
                       <p className="text-[1.1rem]">Account Setting</p>
                     </Link>
                   </div>
@@ -297,7 +328,11 @@ function Navbar() {
                   <div className="border-[0.2px] border-[#dfdcdc] "></div>
                   {/* become a host */}
                   <Link to="/host" className="hover:bg-[#f1f0f0]">
-                    <p className="text-[1.1rem] pl-4 py-2">Become a host</p>
+                    {loggedIn ? (
+                      <p className="text-[1.1rem] pl-4 py-2">Switch to host</p>
+                    ) : (
+                      <p className="text-[1.1rem] pl-4 py-2">Become a host</p>
+                    )}
                   </Link>
                   <div className="border-[0.2px] border-[#dfdcdc] "></div>
                   {/* Refer a host */}
@@ -324,6 +359,7 @@ function Navbar() {
                     className={`hover:bg-[#f1f0f0] cursor-pointer ${
                       loggedIn ? "block" : "hidden"
                     }`}
+                    onClick={logout}
                   >
                     <p className="text-[1.1rem] pl-4 py-2">Log Out</p>
                   </div>

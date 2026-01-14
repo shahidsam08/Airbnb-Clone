@@ -65,10 +65,52 @@ export const NavbarAuth = async (req, res) => {
     const user = await User.findOne({ email: req.user.email });
     // res.json({ user_Details: req.user });
     if (user) {
-      return res.status(200).json({ message: "User loggged In" , token : token, userdata : user});
+      return res
+        .status(200)
+        .json({ message: "User loggged In", token: token, userdata: user });
     }
   } catch (error) {
     console.log(error);
     return res.status(400).json({ message: "Something went wrong" });
+  }
+};
+
+// wishlist authentications
+
+export const WishListAuth = async (req, res) => {
+  const token = req.user;
+  try {
+    const user = await User.findOne({ email: req.user.email });
+    if (user) {
+      res.status(200).json({ message: "User found", userInfo: user });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// ----------- Log out logic --------------------------//
+export const LogoutAuth = async (req, res) => {
+  const token = req.user;
+  try {
+    const user = await User.findOne({ email: req.user.email });
+    if (user) {
+      res.clearCookie("token", {
+        httpOnly: true,
+        sameSite: "none",
+        secure: true,
+      });
+
+      return res.status(200).json({
+        success: true,
+        message: "Logged out successfully",
+      });
+    }
+
+    if(!user) {
+      return res.status(400).json({message : "User not found"})
+    }
+  } catch (error) {
+    console.log(error)
   }
 };

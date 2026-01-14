@@ -13,6 +13,7 @@ import { SlDocs } from "react-icons/sl";
 import { SlLogout } from "react-icons/sl";
 import { Link, NavLink } from "react-router-dom";
 import api from "../api/axios.js";
+import HeaderCommon from "../components/HeaderCommon.jsx";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -203,12 +204,14 @@ function Profile() {
 
       {/* for large screen show this block */}
       <div className="hidden lg:block">
+        {/* header which show on the medium and big screen size */}
+        <HeaderCommon />
         <div className="flex flex-row items-start justify-center py-20">
           <div className="flex flex-col gap-7 w-[30%]">
             <p className="text-4xl font-bold text-start">Profile</p>
             {/* about me */}
             <div
-              className={`flex flex-row gap-2 items-center justify-start w-80 px-4 py-4 rounded-2xl cursor-pointer ${
+              className={`flex flex-row gap-2 items-center justify-start lg:w-70 xl:w-90 px-4 py-4 rounded-2xl cursor-pointer ${
                 stateValue === "aboutme" ? "bg-[#e4e4e4]" : ""
               }`}
               onClick={() => dispatch({ type: "ABOUTME" })}
@@ -224,7 +227,7 @@ function Profile() {
             </div>
             {/* past trips */}
             <div
-              className={`flex flex-row gap-2 items-center justify-start w-80 px-4 py-4 rounded-2xl cursor-pointer ${
+              className={`flex flex-row gap-2 items-center justify-start lg:w-70 xl:w-90  px-4 py-4 rounded-2xl cursor-pointer ${
                 stateValue === "pasttrips" ? "bg-[#e4e4e4]" : ""
               }`}
               onClick={() => dispatch({ type: "PASTTRIPS" })}
@@ -242,7 +245,7 @@ function Profile() {
             </div>
             {/* connections */}
             <div
-              className={`flex flex-row gap-2 items-center justify-start w-80 px-4 py-4 rounded-2xl cursor-pointer ${
+              className={`flex flex-row gap-2 items-center justify-start lg:w-70 xl:w-90  px-4 py-4 rounded-2xl cursor-pointer ${
                 stateValue === "connections" ? "bg-[#e4e4e4]" : ""
               }`}
               onClick={() => dispatch({ type: "CONNECTIONS" })}
@@ -260,15 +263,19 @@ function Profile() {
             </div>
           </div>
           {/* border */}
-          <div className="border-l-[1.2px] border-zinc-300 h-220"></div>
+          <div className="border-l-[1.2px] border-zinc-300 h-200"></div>
           {/* show this block when the statevalue is true */}
           <div className="w-[50%]">
             {stateValue === "aboutme" ? (
               <div className="flex flex-col gap-2 items-center justify-center">
                 <div className="w-[90%] flex flex-col gap-10 items-start ">
                   <div className="flex flex-row gap-4">
-                    <p className="text-3xl font-medium text-zinc-700">About me</p>
-                    <p className="bg-[#e7e6e6] w-fit px-5 py-1 rounded-[0.7rem] text-centerx self-center">Edit</p>
+                    <p className="text-3xl font-medium text-zinc-700">
+                      About me
+                    </p>
+                    <p className="bg-[#e7e6e6] w-fit px-5 py-1 rounded-[0.7rem] text-centerx self-center">
+                      Edit
+                    </p>
                   </div>
                   <div className="flex flex-row items-center justify-center gap-6 pb-20">
                     {/* user box */}
@@ -287,28 +294,87 @@ function Profile() {
                     </div>
                     {/* complete your profile */}
                     <div className="w-[40%] flex flex-col gap-4">
-                      <p className="text-2xl font-medium ">Complete your profile</p>
+                      <p className="text-2xl font-medium ">
+                        Complete your profile
+                      </p>
                       <p className="text-[0.98rem] text-[#818181]">
                         Your Airbnb profile is an important part of every
                         reservation. Create yours to help other hosts and guests
                         get to know you.
                       </p>
-                      <Link to="/editprofile" className="bg-[#cc2551] w-[70%] p-3 rounded-2xl">
-                        <p className="text-white text-2xl text-center">Get Started</p>
+                      <Link
+                        to="/editprofile"
+                        className="bg-[#cc2551] lg:w-[90%] p-3 rounded-2xl"
+                      >
+                        <p className="text-white text-2xl text-center">
+                          Get Started
+                        </p>
                       </Link>
                     </div>
                   </div>
                   {/* border */}
-                  <div className="border-[0.5px] w-full border-[#c1c1c1]">
-
+                  <div className="border-[0.5px] w-full border-[#c1c1c1]"></div>
+                </div>
+              </div>
+            ) : (
+              ""
+            )}
+            {/* pasttrips  */}
+            {stateValue === "pasttrips" ? (
+              <div>
+                <div className="flex flex-col px-20 pt-20 gap-10">
+                  <p className="text-4xl font-bold">Past trips</p>
+                  <div className="flex flex-col gap-4 items-center justify-center">
+                    <div>
+                      <img
+                        src="https://a0.muscache.com/im/pictures/airbnb-platform-assets/AirbnbPlatformAssets-trips-tab/original/c2f5127b-f701-4e2d-bbf0-d54afe17d6e3.png?im_w=2560&im_q=medq"
+                        alt=""
+                        width={150}
+                      />
+                    </div>
+                    <p className="w-[50%] text-center">
+                      You’ll find your past reservations here after you’ve taken
+                      your first trip on Airbnb.
+                    </p>
+                    <Link
+                      to="/"
+                      className="bg-[#cc2551] w-[60%] p-3 rounded-2xl"
+                    >
+                      <p className="text-white text-2xl text-center">
+                        Book a Trip
+                      </p>
+                    </Link>
                   </div>
                 </div>
               </div>
             ) : (
               ""
             )}
-            {stateValue === "pasttrips" ? <p>pasttrips </p> : ""}
-            {stateValue === "connections" ? <p>connections </p> : ""}
+            {/* show the connections */}
+            {stateValue === "connections" ? (
+              <div className="flex flex-col items-center justify-center">
+                <div className="flex flex-col gap-10 items-center justify-center w-[80%] pt-20">
+                  <div>
+                    <img
+                      src="https://a0.muscache.com/im/pictures/airbnb-platform-assets/AirbnbPlatformAssets-UserProfile/original/e7a31b6a-2370-4cec-8bd7-8943d4130a8e.png?im_w=960&im_q=medq"
+                      alt="connections"
+                      width={250}
+                    />
+                  </div>
+                  <p className="text-center">
+                    When you join an experience or invite someone on a trip,
+                    you’ll find the profiles of other guests here. Learn more
+                  </p>
+                  <Link to="/" className="bg-[#cc2551] w-[60%] p-3 rounded-2xl">
+                    <p className="text-white text-2xl text-center">
+                      Book a Trip
+                    </p>
+                  </Link>
+                </div>
+              </div>
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </div>

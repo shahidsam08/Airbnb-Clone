@@ -1,5 +1,5 @@
 import express from "express";
-import { LoginController, SignupController } from "../controller/Authcontroller.js";
+import { LoginController, LogoutAuth, SignupController, WishListAuth } from "../controller/Authcontroller.js";
 import VerifyToken from "../middleware/VerifyToken.js"
 import { NavbarAuth } from "../controller/Authcontroller.js";
 
@@ -12,5 +12,11 @@ router.post("/login", LoginController)
 
 
 router.get("/navbar", VerifyToken, NavbarAuth)
+
+
+router.get("/wishlist", VerifyToken, WishListAuth)
+
+
+router.get("/logout", VerifyToken, LogoutAuth)
 
 export default router;
