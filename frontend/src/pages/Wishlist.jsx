@@ -1,46 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
 import FooterBottom from "../components/FooterBottom";
 import { Link } from "react-router";
 import HeaderCommon from "../components/HeaderCommon";
-import { MdToken } from "react-icons/md";
 import Footer from "../components/Footer";
-import { useEffect } from "react";
-import api from "../api/axios";
-import { useState } from "react";
+import AuthContext from "../context/AuthContext";
 
 function Wishlist() {
-  const [LoggedIn, setUserLoggedIn] = useState(null);
-
-  useEffect(() => {
-    const wishlistApi = async () => {
-      try {
-        const response = await api.get("/api/wishlist", {
-          withCredentials: true,
-        });
-        // console.log(response.data.userInfo.email)
-        // console.log(response.data.userInfo.username)
-
-        if (response.data.message === "User found") {
-          setUserLoggedIn(true);
-        }
-       
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    wishlistApi();
-  });
+  const { isAuthenticated, loading, setIsAuthenticated, user } =
+    useContext(AuthContext);
   return (
     <div>
       {/* top header */}
       <HeaderCommon />
 
-      {LoggedIn ? (
+      {isAuthenticated && (
         <div className="h-60">
           <p className="p-10 font-bold text-2xl">No wishlist.</p>
         </div>
-      ) : (
+      )}
+
+      {loading ? (
+        <p className="text-zinc-500">Loading....</p>
+      ) : !isAuthenticated ? (
         <div>
           <div>
             <p className="text-4xl py-4 px-4 border-b-[0.8px] border-b-gray-400 font-bold">
@@ -64,6 +45,8 @@ function Wishlist() {
             </Link>
           </div>
         </div>
+      ) : (
+        ""
       )}
 
       <div className="border-t-[0.1px] border-[#dedcdc] backdrop-blur-md fixed w-full bottom-0 md:hidden">

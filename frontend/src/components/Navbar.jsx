@@ -11,6 +11,8 @@ import { FaRegHeart, FaSuitcaseRolling, FaRegUserCircle } from "react-icons/fa";
 import { FaRegMessage } from "react-icons/fa6";
 import { IoSettingsOutline } from "react-icons/io5";
 import { toast } from "react-toastify";
+import AuthContext from "../context/AuthContext";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 // solve the problem which effect the logic
 // logic of useReducer
@@ -32,40 +34,10 @@ function Navbar() {
   // using useReducer
   const [active, dispatch] = useReducer(reducer, "where");
 
+  const { isAuthenticated, loading, setIsAuthenticated, user } =
+    useContext(AuthContext);
+
   
-
-  const [loggedIn, setLoggedIn] = useState(null);
-  const [userName, setUserName] = useState("");
-
-  useEffect(() => {
-    const navbarCalling = async () => {
-      try {
-        const response = await api.get("/api/navbar", {
-          withCredentials: true,
-        });
-
-        const token = response.data.token;
-        console.log(token.email.charAt(0));
-
-        setUserName(token.email.charAt(0).toUpperCase());
-
-        if (response.data.message === "User loggged In") {
-          setLoggedIn(true);
-          
-        } else if (response.data.message === "Unauthorized") {
-          setLoggedIn(false);
-        } else if (response.data.message === "Token expired") {
-          setLoggedIn(false);
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    navbarCalling();
-  }, []);
-
-  // write the logout method
 
   const logout = async () => {
     try {
@@ -243,19 +215,31 @@ function Navbar() {
               <div className="flex flex-row items-center justify-center gap-8">
                 <Link to="/host" className="md:hidden lg:block">
                   <div className="px-3 py-2 rounded-2xl hover:bg-[#ebebebdd] text-[1rem]">
-                    {loggedIn ? <p>Switch to Hosting</p> : <p>Become a Host</p>}
+                    {isAuthenticated ? (
+                      <p>Switch to Hosting</p>
+                    ) : (
+                      <p>Become a Host</p>
+                    )}
                   </div>
                 </Link>
                 {/* -----------show the user if user logged in show this otherwise hide.-------------------- */}
-                {loggedIn ? (
+                {isAuthenticated ? (
                   <Link
                     to="/profile"
                     className="bg-gray-900 w-10 h-10  rounded-full flex flex-col justify-center items-center"
                   >
-                    <p className="text-white text-2xl">{userName}</p>
+                    <p className="text-white text-2xl">
+                      {user.email.charAt(0).toUpperCase()}
+                    </p>
                   </Link>
                 ) : (
                   " "
+                )}
+
+                {loading ? (
+                  <AiOutlineLoading3Quarters className="animate-spin" />
+                ) : (
+                  ""
                 )}
                 {/* show the hamburger which show */}
                 <div
@@ -276,7 +260,7 @@ function Navbar() {
               {Toggle ? (
                 <div className="absolute top-15 right-5 bg-white shadow-2xl ring-gray-700 ring-offset-2 w-70 py-3 rounded-2xl flex flex-col gap-2">
                   {/* show this when user is logged in when user logout don't show these block */}
-                  <div className={`${loggedIn ? "block" : "hidden"}`}>
+                  <div className={`${isAuthenticated ? "block" : "hidden"}`}>
                     {/* wishlist */}
                     <Link
                       to="/wishlist"
@@ -333,7 +317,7 @@ function Navbar() {
                   <div className="border-[0.2px] border-[#dfdcdc] "></div>
                   {/* become a host */}
                   <Link to="/host" className="hover:bg-[#f1f0f0]">
-                    {loggedIn ? (
+                    {isAuthenticated ? (
                       <p className="text-[1.1rem] pl-4 py-2">Switch to host</p>
                     ) : (
                       <p className="text-[1.1rem] pl-4 py-2">Become a host</p>
@@ -354,7 +338,7 @@ function Navbar() {
                   <Link
                     to="/login"
                     className={`hover:bg-[#f1f0f0] ${
-                      loggedIn ? "hidden" : "block"
+                      isAuthenticated ? "hidden" : "block"
                     }`}
                   >
                     <p className="text-[1.1rem] pl-4 py-2">Login or signup</p>
@@ -362,7 +346,7 @@ function Navbar() {
                   {/* show logout when the user is logged in */}
                   <div
                     className={`hover:bg-[#f1f0f0] cursor-pointer ${
-                      loggedIn ? "block" : "hidden"
+                      isAuthenticated ? "block" : "hidden"
                     }`}
                     onClick={logout}
                   >

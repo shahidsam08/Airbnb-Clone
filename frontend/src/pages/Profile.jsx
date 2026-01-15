@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useReducer } from "react";
+import React, { useState, useEffect, useReducer, useContext } from "react";
 import Footer from "../components/Footer.jsx";
 import FooterBottom from "../components/FooterBottom.jsx";
 import { IoMdNotificationsOutline } from "react-icons/io";
@@ -11,13 +11,13 @@ import { PiUserCircleCheckThin } from "react-icons/pi";
 import { IoManOutline } from "react-icons/io5";
 import { SlDocs } from "react-icons/sl";
 import { SlLogout } from "react-icons/sl";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import api from "../api/axios.js";
 import HeaderCommon from "../components/HeaderCommon.jsx";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import AuthContext from "../context/AuthContext.jsx";
 
-const reducer = (state, action) => {
+const reducer = (statevalue, action) => {
   switch (action.type) {
     case "ABOUTME":
       return "aboutme";
@@ -32,48 +32,19 @@ const reducer = (state, action) => {
 
 function Profile() {
   const [stateValue, dispatch] = useReducer(reducer, "aboutme");
-  const [userFirstLetter, setUserFirstLetter] = useState("");
-  const [username, setUserName] = useState("");
-  const [userType, setUserType] = useState("");
-  const [loggedin, setLoggedIn] = useState(null);
 
-  const navigate = useNavigate();
-  useEffect(() => {
-    const navbarCalling = async () => {
-      try {
-        const response = await api.get("/api/navbar", {
-          withCredentials: true,
-        });
+  const { isAuthenticated, loading, setIsAuthenticated, user } =
+    useContext(AuthContext);
 
-        const token = response.data.token;
-        console.log(token.email.charAt(0));
+    const navigate = useNavigate();
 
-        const user = response.data.userdata;
-        if (user.role === "user") {
-          setUserType("guest");
-        } else {
-          setUserType("User");
-        }
-
-        setUserName(user.username.toUpperCase());
-        setUserFirstLetter(token.email.charAt(0).toUpperCase());
-
-        if (response.data.message === "User loggged In") {
-          setLoggedIn(true);
-        } else if (response.data.message === "Unauthorized") {
-          setLoggedIn(false);
-        } else if (response.data.message === "Token expired") {
-          setLoggedIn(false);
-        }
-      } catch (error) {
-        console.log(error);
+    useEffect(()=>{
+      if(!isAuthenticated){
+        navigate("/", {replace: true})
       }
-    };
+    })
 
-    navbarCalling();
-  });
 
-  // logout method
   const logout = async () => {
     try {
       const response = await api.get("/api/logout", { withCredentials: true });
@@ -83,7 +54,7 @@ function Profile() {
         setTimeout(() => {
           window.location.reload();
         }, 4000);
-        navigate("/", {replace : true})
+        navigate("/", { replace: true });
       } else if (response.data.message === "User not found") {
         toast.error("User not found");
       }
@@ -110,12 +81,14 @@ function Profile() {
         <div className="w-full h-70 bg-white shadow-2xl rounded-2xl flex flex-col items-center justify-center gap-3">
           {/* user link */}
           <div className="w-25 h-25 rounded-full bg-zinc-900 flex flex-row items-center justify-center">
-            <p className="text-white text-6xl font-bold">{userFirstLetter}</p>
+            {isAuthenticated && (
+              <p className="text-white text-6xl font-bold">{user?.email?.charAt(0)?.toUpperCase()}</p>
+            )}
           </div>
           {/* user name and usertype */}
           <div className="flex flex-col items-center justify-center">
-            <p className="text-3xl font-medium">{username}</p>
-            <p>{userType}</p>
+            <p className="text-2xl font-bold">{user?.username?.toUpperCase()}</p>
+            <p>{user?.role?.toUpperCase()}</p>
           </div>
         </div>
         {/* past trips and connections */}
@@ -215,13 +188,14 @@ function Profile() {
             <FaAngleRight size={20} />
           </div>
           {/* Logout */}
-          <div className="flex flex-row items-center justify-center cursor-pointer bg-zinc-900 w-fit self-center px-8 py-3 rounded-2xl"
-          onClick={logout}>
+          <div
+            className="flex flex-row items-center justify-center cursor-pointer bg-zinc-900 w-fit self-center px-8 py-3 rounded-2xl"
+            onClick={logout}
+          >
             <div className="flex flex-row gap-4 items-center">
-              <SlLogout size={25} color="white"/>
+              <SlLogout size={25} color="white" />
               <p className="text-[1.2rem] text-white">Log Out</p>
             </div>
-            
           </div>
         </div>
       </div>
@@ -242,7 +216,8 @@ function Profile() {
             >
               <div className="w-15 pl-3">
                 <p className="bg-gray-900 w-3 h-3 p-4 rounded-full flex flex-row items-center justify-center text-white">
-                  {userFirstLetter}
+                  
+                  {user?.email?.charAt(0)?.toUpperCase()}
                 </p>
               </div>
               <p className="text-[1.2rem] text-zinc-700 font-medium text-start">
@@ -289,6 +264,7 @@ function Profile() {
           {/* border */}
           <div className="border-l-[1.2px] border-zinc-300 h-200"></div>
           {/* show this block when the statevalue is true */}
+          {/* about me */}
           <div className="w-[50%]">
             {stateValue === "aboutme" ? (
               <div className="flex flex-col gap-2 items-center justify-center">
@@ -306,14 +282,12 @@ function Profile() {
                     <div className="w-[60%] h-70 bg-white shadow-2xl rounded-2xl flex flex-col items-center justify-center gap-3">
                       {/* user link */}
                       <div className="w-25 h-25 rounded-full bg-zinc-900 flex flex-row items-center justify-center">
-                        <p className="text-white text-4xl font-bold">
-                          {userFirstLetter}
-                        </p>
+                        <p className="text-white text-5xl font-bold">{user?.email?.charAt(0)?.toUpperCase()}</p>
                       </div>
                       {/* user name and usertype */}
                       <div className="flex flex-col items-center justify-center">
-                        <p className="text-3xl font-medium">{username}</p>
-                        <p>{userType}</p>
+                        <p className="text-3xl font-bold">{user?.username?.toUpperCase()}</p>
+                        <p>{user?.role?.toUpperCase()}</p>
                       </div>
                     </div>
                     {/* complete your profile */}

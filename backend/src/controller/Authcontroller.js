@@ -75,19 +75,19 @@ export const NavbarAuth = async (req, res) => {
   }
 };
 
-// wishlist authentications
+// // wishlist authentications
 
-export const WishListAuth = async (req, res) => {
-  const token = req.user;
-  try {
-    const user = await User.findOne({ email: req.user.email });
-    if (user) {
-      res.status(200).json({ message: "User found", userInfo: user });
-    }
-  } catch (error) {
-    console.log(error);
-  }
-};
+// export const WishListAuth = async (req, res) => {
+//   const token = req.user;
+//   try {
+//     const user = await User.findOne({ email: req.user.email });
+//     if (user) {
+//       res.status(200).json({ message: "User found", userInfo: user });
+//     }
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
 
 // ----------- Log out logic --------------------------//
 export const LogoutAuth = async (req, res) => {

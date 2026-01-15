@@ -19,9 +19,9 @@ function Home() {
       <div>
         <ListingCard />
         <Footer />
-        <div className="border-t-[0.1px] border-[#dedcdc] backdrop-blur-md sticky w-full bottom-0 md:hidden">
-          <FooterBottom />
-        </div>
+      </div>
+      <div className="border-t-[0.1px] border-[#dedcdc] backdrop-blur-md sticky w-full bottom-0 md:hidden">
+        <FooterBottom />
       </div>
     </div>
   );

@@ -53,7 +53,7 @@ function Messages() {
       <div className="hidden md:block">
         <Footer />
       </div>
-      <div className="md:hidden">
+      <div className="md:hidden sticky bottom-0">
         <FooterBottom />
       </div>
     </div>

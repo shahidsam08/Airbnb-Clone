@@ -3,9 +3,9 @@ import AuthContext from "./AuthContext";
 import api from "../api/axios";
 
 function AuthProvider({ children }) {
-  const [isAuthenticated, setIsAuthenticated] = useState(null);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [user, setUser ] = useState("");
+  const [user, setUser ] = useState(null);
 
   useEffect(() => {
     const checkAuth = async () => {
@@ -14,15 +14,21 @@ function AuthProvider({ children }) {
           withCredentials: true,
         });
 
+
+        console.log(response.data.userdata)
         
 
         if (response.data.message === "User loggged In") {
           setIsAuthenticated(true);
-          setUser(response.data.token)
+
+          setUser(response.data.userdata)
         } else if (response.data.message === "Unauthorized") {
           setIsAuthenticated(false);
         } else if (response.data.message === "Token expired") {
           setIsAuthenticated(false);
+        } else {
+          setUser(null)
+          setIsAuthenticated(false)
         }
       } catch (error) {
         setIsAuthenticated(false);

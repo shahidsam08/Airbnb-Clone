@@ -1,47 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { FaAirbnb } from "react-icons/fa6";
 import { CgMenu } from "react-icons/cg";
 import { RxQuestionMarkCircled } from "react-icons/rx";
-import { Link, replace } from "react-router-dom";
+import { Link } from "react-router-dom";
 import api from "../api/axios";
 import { FaRegHeart, FaSuitcaseRolling, FaRegUserCircle } from "react-icons/fa";
 import { FaRegMessage } from "react-icons/fa6";
 import { IoSettingsOutline } from "react-icons/io5";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import AuthContext from "../context/AuthContext";
 
 function HeaderCommon() {
   const [Toggle, setToggle] = useState(false);
-  const [LoggedIn, setLoggedIn] = useState(false);
-  const [userFirstletter, setUserFirstLetter] = useState("");
 
-  const navigate = useNavigate();
-  useEffect(() => {
-    const navbarCalling = async () => {
-      try {
-        const response = await api.get("/api/navbar", {
-          withCredentials: true,
-        });
 
-        const token = response.data.token;
-        // console.log(token.email.charAt(0));
 
-        setUserFirstLetter(token.email.charAt(0).toUpperCase());
+  const { isAuthenticated, loading, setIsAuthenticated, user } =
+    useContext(AuthContext);
 
-        if (response.data.message === "User loggged In") {
-          setLoggedIn(true);
-        } else if (response.data.message === "Unauthorized") {
-          setLoggedIn(false);
-        } else if (response.data.message === "Token expired") {
-          setLoggedIn(false);
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    navbarCalling();
-  }, []);
 
   // logout api calls
 
@@ -78,7 +54,7 @@ function HeaderCommon() {
         <div className="flex flex-row items-center justify-center gap-8">
           <Link to="/host">
             <div className="px-3 py-2 rounded-2xl hover:bg-[#ebebebdd] ">
-              {LoggedIn ? (
+              {isAuthenticated ? (
                 <p className="text-[1rem] font-medium">Switch to hosting</p>
               ) : (
                 <p className="text-[1rem] font-medium">Become a Host</p>
@@ -86,12 +62,12 @@ function HeaderCommon() {
             </div>
           </Link>
           {/* show the profile when the user loggged in */}
-          {LoggedIn ? (
+          {isAuthenticated ? (
             <Link
               to="/profile"
               className="bg-gray-900 w-10 h-10  rounded-full flex flex-col justify-center items-center"
             >
-              <p className="text-white text-2xl">{userFirstletter}</p>
+              <p className="text-white text-2xl">{user.email.charAt(0).toUpperCase()}</p>
             </Link>
           ) : (
             " "
@@ -115,7 +91,7 @@ function HeaderCommon() {
         {Toggle ? (
           <div className="absolute top-23 right-16 bg-white  shadow-2xl w-60 py-3 rounded-2xl flex flex-col gap-2">
             {/* help center */}
-            <div className={`${LoggedIn ? "block" : "hidden"}`}>
+            <div className={`${isAuthenticated ? "block" : "hidden"}`}>
               {/* wishlist */}
               <Link
                 to="/wishlist"
@@ -171,7 +147,7 @@ function HeaderCommon() {
               <div className="border-[0.2px] border-[#dfdcdc] "></div>
               {/* become a host */}
               <Link to="/host">
-                {LoggedIn ? (
+                {isAuthenticated ? (
                   <p className="text-[1.1rem] pl-4 py-2 hover:bg-[#f1f0f0]">
                     Switch to Hosting
                   </p>
@@ -200,7 +176,7 @@ function HeaderCommon() {
               <Link
                 to="/login"
                 className={`hover:bg-[#f1f0f0] ${
-                  LoggedIn ? "hidden" : "block"
+                  isAuthenticated ? "hidden" : "block"
                 }`}
               >
                 <p className="text-[1.1rem] pl-4 py-2">Login or signup</p>
@@ -208,7 +184,7 @@ function HeaderCommon() {
               {/* logout show when the user is logged in  */}
               <div
                 className={`hover:bg-[#f1f0f0] cursor-pointer ${
-                  LoggedIn ? "block" : "hidden"
+                  isAuthenticated ? "block" : "hidden"
                 }`}
                 onClick={logout}
               >
