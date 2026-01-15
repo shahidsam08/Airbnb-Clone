@@ -35,7 +35,7 @@ function Profile() {
   const [userFirstLetter, setUserFirstLetter] = useState("");
   const [username, setUserName] = useState("");
   const [userType, setUserType] = useState("");
-  const [loggedin, setLoggedIn] = useState(false);
+  const [loggedin, setLoggedIn] = useState(null);
 
   const navigate = useNavigate();
   useEffect(() => {
@@ -215,13 +215,13 @@ function Profile() {
             <FaAngleRight size={20} />
           </div>
           {/* Logout */}
-          <div className="flex flex-row items-center justify-between"
+          <div className="flex flex-row items-center justify-center cursor-pointer bg-zinc-900 w-fit self-center px-8 py-3 rounded-2xl"
           onClick={logout}>
             <div className="flex flex-row gap-4 items-center">
-              <SlLogout size={30} />
-              <p className="text-[1.2rem]">Log Out</p>
+              <SlLogout size={25} color="white"/>
+              <p className="text-[1.2rem] text-white">Log Out</p>
             </div>
-            <FaAngleRight size={20} />
+            
           </div>
         </div>
       </div>

@@ -2,7 +2,7 @@ import { MdSearch } from "react-icons/md";
 import { Link, NavLink } from "react-router-dom";
 import { FaAirbnb } from "react-icons/fa6";
 import { RxQuestionMarkCircled } from "react-icons/rx";
-import { useReducer, useState, useEffect } from "react";
+import { useReducer, useState, useEffect, useContext } from "react";
 import { CgMenu } from "react-icons/cg";
 import { IoSearch } from "react-icons/io5";
 import { motion } from "motion/react";
@@ -11,6 +11,8 @@ import { FaRegHeart, FaSuitcaseRolling, FaRegUserCircle } from "react-icons/fa";
 import { FaRegMessage } from "react-icons/fa6";
 import { IoSettingsOutline } from "react-icons/io5";
 import { toast } from "react-toastify";
+
+
 // logic of useReducer
 const reducer = (state, action) => {
   switch (action.type) {
@@ -30,7 +32,9 @@ function Navbar() {
   // using useReducer
   const [active, dispatch] = useReducer(reducer, "where");
 
-  const [loggedIn, setLoggedIn] = useState(false);
+  
+
+  const [loggedIn, setLoggedIn] = useState(null);
   const [userName, setUserName] = useState("");
 
   useEffect(() => {
@@ -47,6 +51,7 @@ function Navbar() {
 
         if (response.data.message === "User loggged In") {
           setLoggedIn(true);
+          
         } else if (response.data.message === "Unauthorized") {
           setLoggedIn(false);
         } else if (response.data.message === "Token expired") {

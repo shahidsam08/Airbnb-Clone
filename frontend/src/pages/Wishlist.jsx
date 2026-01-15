@@ -9,7 +9,7 @@ import api from "../api/axios";
 import { useState } from "react";
 
 function Wishlist() {
-  const [LoggedIn, setUserLoggedIn] = useState(false);
+  const [LoggedIn, setUserLoggedIn] = useState(null);
 
   useEffect(() => {
     const wishlistApi = async () => {
