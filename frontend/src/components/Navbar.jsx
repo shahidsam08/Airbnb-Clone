@@ -12,7 +12,7 @@ import { FaRegMessage } from "react-icons/fa6";
 import { IoSettingsOutline } from "react-icons/io5";
 import { toast } from "react-toastify";
 
-
+// solve the problem which effect the logic
 // logic of useReducer
 const reducer = (state, action) => {
   switch (action.type) {
