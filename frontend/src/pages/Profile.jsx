@@ -44,6 +44,7 @@ function Profile() {
     }
   });
 
+
   const logout = async () => {
     try {
       const response = await api.get("/api/logout", { withCredentials: true });

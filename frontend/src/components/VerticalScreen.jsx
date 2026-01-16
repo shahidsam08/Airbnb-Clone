@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import AuthContext from "../context/AuthContext";
 
 function ScrollWatcher() {
   const [show, setShow] = useState(false);
 
+  const { isAuthenticated, loading, setIsAuthenticated, user } = useContext(AuthContext);
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
@@ -13,7 +15,7 @@ function ScrollWatcher() {
       const scrollPercent =
         (scrollTop / (documentHeight - windowHeight)) * 100;
 
-      if (scrollPercent >= 50) {
+      if (scrollPercent >= 50 && !isAuthenticated) {
         setShow(true);
       } else {
         setShow(false);
@@ -32,6 +34,7 @@ function ScrollWatcher() {
           <p>Login</p>
         </Link>
       )}
+      
     </>
   );
 }
