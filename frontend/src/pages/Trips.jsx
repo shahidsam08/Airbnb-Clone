@@ -1,15 +1,26 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import Footer from "../components/Footer.jsx";
 import HeaderCommon from "../components/HeaderCommon.jsx";
 import FooterBottom from "../components/FooterBottom.jsx";
 import { Link } from "react-router-dom";
+import AuthContext from "../context/AuthContext.jsx";
+import { useNavigate } from "react-router-dom";
 
 function Trips() {
+  const { isAuthenticated, loading, setIsAuthenticated, user } =
+    useContext(AuthContext);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      return navigate("/", { replace: true });
+    }
+  });
   return (
     <div>
-      <div>
-        <HeaderCommon />
-      </div>
+      <HeaderCommon />
+
       {/* trips */}
       <div className="h-200 lg:h-100 lg:flex lg:flex-col lg:items-center lg:justify-center">
         <div className="sticky top-0 md:hidden bg-white">

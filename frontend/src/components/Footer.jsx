@@ -99,7 +99,6 @@ function Footer() {
           </Link>
           {/* hosting resources */}
           <p className="text-gray-700 font-stretch-104%">Hosting resources</p>
-          <p className="text-gray-700 font-stretch-104%">Community forum</p>
           <p className="text-gray-700 font-stretch-104%">Hosting responsibly</p>
           {/* join a free hosting class */}
           <Link

@@ -37,8 +37,6 @@ function Navbar() {
   const { isAuthenticated, loading, setIsAuthenticated, user } =
     useContext(AuthContext);
 
-  
-
   const logout = async () => {
     try {
       const response = await api.get("/api/logout", { withCredentials: true });
@@ -215,31 +213,25 @@ function Navbar() {
               <div className="flex flex-row items-center justify-center gap-8">
                 <Link to="/host" className="md:hidden lg:block">
                   <div className="px-3 py-2 rounded-2xl hover:bg-[#ebebebdd] text-[1rem]">
-                    {isAuthenticated ? (
-                      <p>Switch to Hosting</p>
-                    ) : (
-                      <p>Become a Host</p>
-                    )}
+                    {isAuthenticated && <p>Switch to Hosting</p>}
                   </div>
                 </Link>
                 {/* -----------show the user if user logged in show this otherwise hide.-------------------- */}
                 {isAuthenticated ? (
                   <Link
                     to="/profile"
-                    className="bg-gray-900 w-10 h-10  rounded-full flex flex-col justify-center items-center"
+                    className="bg-gray-900 w-8 h-8  rounded-full flex flex-col justify-center items-center"
                   >
-                    <p className="text-white text-2xl">
-                      {user.email.charAt(0).toUpperCase()}
+                    <p className="text-white text-[1.2rem]">
+                      {user?.email?.charAt(0)?.toUpperCase()}
                     </p>
                   </Link>
                 ) : (
                   " "
                 )}
 
-                {loading ? (
+                {loading && (
                   <AiOutlineLoading3Quarters className="animate-spin" />
-                ) : (
-                  ""
                 )}
                 {/* show the hamburger which show */}
                 <div
@@ -252,7 +244,7 @@ function Navbar() {
                     }
                   }}
                 >
-                  <CgMenu size={25} color="black" />
+                  <CgMenu size={20} color="black" />
                 </div>
               </div>
 

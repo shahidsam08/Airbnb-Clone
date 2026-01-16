@@ -7,6 +7,7 @@ function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
   const [user, setUser ] = useState(null);
 
+
   useEffect(() => {
     const checkAuth = async () => {
       try {
@@ -39,6 +40,7 @@ function AuthProvider({ children }) {
 
     checkAuth();
   }, []);
+
 
   return (
     <AuthContext.Provider

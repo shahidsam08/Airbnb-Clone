@@ -36,14 +36,13 @@ function Profile() {
   const { isAuthenticated, loading, setIsAuthenticated, user } =
     useContext(AuthContext);
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    useEffect(()=>{
-      if(!isAuthenticated){
-        navigate("/", {replace: true})
-      }
-    })
-
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate("/", { replace: true });
+    }
+  });
 
   const logout = async () => {
     try {
@@ -82,12 +81,16 @@ function Profile() {
           {/* user link */}
           <div className="w-25 h-25 rounded-full bg-zinc-900 flex flex-row items-center justify-center">
             {isAuthenticated && (
-              <p className="text-white text-6xl font-bold">{user?.email?.charAt(0)?.toUpperCase()}</p>
+              <p className="text-white text-6xl font-bold">
+                {user?.email?.charAt(0)?.toUpperCase()}
+              </p>
             )}
           </div>
           {/* user name and usertype */}
           <div className="flex flex-col items-center justify-center">
-            <p className="text-2xl font-bold">{user?.username?.toUpperCase()}</p>
+            <p className="text-2xl font-bold">
+              {user?.username?.toUpperCase()}
+            </p>
             <p>{user?.role?.toUpperCase()}</p>
           </div>
         </div>
@@ -216,7 +219,6 @@ function Profile() {
             >
               <div className="w-15 pl-3">
                 <p className="bg-gray-900 w-3 h-3 p-4 rounded-full flex flex-row items-center justify-center text-white">
-                  
                   {user?.email?.charAt(0)?.toUpperCase()}
                 </p>
               </div>
@@ -282,11 +284,15 @@ function Profile() {
                     <div className="w-[60%] h-70 bg-white shadow-2xl rounded-2xl flex flex-col items-center justify-center gap-3">
                       {/* user link */}
                       <div className="w-25 h-25 rounded-full bg-zinc-900 flex flex-row items-center justify-center">
-                        <p className="text-white text-5xl font-bold">{user?.email?.charAt(0)?.toUpperCase()}</p>
+                        <p className="text-white text-5xl font-bold">
+                          {user?.email?.charAt(0)?.toUpperCase()}
+                        </p>
                       </div>
                       {/* user name and usertype */}
                       <div className="flex flex-col items-center justify-center">
-                        <p className="text-3xl font-bold">{user?.username?.toUpperCase()}</p>
+                        <p className="text-3xl font-bold">
+                          {user?.username?.toUpperCase()}
+                        </p>
                         <p>{user?.role?.toUpperCase()}</p>
                       </div>
                     </div>

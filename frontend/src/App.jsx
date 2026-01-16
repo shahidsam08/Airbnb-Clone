@@ -30,8 +30,14 @@ import Trips from "./pages/Trips";
 import AccountSetting from "./pages/AccountSetting";
 import HostingPage from "./pages/HostingPage";
 import Notification from "./pages/Notification";
+import { useContext } from "react";
+import AuthContext from "./context/AuthContext";
 
 function App() {
+
+  const { isAuthenticated, loading, setIsAuthenticated, user } =
+    useContext(AuthContext);
+
   return (
     <BrowserRouter>
       <ScrolltoTop />
@@ -78,7 +84,7 @@ function App() {
         </Routes>
       </div>
       <ToastContainer
-        position="top-center"
+        position="top-right"
         autoClose={4000}
         hideProgressBar={false}
         newestOnTop

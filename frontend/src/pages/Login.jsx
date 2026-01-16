@@ -40,9 +40,6 @@ function Login() {
 
   const [state, dispatch] = useReducer(reducer, "signup");
 
-
-
-
   // check the router if logged in redirect to the home page
 
   const { isAuthenticated, loading, setIsAuthenticated, user } =
@@ -52,13 +49,12 @@ function Login() {
 
   const navigate = useNavigate();
 
+  useEffect(() => {
+    if (isAuthenticated) {
+      return navigate("/", { replace: true });
+    }
+  });
 
-  useEffect(()=> {
-    if(isAuthenticated) {
-    navigate("/", {replace : true})
-  }
-  },)
-  
   // using the formik for form validation. and send to the server side.
   // for signup
   const formik = useFormik({
@@ -114,10 +110,6 @@ function Login() {
       }
     },
   });
-
-
-  
-
 
   // using the axios store the login info and generate the jwt token from the backend.
 

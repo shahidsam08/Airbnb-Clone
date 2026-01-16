@@ -30,6 +30,7 @@ function HeaderCommon() {
         setTimeout(() => {
           window.location.reload();
         }, 3000);
+        setIsAuthenticated(false)
         navigate("/", { replace: true });
       } else if (response.data.message === "User not found") {
         toast.error("User not found");
@@ -46,10 +47,11 @@ function HeaderCommon() {
           setToggle(false);
         }
       }}
+      className="md:sticky top-0"
     >
-      <div className="hidden md:px-10 md:py-4 md:border-b-[1.1px] md:border-b-[#cfcece] md:flex md:flex-row md:items-center md:justify-between md:sticky md:top-0 z-100 md:bg-white">
+      <div className="hidden md:px-10 md:py-4 md:border-b-[1.1px] md:border-b-[#cfcece] md:flex md:flex-row md:items-center md:justify-between md:sticky md:top-0 z-500 md:bg-white">
         <Link to="/">
-          <FaAirbnb size={50} color="red" />
+          <FaAirbnb size={45} color="red" />
         </Link>
         <div className="flex flex-row items-center justify-center gap-8">
           <Link to="/host">
@@ -65,9 +67,9 @@ function HeaderCommon() {
           {isAuthenticated ? (
             <Link
               to="/profile"
-              className="bg-gray-900 w-10 h-10  rounded-full flex flex-col justify-center items-center"
+              className="bg-gray-900 w-8 h-8  rounded-full flex flex-col justify-center items-center"
             >
-              <p className="text-white text-2xl">{user.email.charAt(0).toUpperCase()}</p>
+              <p className="text-white text-[1.2rem]">{user.email.charAt(0).toUpperCase()}</p>
             </Link>
           ) : (
             " "
@@ -83,13 +85,13 @@ function HeaderCommon() {
               }
             }}
           >
-            <CgMenu size={25} color="black" />
+            <CgMenu size={20} color="black" />
           </div>
         </div>
 
         {/* show toggle data */}
         {Toggle ? (
-          <div className="absolute top-23 right-16 bg-white  shadow-2xl w-60 py-3 rounded-2xl flex flex-col gap-2">
+          <div className="absolute top-23 right-16 bg-white  shadow-2xl w-70 py-3 rounded-2xl flex flex-col gap-2">
             {/* help center */}
             <div className={`${isAuthenticated ? "block" : "hidden"}`}>
               {/* wishlist */}
@@ -157,13 +159,7 @@ function HeaderCommon() {
                   </p>
                 )}
               </Link>
-              <div className="border-[0.2px] border-[#dfdcdc] "></div>
-              {/* Refer a host */}
-              <Link to="/refer-co-host">
-                <p className="text-[1.1rem] pl-4 py-2 hover:bg-[#f1f0f0]">
-                  Refer a host
-                </p>
-              </Link>
+              
               <div className="border-[0.2px] border-[#dfdcdc] "></div>
               {/* find a co host */}
               <Link to="/findcohost">
