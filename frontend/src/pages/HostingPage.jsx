@@ -18,6 +18,11 @@ function HostingPage() {
   return (
     <div>
       <HeaderCommon />
+
+      <form action="" method="post">
+        <label htmlFor="PhotoUrl">Image URL</label>
+        <input type="text" name="image" id="PhotoUrl" placeholder='Enter the Image URL' />
+      </form>
     </div>
   )
 }
