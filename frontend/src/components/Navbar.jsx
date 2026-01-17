@@ -131,17 +131,17 @@ function Navbar() {
 
       {/* -----------------------this navbar show on when any body on the big screen >= 768  -----------------------------------------------*/}
 
-      <div className="hidden md:flex md:flex-col md:px-8 md:py-3 md:pb-10 md:gap-15">
+      <div className="hidden md:flex md:flex-col md:px-8 md:py-3 md:pb-10 md:gap-15 ">
         <div className="md:flex md:flex-row md:items-center md:justify-between">
           {/* airbnb logo */}
-          <div>
-            <Link to="/" className="flex flex-row items-center justify-center">
+          <div className="lg:w-[33%]">
+            <Link to="/" className="flex flex-row items-center justify-start">
               <FaAirbnb size={50} color="red" />
               <p className="text-2xl font-bold text-red-500">Airbnb</p>
             </Link>
           </div>
           {/* homes experiece and services. */}
-          <div className="flex flex-row items-center justify-center md:w-[60%] md:pt-2 md:gap-20">
+          <div className="flex flex-row items-center justify-center md:w-[60%] md:pt-2 md:gap-20 lg:w-[33%]">
             {/* homes */}
             <NavLink
               to="/"
@@ -155,6 +155,7 @@ function Navbar() {
                     rotateY: 360,
                     transition: { duration: 1 },
                   }}
+                  
                   src="https://cdn-icons-png.flaticon.com/128/3171/3171547.png"
                   alt="homes"
                   width={40}
@@ -208,8 +209,8 @@ function Navbar() {
             </NavLink>
           </div>
           {/* large hamburger sign / become a host */}
-          <div>
-            <div className="hidden md:flex md:flex-row md:items-center md:justify-between md:sticky md:top-0 md:bg-zinc-100 z-10">
+          <div className="lg:w-[33%]">
+            <div className="hidden md:flex md:flex-row md:items-center md:justify-end md:sticky md:top-0 md:bg-zinc-100 z-10">
               <div className="flex flex-row items-center justify-center gap-8">
                 <Link to="/host" className="md:hidden lg:block">
                   <div className="px-3 py-2 rounded-2xl hover:bg-[#ebebebdd] text-[1rem]">

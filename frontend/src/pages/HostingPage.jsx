@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect, useContext } from 'react';
 import AuthContext from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import HeaderCommon from '../components/HeaderCommon';
 
 function HostingPage() {
   const { isAuthenticated, loading, setIsAuthenticated, user } =
@@ -16,7 +17,7 @@ function HostingPage() {
   });
   return (
     <div>
-      <p>this is the hosting page</p>
+      <HeaderCommon />
     </div>
   )
 }

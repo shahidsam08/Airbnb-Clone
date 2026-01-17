@@ -7,6 +7,9 @@ function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
   const [user, setUser ] = useState(null);
 
+  
+  
+
 
   useEffect(() => {
     const checkAuth = async () => {
@@ -15,10 +18,7 @@ function AuthProvider({ children }) {
           withCredentials: true,
         });
 
-
         console.log(response.data.userdata)
-        
-
         if (response.data.message === "User loggged In") {
           setIsAuthenticated(true);
 

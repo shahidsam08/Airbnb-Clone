@@ -11,7 +11,7 @@ import { PiUserCircleCheckThin } from "react-icons/pi";
 import { IoManOutline } from "react-icons/io5";
 import { SlDocs } from "react-icons/sl";
 import { SlLogout } from "react-icons/sl";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import api from "../api/axios.js";
 import HeaderCommon from "../components/HeaderCommon.jsx";
 import { toast } from "react-toastify";
@@ -43,7 +43,6 @@ function Profile() {
       navigate("/", { replace: true });
     }
   });
-
 
   const logout = async () => {
     try {
@@ -117,7 +116,10 @@ function Profile() {
           </div>
         </div>
         {/* become a host  */}
-        <div className="flex flex-row bg-white shadow-2xl p-2 rounded-2xl">
+        <Link
+          to="/host"
+          className="flex flex-row bg-white shadow-2xl p-2 rounded-2xl"
+        >
           <img
             src="https://a0.muscache.com/im/pictures/airbnb-platform-assets/AirbnbPlatformAssets-UserProfile/original/5347d650-16de-4f5a-a38e-79edc988befa.png?im_w=240"
             alt="user"
@@ -127,7 +129,7 @@ function Profile() {
             <p className="text-2xl">Become a host</p>
             <p>It's easy to start hosting and earn extra income.</p>
           </div>
-        </div>
+        </Link>
         {/* account setting , view profile, privacy, get help */}
         <div className="py-10 flex flex-col gap-6">
           {/* account settting */}
@@ -158,31 +160,40 @@ function Profile() {
             <FaAngleRight size={20} />
           </div>
           {/* get help */}
-          <div className="flex flex-row items-center justify-between">
+          <Link
+            to="/helpcenter"
+            className="flex flex-row items-center justify-between"
+          >
             <div className="flex flex-row gap-4 items-center">
               <IoMdHelpCircleOutline size={30} />
               <p className="text-[1.2rem]">Get Help</p>
             </div>
             <FaAngleRight size={20} />
-          </div>
+          </Link>
           {/* border */}
           <div className="w-full border-zinc-400 border-[0.5px]"></div>
           {/* Refer a host */}
-          <div className="flex flex-row items-center justify-between">
+          <Link
+            to="/aircoverforhosts"
+            className="flex flex-row items-center justify-between"
+          >
             <div className="flex flex-row gap-4 items-center">
               <PiUserCircleCheckThin size={30} />
               <p className="text-[1.2rem]">Refer a host</p>
             </div>
             <FaAngleRight size={20} />
-          </div>
+          </Link>
           {/* find a co host */}
-          <div className="flex flex-row items-center justify-between">
+          <Link
+            to="/findcohost"
+            className="flex flex-row items-center justify-between"
+          >
             <div className="flex flex-row gap-4 items-center">
               <IoManOutline size={30} />
               <p className="text-[1.2rem]">Find a co-host</p>
             </div>
             <FaAngleRight size={20} />
-          </div>
+          </Link>
           {/* Legal */}
           <div className="flex flex-row items-center justify-between">
             <div className="flex flex-row gap-4 items-center">
@@ -276,9 +287,12 @@ function Profile() {
                     <p className="text-3xl font-medium text-zinc-700">
                       About me
                     </p>
-                    <p className="bg-[#e7e6e6] w-fit px-5 py-1 rounded-[0.7rem] text-centerx self-center">
+                    <Link
+                      to="/accountsetting"
+                      className="bg-[#e7e6e6] w-fit px-5 py-1 rounded-[0.7rem] text-centerx self-center"
+                    >
                       Edit
-                    </p>
+                    </Link>
                   </div>
                   <div className="flex flex-row items-center justify-center gap-6 pb-20">
                     {/* user box */}

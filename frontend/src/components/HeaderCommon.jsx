@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { FaAirbnb } from "react-icons/fa6";
 import { CgMenu } from "react-icons/cg";
 import { RxQuestionMarkCircled } from "react-icons/rx";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import api from "../api/axios";
 import { FaRegHeart, FaSuitcaseRolling, FaRegUserCircle } from "react-icons/fa";
 import { FaRegMessage } from "react-icons/fa6";
@@ -12,12 +12,20 @@ import AuthContext from "../context/AuthContext";
 
 function HeaderCommon() {
   const [Toggle, setToggle] = useState(false);
+  const [switchUser, SetswitchUser] = useState(false);
 
+  const location = useLocation();
 
+  console.log(location.pathname);
+
+  useEffect(() => {
+    if (location.pathname === "/host") {
+      SetswitchUser(true);
+    }
+  }, []);
 
   const { isAuthenticated, loading, setIsAuthenticated, user } =
     useContext(AuthContext);
-
 
   // logout api calls
 
@@ -30,7 +38,7 @@ function HeaderCommon() {
         setTimeout(() => {
           window.location.reload();
         }, 3000);
-        setIsAuthenticated(false)
+        setIsAuthenticated(false);
         navigate("/", { replace: true });
       } else if (response.data.message === "User not found") {
         toast.error("User not found");
@@ -57,9 +65,18 @@ function HeaderCommon() {
           <Link to="/host">
             <div className="px-3 py-2 rounded-2xl hover:bg-[#ebebebdd] ">
               {isAuthenticated ? (
-                <p className="text-[1rem] font-medium">Switch to hosting</p>
+                <p
+                  className={`text-[1rem] font-medium ${switchUser && "hidden"}`}
+                >
+                  Switch to hosting
+                </p>
               ) : (
                 <p className="text-[1rem] font-medium">Become a Host</p>
+              )}
+              {switchUser && (
+                <Link to="/">
+                  <p>Switch to travelling</p>
+                </Link>
               )}
             </div>
           </Link>
@@ -69,7 +86,9 @@ function HeaderCommon() {
               to="/profile"
               className="bg-gray-900 w-8 h-8  rounded-full flex flex-col justify-center items-center"
             >
-              <p className="text-white text-[1.2rem]">{user.email.charAt(0).toUpperCase()}</p>
+              <p className="text-white text-[1.2rem]">
+                {user.email.charAt(0).toUpperCase()}
+              </p>
             </Link>
           ) : (
             " "
@@ -159,7 +178,7 @@ function HeaderCommon() {
                   </p>
                 )}
               </Link>
-              
+
               <div className="border-[0.2px] border-[#dfdcdc] "></div>
               {/* find a co host */}
               <Link to="/findcohost">
