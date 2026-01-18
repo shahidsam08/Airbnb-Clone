@@ -37,6 +37,18 @@ function Navbar() {
   const { isAuthenticated, loading, setIsAuthenticated, user } =
     useContext(AuthContext);
 
+  const FirstRenderAfterLogin = () => {
+    if (loading === false) {
+      setTimeout(() => {
+        window.location.reload();
+      }, 5000);
+    }
+  };
+
+  useEffect(() => {
+    FirstRenderAfterLogin();
+  }, []);
+
   const logout = async () => {
     try {
       const response = await api.get("/api/logout", { withCredentials: true });
@@ -45,7 +57,7 @@ function Navbar() {
         toast.success("Log Out successfully");
         setTimeout(() => {
           window.location.reload();
-        }, 4000);
+        }, 8000);
       } else if (response.data.message === "User not found") {
         toast.error("User not found");
       }
@@ -155,7 +167,6 @@ function Navbar() {
                     rotateY: 360,
                     transition: { duration: 1 },
                   }}
-                  
                   src="https://cdn-icons-png.flaticon.com/128/3171/3171547.png"
                   alt="homes"
                   width={40}
