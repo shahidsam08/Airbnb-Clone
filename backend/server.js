@@ -4,6 +4,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import helmet from "helmet";
 import Authrouter from "./src/router/AuthRouter.js";
+import ListingRouter from "./src/router/ListingRouter.js"
 import cookieParser from "cookie-parser";
 
 
@@ -35,6 +36,8 @@ dbconnection();
 
 app.use("/api", Authrouter);
 // http://localhost:PORT/api/user
+
+app.use("host", ListingRouter)
 
 
 app.use((req, res) => {

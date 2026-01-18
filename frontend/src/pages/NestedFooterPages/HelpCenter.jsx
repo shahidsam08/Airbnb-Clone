@@ -1,13 +1,37 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router";
 import Footer from "../../components/Footer";
 import { FaAirbnb } from "react-icons/fa6";
 import { MdSearch } from "react-icons/md";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { FaUser } from "react-icons/fa";
+import AuthContext from "../../context/AuthContext";
+import api from "../../api/axios";
+import { toast } from "react-toastify";
 
 function HelpCenter() {
   const [show, setShow] = useState(false);
+
+  const { isAuthenticated, loading, setIsAuthenticated, user } =
+    useContext(AuthContext);
+
+  const logout = async () => {
+    try {
+      const response = await api.get("/api/logout", { withCredentials: true });
+
+      if (response.data.message === "Logged out successfully") {
+        toast.success("Log Out successfully");
+        setTimeout(() => {
+          window.location.reload();
+        }, 8000);
+      } else if (response.data.message === "User not found") {
+        toast.error("User not found");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div>
       {/* navbar of the help center page */}
@@ -29,11 +53,22 @@ function HelpCenter() {
             }
           }}
         >
-          <RxHamburgerMenu size={20} color="black" />
-          <div className="p-2 bg-[#807f7f] rounded-2xl">
-            <FaUser size={20} color="white" />
+          <div>
+            <RxHamburgerMenu size={20} color="black" />
           </div>
-          {show ? (
+          <div>
+            {isAuthenticated ? (
+              <div className="bg-black w-7 h-7 flex flex-col items-center justify-center rounded-full">
+                <p className="text-white">{user?.email?.charAt(0)?.toUpperCase()}</p>
+              </div>
+            ) : (
+              <div className="bg-[#807f7f] w-8 h-8 flex flex-col items-center justify-center rounded-2xl">
+                <FaUser size={18} color="white" />
+              </div>
+              
+            )}
+          </div>
+          {show && !isAuthenticated && (
             <div className=" absolute h-auto w-60 bg-[#ffffff] shadow-md shadow-[#a3a2a2] top-14 right-10 rounded-2xl flex flex-col ">
               <Link
                 to="/allhelptopic"
@@ -60,12 +95,38 @@ function HelpCenter() {
                 Sign up
               </Link>
             </div>
-          ) : (
-            " "
+          )}
+          {/* when user is logged in  */}
+          {show && isAuthenticated && (
+            <div className=" absolute h-auto w-60 bg-[#ffffff] shadow-md shadow-[#a3a2a2] top-14 right-10 rounded-2xl flex flex-col ">
+              <Link
+                to="/allhelptopic"
+                className="text-[1.2rem] border-b-[1.2px] border-[#c1c1c1] px-4 p-2  hover:bg-[#e1dede] hover:rounded-2xl hover:cursor-pointer"
+              >
+                All help topics
+              </Link>
+              <Link
+                to="/aircoverforhosts"
+                className="text-[1.2rem] border-b-[1.2px] border-[#c1c1c1] px-4 p-2  hover:bg-[#e1dede] hover:rounded-2xl hover:cursor-pointer"
+              >
+                Hosting Resources
+              </Link>
+              <Link
+                to="/accountsetting"
+                className="text-[1.2rem] border-b-[1.2px] border-[#c1c1c1] px-4 p-2  hover:bg-[#e1dede] hover:rounded-2xl hover:cursor-pointer"
+              >
+                account Setting
+              </Link>
+              <Link
+                to="/login"
+                className="text-[1.2rem] border-b-[1.2px] border-[#c1c1c1] px-4 p-2  hover:bg-[#e1dede] hover:rounded-2xl hover:cursor-pointer rounded-2xl"
+                onClick={logout}
+              >
+                Logout
+              </Link>
+            </div>
           )}
         </div>
-
-        
       </div>
       {/* body part */}
       <div className="lg:flex lg:justify-center">

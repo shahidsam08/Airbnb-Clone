@@ -62,12 +62,12 @@ const ListingSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
-  Street: {
+  street: {
     type: String,
     required: true,
     trim: true,
   },
-  placeOffer: {
+  placeoffer: {
     bathroom: {
       shampoo: Boolean,
       hotwater: Boolean,
