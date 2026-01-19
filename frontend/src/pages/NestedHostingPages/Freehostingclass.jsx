@@ -6,6 +6,7 @@ import { FaAngleDown } from "react-icons/fa6";
 import { FaAngleUp } from "react-icons/fa6";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { RxQuestionMarkCircled } from "react-icons/rx";
+import HeaderCommon from "../../components/HeaderCommon.jsx"
 
 function Freehostingclass() {
   const [first, setfirst] = useState(false);
@@ -21,72 +22,10 @@ function Freehostingclass() {
         }
       }}
     >
+      <div>
+        <HeaderCommon />
+      </div>
       {/* headers show on only small size */}
-      <div className="px-5 py-5  md:hidden">
-        <Link to="/" className="flex flex-row items-center justify-start gap-2">
-          <FaAirbnb size={50} color="red" />
-          <p className="text-red-500 font-semibold text-[1.4rem]">airbnb</p>
-        </Link>
-      </div>
-      {/* header only after medium size screen and large screen size */}
-      <div className="hidden md:px-10 md:py-4 md:border-b-[1.1px] md:border-b-[#cfcece] md:flex md:flex-row md:items-center md:justify-between md:sticky md:top-0 md:bg-white">
-        <FaAirbnb size={50} color="red" />
-        <div className="flex flex-row items-center justify-center gap-8">
-          <Link to="/host" className="hidden lg:block">
-            <div className="px-3 py-2 rounded-2xl hover:bg-[#ebebebdd] text-[1.2rem]">
-              Become a host
-            </div>
-          </Link>
-          <div
-            className="md:p-2 md:bg-[#efefef] md:w-fit md:rounded-4xl md:flex md:items-center md:justify-center relative cursor-pointer"
-            onClick={() => {
-              if (Toggle === false) {
-                setToggle(true);
-              } else {
-                setToggle(false);
-              }
-            }}
-          >
-            <RxHamburgerMenu size={25} color="black" />
-          </div>
-        </div>
-
-        {/* show toggle data */}
-        {Toggle ? (
-          <div className="absolute top-23 right-16 bg-white  shadow-2xl w-60 py-3 rounded-2xl flex flex-col gap-2">
-            {/* help center */}
-            <Link
-              to="/helpcenter"
-              className="flex flex-row gap-2 items-center justify-start hover:bg-[#f1f0f0] pl-2 py-2"
-            >
-              <RxQuestionMarkCircled size={20} />
-              <p className="text-[1rem]">Help Center</p>
-            </Link>
-            <div className="border-[0.2px] border-[#dfdcdc] "></div>
-            {/* become a host */}
-            <Link to="/host" className="hover:bg-[#f1f0f0]">
-              <p className="text-[1.1rem] pl-2 py-2">Become a host</p>
-            </Link>
-            <div className="border-[0.2px] border-[#dfdcdc] "></div>
-            {/* Refer a host */}
-            <Link to="/refer-co-host" className="hover:bg-[#f1f0f0]">
-              <p className="text-[1.1rem] pl-2 py-2">Refer a host</p>
-            </Link>
-            <div className="border-[0.2px] border-[#dfdcdc] "></div>
-            {/* find a co host */}
-            <Link to="/findcohost" className="hover:bg-[#f1f0f0]">
-              <p className="text-[1.1rem] pl-2 py-2">Find a co-host</p>
-            </Link>
-            <div className="border-[0.2px] border-[#dfdcdc] "></div>
-            {/* login or sign up  */}
-            <Link to="/login" className="hover:bg-[#f1f0f0]">
-              <p className="text-[1.1rem] pl-2 py-2">Login or signup</p>
-            </Link>
-          </div>
-        ) : (
-          " "
-        )}
-      </div>
       {/* body parts of the page */}
       <div className="px-5 py-8 flex flex-col">
         {/* Intro to hosting on airbnb */}
