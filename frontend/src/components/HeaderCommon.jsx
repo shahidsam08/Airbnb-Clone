@@ -3,11 +3,9 @@ import { FaAirbnb } from "react-icons/fa6";
 import { CgMenu } from "react-icons/cg";
 import { RxQuestionMarkCircled } from "react-icons/rx";
 import { Link, useLocation } from "react-router-dom";
-import api from "../api/axios";
 import { FaRegHeart, FaSuitcaseRolling, FaRegUserCircle } from "react-icons/fa";
 import { FaRegMessage } from "react-icons/fa6";
 import { IoSettingsOutline } from "react-icons/io5";
-import { toast } from "react-toastify";
 import AuthContext from "../context/AuthContext";
 
 function HeaderCommon() {
@@ -24,29 +22,9 @@ function HeaderCommon() {
     }
   }, []);
 
-  const { isAuthenticated, loading, setIsAuthenticated, user } =
+  const { isAuthenticated, loading, setIsAuthenticated, user, logout } =
     useContext(AuthContext);
 
-  // logout api calls
-
-  const logout = async () => {
-    try {
-      const response = await api.get("/api/logout", { withCredentials: true });
-
-      if (response.data.message === "Logged out successfully") {
-        toast.success("Log Out successfully");
-        setTimeout(() => {
-          window.location.reload();
-        }, 3000);
-        setIsAuthenticated(false);
-        navigate("/", { replace: true });
-      } else if (response.data.message === "User not found") {
-        toast.error("User not found");
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   return (
     <div

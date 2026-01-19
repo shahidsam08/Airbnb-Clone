@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useContext } from "react";
 import Footer from "../../components/Footer";
 import { FaAirbnb } from "react-icons/fa6";
 import { Link } from "react-router-dom";
@@ -7,6 +7,7 @@ import { FaX } from "react-icons/fa6";
 import { FaCheck } from "react-icons/fa";
 import { FaAngleLeft } from "react-icons/fa6";
 import { FaAngleRight } from "react-icons/fa6";
+import AuthContext from "../../context/AuthContext";
 
 function AircoverForHost() {
   // handle sliding the image using angles( right and left)
@@ -26,6 +27,11 @@ function AircoverForHost() {
       behavior: "smooth",
     });
   };
+
+
+  const { isAuthenticated, loading, setIsAuthenticated, user, logout } =
+    useContext(AuthContext);
+
   return (
     <div className="md:flex md:flex-col bg-[#f6f4f4]">
       <div className="flex flex-col gap-10 px-5 py-5 sticky top-0 backdrop-blur-md ">
@@ -35,7 +41,8 @@ function AircoverForHost() {
               <FaAirbnb size={40} color="red" />
             </Link>
           </div>
-          <Link to="/login">
+          
+          <Link to={isAuthenticated ? "/host": "/login"} >
             <div className="bg-[#da1249] px-4 py-[0.2rem] rounded-[0.6rem] flex flex-row gap-2">
               <MdOutlineAddHome color="white" size={25} />
               <p className="text-white text-[1.1rem]">List your home</p>

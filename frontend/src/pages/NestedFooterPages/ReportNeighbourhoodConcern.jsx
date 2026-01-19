@@ -4,19 +4,26 @@ import { MdSearch } from "react-icons/md";
 import { FaAngleLeft } from "react-icons/fa6";
 import { FaFile } from "react-icons/fa6";
 import Footer from "../../components/Footer";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { FaUser } from "react-icons/fa";
+import AuthContext from "../../context/AuthContext";
 
 function ReportNeighbourhoodConcern() {
   const [isHelpful, isSethelpful] = useState("value");
   const [show, setShow] = useState(false);
+
+  const { isAuthenticated, loading, setIsAuthenticated, user, logout } =
+    useContext(AuthContext);
+
   return (
-    <div onClick={() => {
-      if(window.screen.width >= 768 && show === true) {
-        setShow(false)
-      }
-    }}>
+    <div
+      onClick={() => {
+        if (window.screen.width >= 768 && show === true) {
+          setShow(false);
+        }
+      }}
+    >
       <div className="flex flex-col gap-10 ">
         {/* search option with airbnb logo which is sticky. */}
         <div className="flex flex-row items-center align-middle justify-between px-6 py-4 border-b-[0.3px] border-[#dddada] sticky top-0 z-50 bg-white">
@@ -41,10 +48,20 @@ function ReportNeighbourhoodConcern() {
               }
             }}
           >
-            <RxHamburgerMenu size={20} color="black" />
-            <div className="p-2 bg-[#807f7f] rounded-2xl">
-              <FaUser size={20} color="white" />
+            <div>
+              <RxHamburgerMenu size={20} color="black" />
             </div>
+            {isAuthenticated ? (
+              <div className="bg-black w-7 h-7 flex flex-col items-center justify-center rounded-full">
+                <p className="text-white">
+                  {user?.email?.charAt(0)?.toUpperCase()}
+                </p>
+              </div>
+            ) : (
+              <div className="bg-[#807f7f] w-8 h-8 flex flex-col items-center justify-center rounded-2xl">
+                <FaUser size={18} color="white" />
+              </div>
+            )}
             {show ? (
               <div className=" absolute h-auto w-60 bg-[#ffffff] shadow-md shadow-[#a3a2a2] top-14 right-10 rounded-2xl flex flex-col">
                 <Link
@@ -59,18 +76,36 @@ function ReportNeighbourhoodConcern() {
                 >
                   Hosting Resources
                 </Link>
-                <Link
-                  to="/login"
-                  className="text-[1.2rem] border-b-[1.2px] border-[#c1c1c1] px-4 p-2  hover:bg-[#e1dede] hover:rounded-2xl hover:cursor-pointer"
-                >
-                  Log in{" "}
-                </Link>
-                <Link
-                  to="/login"
-                  className="text-[1.2rem] border-b-[1.2px] border-[#c1c1c1] px-4 p-2  hover:bg-[#e1dede] hover:rounded-2xl hover:cursor-pointer rounded-2xl"
-                >
-                  Sign up
-                </Link>
+                {isAuthenticated ? (
+                  <Link
+                    to="/accountsetting"
+                    className="text-[1.2rem] border-b-[1.2px] border-[#c1c1c1] px-4 p-2  hover:bg-[#e1dede] hover:rounded-2xl hover:cursor-pointer"
+                  >
+                    Account Setting
+                  </Link>
+                ) : (
+                  <Link
+                    to="/login"
+                    className="text-[1.2rem] border-b-[1.2px] border-[#c1c1c1] px-4 p-2  hover:bg-[#e1dede] hover:rounded-2xl hover:cursor-pointer"
+                  >
+                    Log in{" "}
+                  </Link>
+                )}
+                {isAuthenticated ? (
+                  <div
+                    className="text-[1.2rem] border-b-[1.2px] border-[#c1c1c1] px-4 p-2  hover:bg-[#e1dede] hover:rounded-2xl hover:cursor-pointer rounded-2xl"
+                    onClick={logout}
+                  >
+                    <p>Log Out</p>
+                  </div>
+                ) : (
+                  <Link
+                    to="/login"
+                    className="text-[1.2rem] border-b-[1.2px] border-[#c1c1c1] px-4 p-2  hover:bg-[#e1dede] hover:rounded-2xl hover:cursor-pointer rounded-2xl"
+                  >
+                    Sign up
+                  </Link>
+                )}
               </div>
             ) : (
               " "
@@ -78,25 +113,32 @@ function ReportNeighbourhoodConcern() {
           </div>
         </div>
         {/* body of the page. */}
-        <div className="px-8 flex flex-col gap-14 lg:flex lg:flex-row-reverse ">
+        <div className="px-8 flex flex-col gap-14 lg:flex lg:flex-row-reverse lg:justify-center">
           {/* login or sign up option */}
-          <div className="px-6 py-5 border-[0.4px] shadow-md border-[#d7d7d7] hidden lg:flex lg:flex-col gap-4 lg:w-[35%] lg:h-fit rounded-2xl lg:sticky lg:top-20 lg:bottom-10">
-            <p className="text-[1.2rem] text-[#525151]">
-              Get help with your reservations, account, and more.
-            </p>
+          {!isAuthenticated && (
+            <div className="px-6 py-5 border-[0.4px] shadow-md border-[#d7d7d7] hidden lg:flex lg:flex-col gap-4 lg:w-[35%] lg:h-fit rounded-2xl lg:sticky lg:top-20 lg:bottom-10">
+              <p className="text-[1.2rem] text-[#525151]">
+                Get help with your reservations, account, and more.
+              </p>
+              <Link
+                to="/login"
+                className="border-2 text-center py-3 rounded-[0.7rem] bg-[#d20962] text-white text-[1.2rem]"
+              >
+                Log in or Sign up
+              </Link>
+            </div>
+          )}
+          {/* this login show on the small size ( < lg ) */}
+          {!isAuthenticated && (
             <Link
               to="/login"
-              className="border-2 text-center py-3 rounded-[0.7rem] bg-[#d20962] text-white text-[1.2rem]"
+              className="border-2 text-center py-3 rounded-[0.7rem] bg-[#d20962] text-white text-[1.2rem] lg:hidden"
             >
               Log in or Sign up
             </Link>
-          </div>
-          {/* this login show on the small size ( < lg ) */}
-          <Link to="/login" className="border-2 text-center py-3 rounded-[0.7rem] bg-[#d20962] text-white text-[1.2rem] lg:hidden">
-            Log in or Sign up
-          </Link>
+          )}
           {/* all the body data ( except the login button) */}
-          <div className="px-8 flex flex-col gap-14 lg:w-[50%]">
+          <div className="px-8 flex flex-col gap-14 lg:w-[50%] lg:items-start">
             {/* booking basic link box */}
             <div className="flex flex-row items-center align-middle gap-3">
               <FaAngleLeft size={15} className="text-gray-400" />

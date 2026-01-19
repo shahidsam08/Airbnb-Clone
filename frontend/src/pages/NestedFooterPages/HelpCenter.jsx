@@ -6,31 +6,13 @@ import { MdSearch } from "react-icons/md";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { FaUser } from "react-icons/fa";
 import AuthContext from "../../context/AuthContext";
-import api from "../../api/axios";
-import { toast } from "react-toastify";
+
 
 function HelpCenter() {
   const [show, setShow] = useState(false);
 
-  const { isAuthenticated, loading, setIsAuthenticated, user } =
+  const { isAuthenticated, loading, setIsAuthenticated, user, logout } =
     useContext(AuthContext);
-
-  const logout = async () => {
-    try {
-      const response = await api.get("/api/logout", { withCredentials: true });
-
-      if (response.data.message === "Logged out successfully") {
-        toast.success("Log Out successfully");
-        setTimeout(() => {
-          window.location.reload();
-        }, 8000);
-      } else if (response.data.message === "User not found") {
-        toast.error("User not found");
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   return (
     <div>

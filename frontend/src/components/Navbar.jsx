@@ -34,7 +34,7 @@ function Navbar() {
   // using useReducer
   const [active, dispatch] = useReducer(reducer, "where");
 
-  const { isAuthenticated, loading, setIsAuthenticated, user } =
+  const { isAuthenticated, loading, setIsAuthenticated, user, logout } =
     useContext(AuthContext);
 
   const FirstRenderAfterLogin = () => {
@@ -49,22 +49,6 @@ function Navbar() {
     FirstRenderAfterLogin();
   }, []);
 
-  const logout = async () => {
-    try {
-      const response = await api.get("/api/logout", { withCredentials: true });
-
-      if (response.data.message === "Logged out successfully") {
-        toast.success("Log Out successfully");
-        setTimeout(() => {
-          window.location.reload();
-        }, 8000);
-      } else if (response.data.message === "User not found") {
-        toast.error("User not found");
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   return (
     <nav

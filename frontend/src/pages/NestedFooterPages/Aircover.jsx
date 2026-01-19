@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Footer from "../../components/Footer";
 import { Link } from "react-router-dom";
 import { FaAirbnb } from "react-icons/fa6";
@@ -8,10 +8,15 @@ import { FaFile } from "react-icons/fa6";
 import { MdSearch } from "react-icons/md";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { FaUser } from "react-icons/fa";
+import AuthContext from "../../context/AuthContext";
 
 function Aircover() {
   const [isHelpful, isSethelpful] = useState("value");
   const [show, setShow] = useState(false);
+
+  const { isAuthenticated, loading, setIsAuthenticated, user, logout } =
+    useContext(AuthContext);
+
   return (
     <div>
       <div className="p-6 flex items-center justify-between md:p-8 md:px-12">
@@ -35,10 +40,20 @@ function Aircover() {
             }
           }}
         >
-          <RxHamburgerMenu size={20} color="black" />
-          <div className="p-2 bg-[#807f7f] rounded-2xl">
-            <FaUser size={20} color="white" />
+          <div>
+            <RxHamburgerMenu size={20} color="black" />
           </div>
+          {isAuthenticated ? (
+            <div className="bg-black w-7 h-7 flex flex-col items-center justify-center rounded-full">
+              <p className="text-white">
+                {user?.email?.charAt(0)?.toUpperCase()}
+              </p>
+            </div>
+          ) : (
+            <div className="bg-[#807f7f] w-8 h-8 flex flex-col items-center justify-center rounded-2xl">
+              <FaUser size={18} color="white" />
+            </div>
+          )}
           {show ? (
             <div className=" absolute h-auto w-60 bg-[#ffffff] shadow-md shadow-[#a3a2a2] top-14 right-10 rounded-2xl flex flex-col z-50">
               <Link
@@ -53,18 +68,36 @@ function Aircover() {
               >
                 Hosting Resources
               </Link>
-              <Link
-                to="/login"
-                className="text-[1.2rem] border-b-[1.2px] border-[#c1c1c1] px-4 p-2  hover:bg-[#e1dede] hover:rounded-2xl hover:cursor-pointer"
-              >
-                Log in{" "}
-              </Link>
-              <Link
-                to="/login"
-                className="text-[1.2rem] border-b-[1.2px] border-[#c1c1c1] px-4 p-2  hover:bg-[#e1dede] hover:rounded-2xl hover:cursor-pointer rounded-2xl"
-              >
-                Sign up
-              </Link>
+              {isAuthenticated ? (
+                <Link
+                  to="/accountsetting"
+                  className="text-[1.2rem] border-b-[1.2px] border-[#c1c1c1] px-4 p-2  hover:bg-[#e1dede] hover:rounded-2xl hover:cursor-pointer"
+                >
+                  Account Setting
+                </Link>
+              ) : (
+                <Link
+                  to="/login"
+                  className="text-[1.2rem] border-b-[1.2px] border-[#c1c1c1] px-4 p-2  hover:bg-[#e1dede] hover:rounded-2xl hover:cursor-pointer"
+                >
+                  Log in{" "}
+                </Link>
+              )}
+              {isAuthenticated ? (
+                <div
+                  className="text-[1.2rem] border-b-[1.2px] border-[#c1c1c1] px-4 p-2  hover:bg-[#e1dede] hover:rounded-2xl hover:cursor-pointer rounded-2xl"
+                  onClick={logout}
+                >
+                  <p>Log Out</p>
+                </div>
+              ) : (
+                <Link
+                  to="/login"
+                  className="text-[1.2rem] border-b-[1.2px] border-[#c1c1c1] px-4 p-2  hover:bg-[#e1dede] hover:rounded-2xl hover:cursor-pointer rounded-2xl"
+                >
+                  Sign up
+                </Link>
+              )}
             </div>
           ) : (
             " "
@@ -73,14 +106,15 @@ function Aircover() {
       </div>
       {/* body parts of the page. */}
       <div className="lg:flex lg:justify-center pt-10 lg:flex-row-reverse lg:items-start lg:relative">
-        <div className="px-6 py-5 border-[0.4px] shadow-md border-[#d7d7d7] hidden lg:flex lg:flex-col gap-4 lg:w-[35%] rounded-2xl lg:sticky lg:top-20">
+        {!isAuthenticated && <div className="px-6 py-5 border-[0.4px] shadow-md border-[#d7d7d7] hidden lg:flex lg:flex-col gap-4 lg:w-[35%] rounded-2xl lg:sticky lg:top-20">
           <p className="text-[1.2rem] text-[#525151]">
             Get help with your reservations, account, and more.
           </p>
           <p className="border-2 text-center py-3 rounded-[0.7rem] bg-[#d20962] text-white text-[1.2rem]">
             Log in or Sign up
           </p>
-        </div>
+        </div>}
+        
 
         <div className="border-2 m-10 text-center py-3 rounded-[0.7rem] bg-[#d20962] text-white text-[1.2rem] lg:hidden">
           Log in or Sign up
