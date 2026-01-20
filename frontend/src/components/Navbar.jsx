@@ -140,7 +140,8 @@ function Navbar() {
           <div className="flex flex-row items-center justify-center md:w-[60%] md:pt-2 md:gap-20 lg:w-[33%]">
             {/* homes */}
             <NavLink
-              to="/"
+              to=""
+              end
               className={({ isActive }) =>
                 isActive ? "border-b-[2.9px]" : "border-white"
               }

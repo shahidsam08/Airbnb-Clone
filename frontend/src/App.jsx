@@ -1,5 +1,5 @@
 import Home from "./pages/Home";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import HelpCenter from "./pages/NestedFooterPages/HelpCenter";
 import Aircover from "./pages/NestedFooterPages/Aircover";
 import GethelpwithSafetyIssue from "./pages/NestedFooterPages/GethelpwithSafetyIssue";
@@ -32,9 +32,12 @@ import HostingPage from "./pages/HostingPage";
 import Notification from "./pages/Notification";
 import { useContext } from "react";
 import AuthContext from "./context/AuthContext";
+import NewListing from "./pages/NewHost_history_services/HomeLilsting/NewListing";
+import Homelisted from "./pages/NewHost_history_services/Homelisted";
+import ExprieceListed from "./pages/NewHost_history_services/ExprieceListed";
+import Serviceslisted from "./pages/NewHost_history_services/Serviceslisted";
 
 function App() {
-
   const { isAuthenticated, loading, setIsAuthenticated, user } =
     useContext(AuthContext);
 
@@ -46,7 +49,7 @@ function App() {
           {/* home */}
           {/* home nested routes */}
           <Route path="/" element={<Home />}>
-            <Route path="/" element={<ListingDetails />} />
+            <Route index element={<ListingDetails />} />
             <Route path="/exprience" element={<Exprience />} />
             <Route path="/services" element={<Services />} />
           </Route>
@@ -57,10 +60,16 @@ function App() {
           <Route path="/trips" element={<Trips />} />
           <Route path="/trips" element={<Trips />} />
           <Route path="/accountsetting" element={<AccountSetting />} />
-          <Route path="/host" element={<HostingPage />} />
+          {/* host and its nested routers. */}
+          <Route path="/host" element={<HostingPage />}>
+            <Route index element={<Homelisted />}></Route>
+            <Route index path="newlisting" element={<NewListing />} />
+            <Route path="/host/expriencelisted" element={<ExprieceListed />} />
+            <Route path="/host/serviceslisted" element={<Serviceslisted />} />
+          </Route>
+          {/* end of the hosting routes */}
           <Route path="/notification" element={<Notification />} />
           <Route path="/login" element={<Login />} />
-          
 
           <Route path="/searchpage" element={<Searchpage />} />
 
