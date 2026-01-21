@@ -3,8 +3,7 @@ import { useEffect, useContext } from "react";
 import AuthContext from "../context/AuthContext";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import HeaderCommon from "../components/HeaderCommon";
-
-import NewListing from "./NewHost_history_services/HomeLilsting/NewListing";
+import { MdOutlineAddHome } from "react-icons/md";
 
 function HostingPage() {
   const { isAuthenticated, loading, setIsAuthenticated, user } =
@@ -23,58 +22,25 @@ function HostingPage() {
       <div>
         <HeaderCommon />
       </div>
-      {/* hosting body parts */}
-      <div className="flex flex-row items-center justify-center py-5">
-        <div className="flex flex-row items-center justify-center gap-3 border-[1.1px] rounded-full p-[0.2rem]">
-          {/* new listing */}
-          <NavLink
-            to="/host"
-            end
-            className={({ isActive }) =>
-              `px-4 py-2 rounded-full font-bold transition-all duration-300 ease-in-out
-             ${
-               isActive
-                 ? "bg-black text-white font-bold"
-                 : "text-gray-700 hover:bg-gray-200"
-             }`
-            }
-          >
-            <p>Home</p>
+      {/* body */}
+
+      <div className="flex flex-row">
+        <div className="w-[20%] flex flex-col gap-3 px-10 py-20">
+          <NavLink to="/host" className="bg-black rounded-lg flex flex-row  px-2 gap-3 py-2 items-center">
+            <div>
+              <MdOutlineAddHome size={24} color="white"/>
+            </div>
+            <p className="text-white">Home Listing</p>
           </NavLink>
-          {/* exprience */}
-          <NavLink
-            to="/host/expriencelisted"
-            className={({ isActive }) =>
-              `px-4 py-2 rounded-full font-bold transition-all duration-300 ease-in-out
-             ${
-               isActive
-                 ? "bg-black text-white font-bold"
-                 : "text-gray-700 hover:bg-gray-200"
-             }`
-            }
-          >
-            <p>Exprience</p>
-          </NavLink>
-          {/* services */}
-          <NavLink
-            to="/host/serviceslisted"
-            className={({ isActive }) =>
-              `px-4 py-2 rounded-full font-bold transition-all duration-300 ease-in-out
-             ${
-               isActive
-                 ? "bg-black text-white font-bold"
-                 : "text-gray-700 hover:bg-gray-200"
-             }`
-            }
-          >
-            <p>Services</p>
-          </NavLink>
+          <div>Exprience Listing</div>
+          <div>Services Listing</div>
+          <div>Messages</div>
+          <div>Payment History</div>
+          <div></div>
         </div>
+        <div className="border-l-2 border-zinc-700 h-screen"></div>
+        <div className="w-[70%]"><Outlet /></div>
       </div>
-
-      <Outlet />
-
-      {/* <NewListing /> */}
     </div>
   );
 }

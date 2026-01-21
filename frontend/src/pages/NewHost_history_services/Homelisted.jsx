@@ -4,12 +4,19 @@ import NewListing from "./HomeLilsting/NewListing";
 import ListedHistory from "./HomeLilsting/ListedHistory";
 import { MdOutlineAddHome } from "react-icons/md";
 import { RiHome2Line } from "react-icons/ri";
+import { FaAngleDown } from "react-icons/fa6";
+import { FaAngleUp } from "react-icons/fa6";
 
 function Homelisted() {
   const [openkey, setOpenKey] = useState("NewListing");
+  const [dropdown, setDropdown ] = useState("basic")
   const toggle = (key) => {
     setOpenKey((prev) => (prev === key ? prev : key));
   };
+
+  const ListingDataToggle = (key) => {
+    setDropdown((prev) => (prev === key ? null : key))
+  }
 
   return (
     <div>
@@ -24,12 +31,18 @@ function Homelisted() {
             <p>Listed History</p>
           </div>
         </div>
-        <div className="border-l-[1.2px] border-zinc-300"></div>
+        <div className="border-l-[1.2px] border-zinc-300 h-screen"></div>
         {/* show the data */}
         <div className="md:w-[70%] px-8 pt-20 w-full">
           {openkey === "NewListing" && (
             <div>
-              <NewListing />
+              <div onClick={()=> ListingDataToggle("basic")} className={`bg-black px-10 rounded-lg py-5 flex flex-row items-center justify-between ${dropdown && "w-[50%] transition-all ease-in-out duration-300 bg-pink-200"}`}>
+                <p className="text-white text-2xl">Basic Information</p>
+                <div>
+                  {dropdown === "basic" ? <FaAngleDown color="white" size={24}/> : <FaAngleUp size={24} color="white" /> }
+                  
+                </div>
+              </div>
             </div>
           )}
           {openkey === "Listedhistory" && (
