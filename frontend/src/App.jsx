@@ -32,12 +32,13 @@ import HostingPage from "./pages/HostingPage";
 import Notification from "./pages/Notification";
 import { useContext } from "react";
 import AuthContext from "./context/AuthContext";
-import NewListing from "./pages/NewHost_history_services/HomeLilsting/NewListing";
+
 import Homelisted from "./pages/NewHost_history_services/Homelisted";
 import ExprieceListed from "./pages/NewHost_history_services/ExprieceListed";
 import Serviceslisted from "./pages/NewHost_history_services/Serviceslisted";
-import PaymentHistory from "./pages/NewHost_history_services/PaymentHistory";
+
 import HostingHelp from "./pages/NewHost_history_services/HostingHelp";
+import PersonalInformation from "./pages/AccountSetting/PersonalInformation";
 
 function App() {
   const { isAuthenticated, loading, setIsAuthenticated, user } =
@@ -61,13 +62,14 @@ function App() {
           <Route path="/messages" element={<Messages />} />
           <Route path="/trips" element={<Trips />} />
           <Route path="/trips" element={<Trips />} />
-          <Route path="/accountsetting" element={<AccountSetting />} />
+          <Route path="/accountsetting" element={<AccountSetting />}>
+            <Route index element={<PersonalInformation />} />
+          </Route>
           {/* host and its nested routers. */}
           <Route path="/host" element={<HostingPage />}>
             <Route index element={<Homelisted />}></Route>
             <Route path="/host/expriencelisted" element={<ExprieceListed />} />
             <Route path="/host/serviceslisted" element={<Serviceslisted />} />
-            <Route path="/host/payment" element={<PaymentHistory />} />
             <Route path="/host/hotinghelp" element={<HostingHelp />} />
           </Route>
           {/* end of the hosting routes */}
