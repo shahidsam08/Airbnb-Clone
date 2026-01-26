@@ -39,6 +39,10 @@ import Serviceslisted from "./pages/NewHost_history_services/Serviceslisted";
 
 import HostingHelp from "./pages/NewHost_history_services/HostingHelp";
 import PersonalInformation from "./pages/AccountSetting/PersonalInformation";
+import Loginsecurity from "./pages/AccountSetting/Loginsecurity";
+import Privacy from "./pages/AccountSetting/Privacy";
+import Taxes from "./pages/AccountSetting/Taxes";
+import Payment from "./pages/AccountSetting/Payment";
 
 function App() {
   const { isAuthenticated, loading, setIsAuthenticated, user } =
@@ -62,9 +66,19 @@ function App() {
           <Route path="/messages" element={<Messages />} />
           <Route path="/trips" element={<Trips />} />
           <Route path="/trips" element={<Trips />} />
+          {/* start of the account setting */}
           <Route path="/accountsetting" element={<AccountSetting />}>
             <Route index element={<PersonalInformation />} />
+            <Route
+              path="/accountsetting/loginsecurity"
+              element={<Loginsecurity />}
+            />
+            <Route path="/accountsetting/privacy" element={<Privacy />} />
+            <Route path="/accountsetting/notification" element={<Notification />} />
+            <Route path="/accountsetting/taxes" element={<Taxes />} />
+            <Route path="/accountsetting/payments" element={<Payment />} />
           </Route>
+          {/* ending of the account setting */}
           {/* host and its nested routers. */}
           <Route path="/host" element={<HostingPage />}>
             <Route index element={<Homelisted />}></Route>

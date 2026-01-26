@@ -16,7 +16,7 @@ function PersonalInformation() {
     useContext(AuthContext);
   return (
     <div>
-      <div className="hidden lg:flex lg:gap-10 lg:flex-col lg:px-15 lg:py-7 lg:w-[70%]">
+      <div className="hidden lg:flex lg:gap-10 lg:flex-col lg:px-15 lg:py-7 md:w-full">
         <p className="text-3xl font-bold pb-10">Personal Information</p>
         {/* show the name and edit option */}
         <div className="flex flex-col gap-5">

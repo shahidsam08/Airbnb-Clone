@@ -20,8 +20,8 @@ function Homelisted() {
 
   return (
     <div>
-      <div className="flex flex-col md:flex-col border-t-[1.2px] border-zinc-300 ">
-        <div className="px-8 flex md:flex-row pt-20 flex-col gap-5 w-full">
+      <div className="flex flex-col md:flex-col">
+        <div className="px-8 flex md:flex-row pt-10 flex-col gap-5 w-full">
           <div
             onClick={() => toggle("NewListing")}
             className={`text-black font-bold py-2 text-2xl text-center w-full cursor-pointer flex flex-row items-center px-10 gap-8 border-[0.2px] rounded-lg ${openkey === "NewListing" && "bg-black text-white py-2 rounded-lg"}`}

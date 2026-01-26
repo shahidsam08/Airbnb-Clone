@@ -128,7 +128,7 @@ function HostingPage() {
             </div>
           </Link>
           {/* payment setup */}
-          <Link to="/payment">
+          <Link to="/accountsetting/payments">
             <div className="rounded-lg flex flex-row  px-2 gap-3 py-2 items-center font-bold justify-between">
               <div className="flex flex-row gap-3">
                 <div>

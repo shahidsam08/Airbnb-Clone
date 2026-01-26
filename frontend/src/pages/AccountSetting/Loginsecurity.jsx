@@ -1,5 +1,9 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import AuthContext from '../../context/AuthContext';
+import { BsFillShieldLockFill } from "react-icons/bs";
+import { RiLockFill } from "react-icons/ri";
+import { PiEyeBold } from "react-icons/pi";
 
 function Loginsecurity() {
 
@@ -8,9 +12,12 @@ function Loginsecurity() {
     const toggle = (key) => {
       setOpenKey((prev) => (prev === key ? null : key));
     };
+
+    const { isAuthenticated, loading, setIsAuthenticated, user } =
+    useContext(AuthContext);
   return (
     <div>
-      <div className="hidden lg:flex lg:gap-10 lg:flex-col lg:px-15 lg:py-7 lg:w-[70%]">
+      <div className="hidden lg:flex lg:gap-10 lg:flex-col lg:px-15 lg:py-7 md:w-full">
             <p className="text-3xl font-bold pb-10">Login Details</p>
             {/* show the login details and change password  */}
             <div className="flex flex-col gap-5">
