@@ -39,7 +39,7 @@ function Homelisted() {
         </div>
         {/* show the data */}
         <div>
-          <div className=" px-8 pt-20 w-full">
+          <div className="px-8 pt-10 w-full">
             {openkey === "Listedhistory" && (
               <div>
                 <ListedHistory />
@@ -47,7 +47,7 @@ function Homelisted() {
             )}
           </div>
           {/* new listing */}
-          <div className=" px-8 pt-20 w-full">
+          <div className=" px-8 pt-10 w-full">
             {openkey === "NewListing" && (
               <div>
                 <NewListing />
