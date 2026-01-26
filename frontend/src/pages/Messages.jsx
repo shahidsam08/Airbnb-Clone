@@ -1,11 +1,11 @@
-import React, {useEffect , useContext} from "react";
+import React, { useEffect, useContext } from "react";
 import HeaderCommon from "../components/HeaderCommon";
 import Footer from "../components/Footer";
 import FooterBottom from "../components/FooterBottom";
 import { IoSearchOutline, IoSettingsOutline } from "react-icons/io5";
 import { FaRegMessage } from "react-icons/fa6";
 import AuthContext from "../context/AuthContext.jsx";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function Messages() {
   const { isAuthenticated, loading, setIsAuthenticated, user } =
@@ -18,10 +18,10 @@ function Messages() {
       return navigate("/", { replace: true });
     }
   });
+
   return (
     <div>
       <HeaderCommon />
-
       <div className="flex flex-col gap-9 h-screen">
         <div className="flex flex-row items-center justify-between px-6 pt-10  bg-white">
           <p className="text-3xl font-bold">Messages</p>
